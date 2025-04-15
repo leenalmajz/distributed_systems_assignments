@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package services;
+
+message User {
+    int32 user_id = 1;
+    string username = 2;
+    string password = 3;
+
+    enum Role {
+        NORMAL = 0;
+        ADMINISTRATOR = 1;
+        SECRETARY = 2;
+        AGENT = 3;
+    }
+
+    Role role = 4;
+}
+
+message AddUserResponse {
+  bool success = 1;
+  string error_message = 2;
+  repeated User users = 3;
+}
+
+message AuthenticationMessage {
+    string username = 1;
+    string password = 2;
+}
+
+message AuthenticationResponse {
+    enum Role {
+        NORMAL = 0;
+        ADMINISTRATOR = 1;
+        SECRETARY = 2;
+        AGENT = 3;
+    }
+    
+    Role user_role = 1;
+    string token = 2;
+}
+
+service AuthenticationService {
+    rpc Authenticate(AuthenticationMessage) returns (AuthenticationResponse);
+
+    rpc AddUser(User) returns (AddUserResponse);
+}
+
