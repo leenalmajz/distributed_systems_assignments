@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "google/protobuf/timestamp.proto" as Timestamp;
+
 package services;
 
 message User {
@@ -8,13 +10,13 @@ message User {
     string password = 3;
 
     enum Role {
-        NORMAL = 0;
+        BASIC = 0;
         ADMINISTRATOR = 1;
         SECRETARY = 2;
         AGENT = 3;
     }
 
-    Role role = 4;
+    Role role = 4; // default value is the first element of the enum -> BASIC
 }
 
 message AddUserResponse {
@@ -23,26 +25,162 @@ message AddUserResponse {
   repeated User users = 3;
 }
 
+message UpdateUserMessage {
+    User old_user_data = 1;
+    User new_user_data = 2;
+}
+
+message UpdateUserResponse {
+    bool success = 1;
+    string error_message = 2;
+    repeated User users = 3;
+}
+
+message DeleteUserResponse {
+    bool success = 1;
+    string error_message = 2;
+}
+
 message AuthenticationMessage {
     string username = 1;
     string password = 2;
 }
 
 message AuthenticationResponse {
+    bool success = 1;
+    string error_message = 2;
+
     enum Role {
-        NORMAL = 0;
+        BASIC = 0;
         ADMINISTRATOR = 1;
         SECRETARY = 2;
         AGENT = 3;
     }
     
-    Role user_role = 1;
+    Role user_role = 3;
+    string token = 4;
+}
+
+message VerifyTokenMessage {
+    User user = 1;
     string token = 2;
 }
 
+
+// transaction(customer, timestamp, status (submitted, accepted, rejected), vendor-ID, amount)
+message Transaction {
+    int32 transaction_id = 1;
+    User customer = 2;
+
+    enum Status {
+        submitted = 1;
+        accepted = 2;
+        rejected = 3;
+    }
+
+    Status status = 3;
+    int32 vendor_id = 4;
+    int32 amount = 5;
+}
+
+message AddTransactionMessage {
+    User user = 1;
+    Transaction Transaction = 2;
+}
+
+message AddTransactionResponse {
+    bool success = 1;
+    string error_message = 2;
+    repeated Transaction transactions = 3
+}
+
+message UpdateTransactionMessage {
+    User user = 1;
+    Transaction old_transaction_data = 2;
+    Transaction new_transaction_data = 3;
+}
+
+message UpdateTransactionResponse {
+    User user = 1;
+    bool success = 2;
+    string error_message = 3;
+    repeated Transaction transactions = 4;
+}
+
+message DeleteTransactionMessage {
+    User user = 1;
+    Transaction transaction = 2;
+}
+
+message DeleteTransactionResponse {
+    bool success = 1;
+    string error_message = 2;
+}
+
+message Result {
+    int32 Result_id = 1;
+    int32 transaction_id = 2;
+    Timestamp timestamp = 3;
+    bool is_fraudulent = 4;
+    int32 confidence = 5;
+}
+
+message ResultMessage {
+    User user = 1;
+    Result Result = 2;
+}
+
+message FetchResultOfTransactionResponse {
+    bool success = 1;
+    string error_message = 2;
+    repeated Result Result = 3;
+}
+
+// a table containing metadata information for each customer transaction(customer, timestamp, status (submitted, accepted, rejected), vendor-ID, amount).
+message GetAllTransactionsResponse {
+    User user = 1;
+    bool success = 2;
+    string error_message = 3;
+    repeated Transaction transactions = 4;
+}
+
+message GetAllResultsMessage {
+    User user = 1;
+    Transaction transaction = 2;
+}
+
+// a table containing metadata information for the Results of the ML system for each transaction (transaction ID, timestamp, is-fraudulent, confidence).
+message GetAllResultsResponse {
+    User user = 1;
+    Transaction transaction = 2;
+    bool success = 3;
+    string error_message = 4;
+    repeated Result Results = 5;
+}
+
 service AuthenticationService {
+    rpc AddUser(User) returns (AddUserResponse);
+
+    rpc UpdateUser(UpdateUserMessage) returns (UpdateUserResponse);
+
+    rpc DeleteUser(User) returns (DeleteUserResponse);
+
     rpc Authenticate(AuthenticationMessage) returns (AuthenticationResponse);
 
-    rpc AddUser(User) returns (AddUserResponse);
+    rpc VerifyToken(VerifyTokenMessage) returns (bool);
+}
+
+service TransactionService {
+    rpc AddTransaction(AddTransactionMessage) returns (AddTransactionResponse);
+
+    rpc UpdateTransaction(UpdateTransactionMessage) returns (UpdateTransactionResponse);
+
+    rpc DeleteTransaction(DeleteTransactionMessage) returns (DeleteTransactionResponse);
+
+    rpc FetchResultOfTransaction(ResultMessage) returns (FetchResultOfTransactionResponse);
+
+    rpc GetAllTransactions(User) returns (GetAllTransactionsResponse);
+
+    rpc GetAllResults(GetAllResultsMessage) returns (GetAllResultsResponse);
 }
 
