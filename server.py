@@ -99,8 +99,8 @@ class AuthenticationService(services_pb2_grpc.AuthenticationServiceServicer):
 
 
 class TransactionService(services_pb2_grpc.TransactionServiceSeriver):
-    transactions = {}
-    results = {}
+    transactions = {} # stores transactions ids as keys and transaction objects as value
+    results = {} # stores result ids as keys and result objects as values
     current_transaction_id = 1
     current_result_id = 1
 
@@ -190,32 +190,34 @@ class TransactionService(services_pb2_grpc.TransactionServiceSeriver):
                 found.append(transaction)
         return services_pb2.GetAllTransactionsResponse(user=request, success=True, error_message='', transactions=found)
 
-    def AddResult(self, request, context):
+    def FetchResultOfTransaction(self, request, context):
         """
-        Implementation of the AddResult service method.
+        Implementation of the FetchResultOfTransaction service method.
         :param request:
         :param context:
         :return: a table containing metadata information for each customer transaction (customer, timestamp, status (submitted, accepted, rejected), vendor-ID, amount).
         """
         
         if not AuthenticationService.Authenticate(services_pb2.AuthenticationMessage(request.user.username, request.user.password)).success:
-            return services_pb2.AddResultResponse(success=False, error_message='User not authenticated')
+            return services_pb2.FetchResultOfTransactionResponse(success=False, error_message='User not authenticated')
         
         if request.user.role != 1 or request.user.role != 3:
-            return services_pb2.AddResultResponse(success=False, error_message='User not authorized')
+            return services_pb2.FetchResultOfTransactionResponse(success=False, error_message='User not authorized')
         
+        if request.result.transaction_id not in self.transactions:
+            return services_pb2.FetchResultOfTransactionResponse(success=False, error_message='Transaction not present')
+
         if request.result.result_id == 0:
             request.result.result_id = self.current_result_id
             self.current_result_id += 1
 
-        if request.result.transaction_id in self.results:
-            return services_pb2_grpc.AddResultResponse(success=False, error_message='Transaction already present')
+        if request.result.result_id in self.results:
+            return services_pb2_grpc.FetchResultOfTransactionResponse(success=False, error_message='Result already present')
 
         self.results[request.result.result_id] = request.result
         print(f'Added new result with id = {request.result.result_id}')
-        return services_pb2.AddTransactionResponse(success=True, error_message='', results=[request.result])
-        
-
+        return services_pb2.FetchResultOfTransactionResponse(success=True, error_message='', results=[request.result])
+ 
     def GetAllResults(self, request, context):
         """
         Implementation of the GetAllResults service method.
@@ -225,17 +227,16 @@ class TransactionService(services_pb2_grpc.TransactionServiceSeriver):
         """
 
         if not AuthenticationService.Authenticate(services_pb2.AuthenticationMessage(request.user.username, request.user.password)).success:
-            return services_pb2.GetAllTransactionsResponse(user=request.user, transaction=request.transaction, success=False, error_message='User not authenticated')
+            return services_pb2.GetAllResultsResponse(user=request.user, result=request.result, success=False, error_message='User not authenticated')
         
         if request.user.role != 1 or request.user.role != 3:
-            return services_pb2.GetAllTransactionsResponse(user=request.user, transaction=request.transaction, success=False, error_message='User not authorized')
+            return services_pb2.GetAllResultsResponse(user=request.user, result=request.result, success=False, error_message='User not authorized')
         
         found = []
         for result_id, result in self.results:
             if result.transaction_id == request.transaction.transaction_id:
                 found.append(result)
-        return services_pb2.GetAllTransactionsResponse(user=request.user, transaction=request.transaction, success=True, error_message='', results=found)
-
+        return services_pb2.GetAllResultsResponse(user=request.user, result=request.result, success=True, error_message='', results=found)
 
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
@@ -243,7 +244,6 @@ def serve():
     server.add_insecure_port('[::]:50051')
     server.start()
     server.wait_for_termination()
-
 
 if __name__ == '__main__':
     logging.basicConfig()
