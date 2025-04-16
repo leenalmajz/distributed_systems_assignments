@@ -1,3 +1,8 @@
+""" TODO:
+    1. add documentation
+    2. add context
+    3. add testing"""
+
 import grpc, secrets
 from concurrent import futures
 import logging
