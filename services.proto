@@ -1,21 +1,20 @@
 syntax = "proto3";
 
-import "google/protobuf/timestamp.proto" as Timestamp;
+import "google/protobuf/timestamp.proto";
 
 package services;
+
+enum Role {
+    BASIC = 0;
+    ADMINISTRATOR = 1;
+    SECRETARY = 2;
+    AGENT = 3;
+}
 
 message User {
     int32 user_id = 1;
     string username = 2;
     string password = 3;
-
-    enum Role {
-        BASIC = 0;
-        ADMINISTRATOR = 1;
-        SECRETARY = 2;
-        AGENT = 3;
-    }
-
     Role role = 4; // default value is the first element of the enum -> BASIC
 }
 
@@ -49,21 +48,17 @@ message AuthenticationMessage {
 message AuthenticationResponse {
     bool success = 1;
     string error_message = 2;
-
-    enum Role {
-        BASIC = 0;
-        ADMINISTRATOR = 1;
-        SECRETARY = 2;
-        AGENT = 3;
-    }
-    
-    Role user_role = 3;
+    Role role = 3;
     string token = 4;
 }
 
 message VerifyTokenMessage {
     User user = 1;
     string token = 2;
+}
+
+message VerifyTokenResponse {
+    bool success = 1;
 }
 
 
@@ -73,9 +68,9 @@ message Transaction {
     User customer = 2;
 
     enum Status {
-        submitted = 1;
-        accepted = 2;
-        rejected = 3;
+        submitted = 0;
+        accepted = 1;
+        rejected = 2;
     }
 
     Status status = 3;
@@ -91,7 +86,7 @@ message AddTransactionMessage {
 message AddTransactionResponse {
     bool success = 1;
     string error_message = 2;
-    repeated Transaction transactions = 3
+    repeated Transaction transactions = 3;
 }
 
 message UpdateTransactionMessage {
@@ -120,23 +115,56 @@ message DeleteTransactionResponse {
 message Result {
     int32 Result_id = 1;
     int32 transaction_id = 2;
-    Timestamp timestamp = 3;
+    google.protobuf.Timestamp timestamp = 3;
     bool is_fraudulent = 4;
     int32 confidence = 5;
 }
 
-message ResultMessage {
+message AddResultMessage {
     User user = 1;
-    Result Result = 2;
+    Transaction Transaction = 2;
+    Result result = 3;
 }
 
-message FetchResultOfTransactionResponse {
+message AddResultResponse {
     bool success = 1;
     string error_message = 2;
-    repeated Result Result = 3;
+    repeated Result results = 3;
 }
 
-// a table containing metadata information for each customer transaction(customer, timestamp, status (submitted, accepted, rejected), vendor-ID, amount).
+message UpdateResultMessage {
+    User user = 1;
+    Transaction transaction = 2;
+    Result old_result_data = 3;
+    Result new_result_data = 4;
+}
+
+message UpdateResultResponse {
+    User user = 1;
+    bool success = 2;
+    string error_message = 3;
+    repeated Result results = 4;
+}
+
+message DeleteResultMessage {
+    User user = 1;
+    Transaction transaction = 2;
+    Result result = 3;
+}
+
+message DeleteResultResponse {
+    bool success = 1;
+    string error_message = 2;
+}
+
+
+message FetchTransactionsOfUserResponse {
+    User user = 1;
+    bool success = 2;
+    string error_message = 3;
+    repeated Transaction transactions = 4;
+}
+
 message GetAllTransactionsResponse {
     User user = 1;
     bool success = 2;
@@ -144,18 +172,26 @@ message GetAllTransactionsResponse {
     repeated Transaction transactions = 4;
 }
 
-message GetAllResultsMessage {
+message FetchResultsOfTransactionMessage {
     User user = 1;
     Transaction transaction = 2;
 }
 
-// a table containing metadata information for the Results of the ML system for each transaction (transaction ID, timestamp, is-fraudulent, confidence).
+message FetchResultsOfTransactionResponse {
+    bool success = 1;
+    string error_message = 2;
+    repeated Result Result = 3;
+}
+
+message GetAllResultsMessage {
+    User user = 1;
+}
+
 message GetAllResultsResponse {
     User user = 1;
-    Transaction transaction = 2;
-    bool success = 3;
-    string error_message = 4;
-    repeated Result Results = 5;
+    bool success = 2;
+    string error_message = 3;
+    repeated Result Results = 4;
 }
 
 service AuthenticationService {
@@ -167,7 +203,7 @@ service AuthenticationService {
 
     rpc Authenticate(AuthenticationMessage) returns (AuthenticationResponse);
 
-    rpc VerifyToken(VerifyTokenMessage) returns (bool);
+    rpc VerifyToken(VerifyTokenMessage) returns (VerifyTokenResponse);
 }
 
 service TransactionService {
@@ -177,10 +213,21 @@ service TransactionService {
 
     rpc DeleteTransaction(DeleteTransactionMessage) returns (DeleteTransactionResponse);
 
-    rpc FetchResultOfTransaction(ResultMessage) returns (FetchResultOfTransactionResponse);
+
+    rpc AddResult(AddResultMessage) returns (AddResultResponse);
+
+    rpc UpdateResult(UpdateResultMessage) returns (UpdateResultResponse);
+
+    rpc DeleteResult(DeleteResultMessage) returns (DeleteResultResponse);
+
 
     rpc GetAllTransactions(User) returns (GetAllTransactionsResponse);
 
-    rpc GetAllResults(GetAllResultsMessage) returns (GetAllResultsResponse);
+    rpc FetchTransactionsOfUser(User) returns (FetchTransactionsOfUserResponse);
+
+
+    rpc GetAllResults(User) returns (GetAllResultsResponse);
+
+    rpc FetchResultsOfTransaction(FetchResultsOfTransactionMessage) returns (FetchResultsOfTransactionResponse);
 }
 
