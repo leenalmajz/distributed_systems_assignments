@@ -59,8 +59,8 @@ message VerifyTokenMessage {
 
 message VerifyTokenResponse {
     bool success = 1;
+    string error_message = 2;
 }
-
 
 // transaction(customer, timestamp, status (submitted, accepted, rejected), vendor-ID, amount)
 message Transaction {
