@@ -107,18 +107,58 @@ def test_authorizing_user(objects):
     assert response_authorization_false.success == False, f"response_authorization_false: expected False, got {response_authorization_false.success}" # assertion for failure
 
 def test_add_transaction(objects):
-    auth_stub = objects['auth_stub']
     transaction_stub = objects['transaction_stub']
 
     # add transaction1 after authorization
     response_addtransaction1 = transaction_stub.AddTransaction(services_pb2.AddTransactionMessage(
         user=objects['user1'], Transaction=objects['transaction1']))
     assert response_addtransaction1.success == True, f"response_addtransaction1: expected True, got {response_addtransaction1.success}" # assertion for success
+    objects['transaction1'] = response_addtransaction1.transactions[0] # update transaction1 with the response from the server (includes transaction_id)
 
     # add transaction2 with incorrect user
     response_addtransaction2 = transaction_stub.AddTransaction(services_pb2.AddTransactionMessage(
         user=objects['user3'], Transaction=objects['transaction2']))
     assert response_addtransaction2.success == False, f"response_addtransaction2: expected False, got {response_addtransaction2.success}" # assertion for failure
+
+def test_update_transaction(objects):
+    transaction_stub = objects['transaction_stub']
+
+    transcation_to_update = services_pb2.Transaction(
+        transaction_id=objects['transaction1'].transaction_id,
+        customer=objects['transaction1'].customer,
+        status=services_pb2.Transaction.Status.accepted,
+        amount=200
+    )
+    response_updatetransaction1 = transaction_stub.UpdateTransaction(services_pb2.UpdateTransactionMessage(
+         user=objects['user1'], old_transaction_data=objects['transaction1'], new_transaction_data=transcation_to_update))
+   
+    if response_updatetransaction1.success == False:
+        print(f"Error: {response_updatetransaction1.error_message}")
+
+    assert response_updatetransaction1.success == True, f"response_updatetransaction1: expected True, got {response_updatetransaction1.success}" # assertion for success
+    assert response_updatetransaction1.transactions[0].status == transcation_to_update.status, f"response_updatetransaction1: expected {transcation_to_update.status}, got {response_updatetransaction1.transactions[0].status}" # assertion for status
+    objects['transaction1'] = response_updatetransaction1.transactions[0] # update transaction1 with the response from the server (includes transaction_id)
+
+    # update transaction2 with incorrect user
+    response_updatetransaction2 = transaction_stub.UpdateTransaction(services_pb2.UpdateTransactionMessage(
+        user=objects['user3'], old_transaction_data=objects['transaction1'], new_transaction_data=transcation_to_update))
+    assert response_updatetransaction2.success == False, f"response_updatetransaction2: expected False, got {response_updatetransaction2.success}" # assertion for failure
+    assert response_updatetransaction2.error_message == 'User not authenticated', f"response_updatetransaction2: expected 'User not authenticated', got {response_updatetransaction2.error_message}" # assertion for error message
+
+def test_delete_transaction(objects):
+    transaction_stub = objects['transaction_stub']
+
+    # delete transaction1
+    response_deletetransaction1 = transaction_stub.DeleteTransaction(services_pb2.DeleteTransactionMessage(
+        user=objects['user1'], transaction=objects['transaction1']))
+    if response_deletetransaction1.success == False:
+        print(f"Error: {response_deletetransaction1.error_message}")
+    assert response_deletetransaction1.success == True, f"response_deletetransaction1: expected True, got {response_deletetransaction1.success}" # assertion for success
+
+    # delete transaction2 with incorrect user
+    response_deletetransaction2 = transaction_stub.DeleteTransaction(services_pb2.DeleteTransactionMessage(
+        user=objects['user3'], transaction=objects['transaction2']))
+    assert response_deletetransaction2.success == False, f"response_deletetransaction2: expected False, got {response_deletetransaction2.success}" # assertion for failure
 
 if __name__ == '__main__':
     # Establish a gRPC channel to the server running on localhost at port 50051
@@ -133,3 +173,5 @@ if __name__ == '__main__':
         test_authenticating_user(objects)
         # test_authorizing_user(objects) # works once only
         test_add_transaction(objects)
+        test_update_transaction(objects)
+        test_delete_transaction(objects)

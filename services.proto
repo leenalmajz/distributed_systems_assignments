@@ -96,10 +96,9 @@ message UpdateTransactionMessage {
 }
 
 message UpdateTransactionResponse {
-    User user = 1;
-    bool success = 2;
-    string error_message = 3;
-    repeated Transaction transactions = 4;
+    bool success = 1;
+    string error_message = 2;
+    repeated Transaction transactions = 3;
 }
 
 message DeleteTransactionMessage {

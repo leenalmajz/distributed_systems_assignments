@@ -80,7 +80,6 @@ class AuthenticationService(services_pb2_grpc.AuthenticationServiceServicer):
             return services_pb2.VerifyTokenResponse(success=True)
         return services_pb2.VerifyTokenResponse(success=False, error_message='Token is not valid')
 
-
 class TransactionService(services_pb2_grpc.TransactionServiceServicer):
     transactions = {}
     results = {}
@@ -101,13 +100,11 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
             return services_pb2.AddTransactionResponse(success=False, error_message='User not authenticated')
 
         # Assign a transaction ID if it's not set
-        print(f"Transaction ID: {request.Transaction.transaction_id}")
         if request.Transaction.transaction_id == 0:
             request.Transaction.transaction_id = self.current_transaction_id
             self.current_transaction_id += 1
 
-        # Check for duplicate transactions
-        print(f"Existing transactions: {self.transactions.keys()}")
+        # Check for duplicate transaction 
         if request.Transaction.transaction_id in self.transactions:
             return services_pb2.AddTransactionResponse(success=False, error_message='Transaction already present')
 
@@ -116,7 +113,51 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
         print(f'Added new transaction with id = {request.Transaction.transaction_id}')
         return services_pb2.AddTransactionResponse(success=True, error_message='', transactions=[request.Transaction])
 
-    # Additional methods (UpdateTransaction, DeleteTransaction, etc.) can be added here.
+    def UpdateTransaction(self, request, context):
+        """
+        Updates a transaction if the user is authenticated and authorized.
+        """
+        auth_service = AuthenticationService()
+        success, token, error_msg, role, _ = auth_service.authenticate_user(
+            request.user.username,
+            request.user.password
+        )
+
+        if not success:
+            return services_pb2.UpdateTransactionResponse(success=False, error_message='User not authenticated')
+        
+        # Check if the transaction exists
+        if request.old_transaction_data.transaction_id not in self.transactions:
+            return services_pb2.UpdateTransactionResponse(success=False, error_message='Transaction not present')
+
+        self.transactions[request.old_transaction_data.transaction_id].status = request.new_transaction_data.status
+        self.transactions[request.old_transaction_data.transaction_id].amount = request.new_transaction_data.amount
+        self.transactions[request.old_transaction_data.transaction_id].vendor_id = request.new_transaction_data.vendor_id
+        self.transactions[request.old_transaction_data.transaction_id].amount = request.new_transaction_data.amount
+        print(f'Updated transaction with id = {request.old_transaction_data.transaction_id}')
+
+        return services_pb2.UpdateTransactionResponse(success=True, error_message='', transactions=[self.transactions[request.old_transaction_data.transaction_id]])
+
+    def DeleteTransaction(self, request, context):
+        """
+        Deletes a transaction if the user is authenticated and authorized.
+        """
+        auth_service = AuthenticationService()
+        success, token, error_msg, role, _ = auth_service.authenticate_user(
+            request.user.username,
+            request.user.password
+        )
+
+        if not success:
+            return services_pb2.DeleteTransactionResponse(success=False, error_message='User not authenticated')
+
+        # Check if the transaction exists
+        if request.transaction.transaction_id not in self.transactions:
+            return services_pb2.DeleteTransactionResponse(success=False, error_message='Transaction not present')
+
+        self.transactions.pop(request.transaction.transaction_id)
+        print(f'Deleted transaction with id = {request.transaction.transaction_id}')
+        return services_pb2.DeleteTransactionResponse(success=True, error_message='')
 
 
 def serve():
