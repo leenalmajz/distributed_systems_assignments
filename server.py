@@ -3,15 +3,26 @@
     2. add context
     3. add testing"""
 
-import grpc, secrets
+import grpc, secrets, logging
 from concurrent import futures
-import logging
 import services_pb2 
 import services_pb2_grpc
 
 class AuthenticationService(services_pb2_grpc.AuthenticationServiceServicer):
     users = {}
     current_id = 1
+
+    def authenticate_user(self, user_id, username, password):
+        if username == "" or password == "":
+            return (False, None, 'username or password not given', None)
+
+        for id, user_dict in self.users.items():
+            if id == user_id and user_dict['user'].username == username and user_dict['user'].password == password:
+                random_token = secrets.token_urlsafe(64)
+                user_dict['token'] = random_token
+                return (True, random_token, '', user_dict['user'].role)
+
+        return (False, None, 'username or password is incorrect', None)
 
     def AddUser(self, request, context):
         """
@@ -45,7 +56,6 @@ class AuthenticationService(services_pb2_grpc.AuthenticationServiceServicer):
         
         if request.old_user_data.user_id not in self.users:
             return services_pb2.UpdateUserResponse(success=False, error_message='User not present')
-        
         self.users[request.old_user_data.user_id]['user'].username = request.new_user_data.username
         self.users[request.old_user_data.user_id]['user'].password = request.new_user_data.password
         self.users[request.old_user_data.user_id]['user'].role = request.new_user_data.role
@@ -77,15 +87,11 @@ class AuthenticationService(services_pb2_grpc.AuthenticationServiceServicer):
         :param context: grpc context object
         :return: an AuthenticationResponse object
         """
-        if request.username == "" or request.password == "":
-            return services_pb2.AuthenticationResponse(success = False, error_message = 'username or password not given')
-        
-        for user_id, user_dict in self.users.items():
-            if user_dict['user'].username == request.username and user_dict['user'].password == request.password:
-                random_token = secrets.token_urlsafe(64)
-                user_dict['token'] = random_token
-                return services_pb2.AuthenticationResponse(success = True, error_message = '', role = user_dict['user'].role, token = random_token)
-        return services_pb2.AuthenticationResponse(success = False, error_message = 'username or password is incorrect')
+        success, token, error_msg, role = self.authenticate_user(request.user_id, request.username, request.password)
+        if success:
+            return services_pb2.AuthenticationResponse(success=True, error_message='', role=role, token=token)
+        else:
+            return services_pb2.AuthenticationResponse(success=False, error_message=error_msg)
 
     def VerifyToken(self, request, context):
         """
@@ -101,6 +107,9 @@ class AuthenticationService(services_pb2_grpc.AuthenticationServiceServicer):
             return services_pb2.VerifyTokenResponse(success = False)
         
         user_dict = self.users[request.user.user_id]
+
+        print(user_dict['token'] == request.token)
+        print(user_dict['user'] == request.user)
 
         if user_dict['user'] == request.user and user_dict['token'] == request.token:
             return services_pb2.VerifyTokenResponse(success = True)
@@ -121,10 +130,13 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
         :return: an AddTransactionResponse object
         """
 
-        if not AuthenticationService.Authenticate(services_pb2.AuthenticationMessage(request.user.username, request.user.password)).success:
-            return services_pb2.AddTransactionResponse(success=False, error_message='User not authenticated')
+        auth_service = AuthenticationService()
+        success, token, error_msg, role = auth_service.authenticate_user(request.user.user_id, request.user.username, request.user.password)
+
+        if not success:
+            return services_pb2.AddTransactionResponse(success=False, error_message=error_msg)
         
-        if request.user.role != 1 or request.user.role != 3:
+        if request.user.role != 1 and request.user.role != 3:
             return services_pb2.AddTransactionResponse(success=False, error_message='User not authorized')
         
         if request.transaction.transaction_id == 0:
@@ -134,7 +146,7 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
         if request.transaction.transaction_id in self.transactions:
             return services_pb2.AddTransactionResponse(success=False, error_message='Transaction already present')
 
-        self.transactions[request.transaction.transaction_id] = request.transaction
+        self.transactions[request.transaction.transaction_id] = {'transaction': request.transaction}
         print(f'Added new transaction with id = {request.transaction.transaction_id}')
         return services_pb2.AddTransactionResponse(success=True, error_message='', transactions=[request.transaction])
     
@@ -146,24 +158,29 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
         :return: an UpdateTransactionResponse object.
         """
 
-        if not AuthenticationService.Authenticate(services_pb2.AuthenticationMessage(request.user.username, request.user.password)).success:
-            return services_pb2.UpdateTransactionResponse(success=False, error_message='User not authenticated')
+        auth_service = AuthenticationService()
+        success, token, error_msg, role = auth_service.authenticate_user(request.user.user_id, request.user.username, request.user.password)
+
+        if not success:
+            return services_pb2.UpdateTransactionResponse(success=False, error_message=error_msg)
         
-        if request.user.role != 1 or request.user.role != 3:
+        if request.user.role != 1 and request.user.role != 3:
             return services_pb2.UpdateTransactionResponse(success=False, error_message='User not authorized')
         
         if request.old_transaction_data.transaction_id not in self.transactions:
             return services_pb2.UpdateTransactionResponse(success=False, error_message='Transaction not present')
         
         id = request.old_transaction_data.transaction_id
-        self.transactions[id].customer = request.new_transaction_data.customer
-        self.transactions[id].status = request.new_transaction_data.status
-        self.transactions[id].vendor_id = request.new_transaction_data.vendor_id
-        self.transactions[id].amount = request.new_transaction_data.amount
+        transaction = self.transactions[id]['transaction']
+        transaction.customer.CopyFrom(request.new_transaction_data.customer)
+        transaction.status = request.new_transaction_data.status
+        transaction.vendor_id = request.new_transaction_data.vendor_id
+        transaction.amount = request.new_transaction_data.amount
+
         print(f'Updated transaction with id = {id}')
-        return services_pb2.UpdateTransactionResponse(success=True, error_message='', transactions=[self.transactions[id]])
+        return services_pb2.UpdateTransactionResponse(success=True, error_message='', transactions=[transaction])
         
-    def DeleteTransaction(self, request, cntext):
+    def DeleteTransaction(self, request, context):
         """
         Implementation of the DeleteTransaction service method.
         :param request:
@@ -171,16 +188,19 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
         :return: a DeleteTransactionResponse object.
         """
 
-        if not AuthenticationService.Authenticate(services_pb2.AuthenticationMessage(request.user.username, request.user.password)).success:
-            return services_pb2.DeleteTransactionResponse(success=False, error_message='User not authenticated')
+        auth_service = AuthenticationService()
+        success, token, error_msg, role = auth_service.authenticate_user(request.user.user_id, request.user.username, request.user.password)
+
+        if not success:
+            return services_pb2.DeleteTransactionResponse(success=False, error_message=error_msg)
         
-        if request.user.role != 1 or request.user.role != 3:
+        if request.user.role != 1 and request.user.role != 3:
             return services_pb2.DeleteTransactionResponse(success=False, error_message='User not authorized')
         
         if request.transaction.transaction_id not in self.transactions:
-            return services_pb2.UpdateTransactionResponse(success=False, error_message='Transaction not present')
+            return services_pb2.DeleteTransactionResponse(success=False, error_message='Transaction not present')
         
-        transaction = self.transactions[request.transaction.transaction_id]
+        transaction = self.transactions[request.transaction.transaction_id]['transaction']
         self.transactions.pop(request.transaction.transaction_id)
         print(f'Deleted transaction with id = {request.transaction.transaction_id} and it\'s customer\'s name: {transaction.customer.username}')
         return services_pb2.DeleteTransactionResponse(success=True, error_message='')
@@ -195,10 +215,13 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
         :return: an AddResultResponse object
         """
 
-        if not AuthenticationService.Authenticate(services_pb2.AuthenticationMessage(request.user.username, request.user.password)).success:
-            return services_pb2.AddResultResponse(success=False, error_message='User not authenticated')
+        auth_service = AuthenticationService()
+        success, token, error_msg, role = auth_service.authenticate_user(request.user.user_id, request.user.username, request.user.password)
+
+        if not success:
+            return services_pb2.AddResultResponse(success=False, error_message=error_msg)
         
-        if request.user.role != 1 or request.user.role != 3:
+        if request.user.role != 1 and request.user.role != 3:
             return services_pb2.AddResultResponse(success=False, error_message='User not authorized')
         
         if request.result.transaction_id != request.transaction.transaction_id:
@@ -214,7 +237,7 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
         if request.result.result_id in self.results:
             return services_pb2.AddResultResponse(success=False, error_message='Result already present')
 
-        self.transactions[request.result.result_id] = request.result
+        self.results[request.result.result_id] = {'result': request.result}
         print(f'Added new result with id = {request.result.result_id}')
         return services_pb2.AddResultResponse(success=True, error_message='', results=[request.result])
     
@@ -226,10 +249,13 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
         :return: an UpdateResultResponse object.
         """
 
-        if not AuthenticationService.Authenticate(services_pb2.AuthenticationMessage(request.user.username, request.user.password)).success:
-            return services_pb2.UpdateResultResponse(success=False, error_message='User not authenticated')
+        auth_service = AuthenticationService()
+        success, token, error_msg, role = auth_service.authenticate_user(request.user.user_id, request.user.username, request.user.password)
+
+        if not success:
+            return services_pb2.UpdateResultResponse(success=False, error_message=error_msg)
         
-        if request.user.role != 1 or request.user.role != 3:
+        if request.user.role != 1 and request.user.role != 3:
             return services_pb2.UpdateResultResponse(success=False, error_message='User not authorized')
         
         if request.new_result_data.transaction_id != request.transaction.transaction_id:
@@ -238,11 +264,11 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
         if request.new_result_data.transaction_id not in self.transactions:
             return services_pb2.UpdateResultResponse(success=False, error_message='Transaction not present')
         
-        id = request.old_result_data.transaction_id
-        self.results[id].transaction_id = request.new_result_data.transaction_id
-        self.results[id].timestamp = request.new_result_data.timestamp
-        self.results[id].is_fraudulent = request.new_result_data.is_fraudulent
-        self.results[id].confidence = request.new_result_data.confidence
+        id = request.old_result_data.result_id
+        self.results[id]['result'].transaction_id = request.new_result_data.transaction_id
+        self.results[id]['result'].timestamp = request.new_result_data.timestamp
+        self.results[id]['result'].is_fraudulent = request.new_result_data.is_fraudulent
+        self.results[id]['result'].confidence = request.new_result_data.confidence
         print(f'Updated transaction with id = {id}')
         return services_pb2.UpdateResultResponse(success=True, error_message='', results=[self.results[id]])
 
@@ -254,10 +280,13 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
         :return: a DeleteResultResponse object.
         """
 
-        if not AuthenticationService.Authenticate(services_pb2.AuthenticationMessage(request.user.username, request.user.password)).success:
-            return services_pb2.DeleteResultResponse(success=False, error_message='User not authenticated')
+        auth_service = AuthenticationService()
+        success, token, error_msg, role = auth_service.authenticate_user(request.user.user_id, request.user.username, request.user.password)
+
+        if not success:
+            return services_pb2.DeleteResultResponse(success=False, error_message=error_msg)
         
-        if request.user.role != 1 or request.user.role != 3:
+        if request.user.role != 1 and request.user.role != 3:
             return services_pb2.DeleteResultResponse(success=False, error_message='User not authorized')
         
         if request.result.transaction_id != request.transaction.transaction_id:
@@ -266,7 +295,7 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
         if request.result.transaction_id not in self.transactions:
             return services_pb2.DeleteResultResponse(success=False, error_message='Transaction not present')
         
-        result = self.results[request.result.result_id]
+        result = self.results[request.result.result_id]['result']
         self.transactions.pop(request.result.result_id)
         print(f'Deleted transaction with id = {request.result.result_id} and it\'s transaction\'s id: {result.transaction_id}')
         return services_pb2.DeleteResultResponse(success=True, error_message='')
@@ -281,13 +310,20 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
         :return: a table containing metadata information for each customer transaction (customer, timestamp, status (submitted, accepted, rejected), vendor-ID, amount).
         """
 
-        if not AuthenticationService.Authenticate(services_pb2.AuthenticationMessage(request.username, request.password)).success:
-            return services_pb2.GetAllTransactionsResponse(user=request, success=False, error_message='User not authenticated')
+        auth_service = AuthenticationService()
+        success, token, error_msg, role = auth_service.authenticate_user(request.user.user_id, request.user.username, request.user.password)
+
+        if not success:
+            return services_pb2.GetAllTransactionsResponse(success=False, error_message=error_msg)
         
-        if request.role != 1 or request.role != 3:
+        if request.role != 1 and request.role != 3:
             return services_pb2.GetAllTransactionsResponse(user=request, success=False, error_message='User not authorized')
-                
-        return services_pb2.GetAllTransactionsResponse(user=request, success=True, error_message='', transactions=list(self.transactions.values()))
+        
+        found = []
+        for t_dict in self.transactions.values():
+            found.append(t_dict['transaction'])
+
+        return services_pb2.GetAllTransactionsResponse(user=request, success=True, error_message='', transactions=found)
     
     def FetchTransactionsOfUser(self, request, context):
         """
@@ -297,16 +333,19 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
         :return: a table containing metadata information for each customer transaction (customer, timestamp, status (submitted, accepted, rejected), vendor-ID, amount).
         """
 
-        if not AuthenticationService.Authenticate(services_pb2.AuthenticationMessage(request.username, request.password)).success:
-            return services_pb2.FetchTransactionsOfUserResponse(user=request, success=False, error_message='User not authenticated')
+        auth_service = AuthenticationService()
+        success, token, error_msg, role = auth_service.authenticate_user(request.user.user_id, request.user.username, request.user.password)
+
+        if not success:
+            return services_pb2.FetchTransactionsOfUserResponse(success=False, error_message=error_msg)
         
-        if request.role != 1 or request.role != 3:
+        if request.role != 1 and request.role != 3:
             return services_pb2.FetchTransactionsOfUserResponse(user=request, success=False, error_message='User not authorized')
         
         found = []
-        for transaction_id, transaction in self.transactions:
-            if transaction.user_id == request.user_id:
-                found.append(transaction)
+        for transaction_id, transaction_dict in self.transactions:
+            if transaction_dict['transaction'].user_id == request.user_id:
+                found.append(transaction_dict['transaction'])
 
         return services_pb2.FetchTransactionsOfUserResponse(user=request, success=True, error_message='', transactions=found)
 
@@ -320,13 +359,20 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
         :return: a table containing metadata information for each customer transaction (customer, timestamp, status (submitted, accepted, rejected), vendor-ID, amount).
         """
 
-        if not AuthenticationService.Authenticate(services_pb2.AuthenticationMessage(request.user.username, request.user.password)).success:
-            return services_pb2.GetAllResultsResponse(user=request.user, result=request.result, success=False, error_message='User not authenticated')
+        auth_service = AuthenticationService()
+        success, token, error_msg, role = auth_service.authenticate_user(request.user.user_id, request.user.username, request.user.password)
+
+        if not success:
+            return services_pb2.GetAllResultsResponse(success=False, error_message=error_msg)
         
-        if request.user.role != 1 or request.user.role != 3:
+        if request.user.role != 1 and request.user.role != 3:
             return services_pb2.GetAllResultsResponse(user=request.user, result=request.result, success=False, error_message='User not authorized')
         
-        return services_pb2.GetAllResultsResponse(user=request.user, result=request.result, success=True, error_message='', results=list(self.results.values()))
+        found = []
+        for r_dict in self.results.values():
+            found.append(r_dict['result'])
+
+        return services_pb2.GetAllResultsResponse(user=request.user, result=request.result, success=True, error_message='', results=found)
 
     def FetchResultsOfTransaction(self, request, context):
         """
@@ -336,10 +382,13 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
         :return: a table containing metadata information for each customer transaction (customer, timestamp, status (submitted, accepted, rejected), vendor-ID, amount).
         """
         
-        if not AuthenticationService.Authenticate(services_pb2.AuthenticationMessage(request.user.username, request.user.password)).success:
-            return services_pb2.FetchResultOfTransactionResponse(success=False, error_message='User not authenticated')
+        auth_service = AuthenticationService()
+        success, token, error_msg, role = auth_service.authenticate_user(request.user.user_id, request.user.username, request.user.password)
+
+        if not success:
+            return services_pb2.FetchResultOfTransactionResponse(success=False, error_message=error_msg)
         
-        if request.user.role != 1 or request.user.role != 3:
+        if request.user.role != 1 and request.user.role != 3:
             return services_pb2.FetchResultOfTransactionResponse(success=False, error_message='User not authorized')
         
         if request.transaction.transaction_id not in self.transactions:
@@ -347,16 +396,17 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
 
 
         found = []
-        for result_id, result in self.results.items():
-            if result.transaction_id == request.transaction.transaction_id:
-                found.append(result)
+        for result_id, result_dict in self.results.items():
+            if result_dict['result'].transaction_id == request.transaction.transaction_id:
+                found.append(result_dict['result'])
         
-        return services_pb2.FetchResultsOfTransactionResponse(success=True, error_message='', results=[found])
+        return services_pb2.FetchResultsOfTransactionResponse(success=True, error_message='', results=found)
     
 
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     services_pb2_grpc.add_AuthenticationServiceServicer_to_server(AuthenticationService(), server)
+    services_pb2_grpc.add_TransactionServiceServicer_to_server(TransactionService(), server)
     server.add_insecure_port('[::]:50051')
     server.start()
     server.wait_for_termination()

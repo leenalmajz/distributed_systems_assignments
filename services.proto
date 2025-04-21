@@ -41,8 +41,9 @@ message DeleteUserResponse {
 }
 
 message AuthenticationMessage {
-    string username = 1;
-    string password = 2;
+    int32 user_id = 1;
+    string username = 2;
+    string password = 3;
 }
 
 message AuthenticationResponse {
@@ -59,6 +60,7 @@ message VerifyTokenMessage {
 
 message VerifyTokenResponse {
     bool success = 1;
+    string error_message = 2;
 }
 
 
@@ -80,7 +82,7 @@ message Transaction {
 
 message AddTransactionMessage {
     User user = 1;
-    Transaction Transaction = 2;
+    Transaction transaction = 2;
 }
 
 message AddTransactionResponse {
