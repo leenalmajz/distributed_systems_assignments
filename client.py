@@ -1,6 +1,15 @@
 import grpc
 import services_pb2
 import services_pb2_grpc
+from google.protobuf.timestamp_pb2 import Timestamp
+from datetime import datetime
+
+# Current time as datetime
+now = datetime.utcnow()
+
+# Create a protobuf Timestamp and populate it
+proto_timestamp = Timestamp()
+proto_timestamp.FromDatetime(now)
 
 def setup():
     # create user objects
@@ -116,7 +125,7 @@ def test_add_transaction(objects):
         user=objects['user1'], transaction=objects['transaction1']))
     assert response_addtransaction1.success == True, f"response_addtransaction1: expected True, got {response_addtransaction1.success}" # assertion for success
     objects['transaction1'] = response_addtransaction1.transactions[0] # update transaction1 with the response from the server (includes transaction_id)
-
+    
     # add transaction2 with incorrect user
     response_addtransaction2 = transaction_stub.AddTransaction(services_pb2.AddTransactionMessage(
         user=objects['user3'], transaction=objects['transaction2']))
@@ -150,17 +159,114 @@ def test_update_transaction(objects):
 def test_delete_transaction(objects):
     transaction_stub = objects['transaction_stub']
 
-    # delete transaction1
+    # adding transaction2
+    response_addtransaction2 = transaction_stub.AddTransaction(services_pb2.AddTransactionMessage(
+        user=objects['user1'], transaction=objects['transaction2']))
+    
+    objects['transaction2'] = response_addtransaction2.transactions[0]
+    # delete transaction2
     response_deletetransaction1 = transaction_stub.DeleteTransaction(services_pb2.DeleteTransactionMessage(
-        user=objects['user1'], transaction=objects['transaction1']))
+        user=objects['user1'], transaction=objects['transaction2']))
     if response_deletetransaction1.success == False:
         print(f"Error: {response_deletetransaction1.error_message}")
     assert response_deletetransaction1.success == True, f"response_deletetransaction1: expected True, got {response_deletetransaction1.success}" # assertion for success
 
-    # delete transaction2 with incorrect user
+    # delete transaction1 with incorrect user
     response_deletetransaction2 = transaction_stub.DeleteTransaction(services_pb2.DeleteTransactionMessage(
-        user=objects['user3'], transaction=objects['transaction2']))
+        user=objects['user2'], transaction=objects['transaction1']))
     assert response_deletetransaction2.success == False, f"response_deletetransaction2: expected False, got {response_deletetransaction2.success}" # assertion for failure
+
+def test_add_result(objects):
+    transaction_stub = objects['transaction_stub']
+
+    result = services_pb2.Result(
+        result_id=0,
+        transaction_id=objects['transaction1'].transaction_id,
+        timestamp=proto_timestamp,
+        is_fraudulent=False,
+        confidence=0.85
+    )
+
+    response_addresult = transaction_stub.AddResult(services_pb2.AddResultMessage(
+        user=objects['user1'], transaction=objects['transaction1'], result=result
+    ))
+    assert response_addresult.success == True, f"response_addresult: expected True, got {response_addresult.success}, Error: {response_addresult.error_message}"
+    objects['result1'] = response_addresult.results[0]  # Store for later
+
+def test_update_result(objects):
+    transaction_stub = objects['transaction_stub']
+
+    result_to_update = services_pb2.Result(
+        result_id=objects['result1'].result_id,
+        transaction_id=objects['transaction1'].transaction_id,
+        timestamp=proto_timestamp,
+        is_fraudulent=True,
+        confidence=0.99
+    )
+
+    response_updateresult = transaction_stub.UpdateResult(services_pb2.UpdateResultMessage(
+        user=objects['user1'], transaction=objects['transaction1'],
+        old_result_data=objects['result1'], new_result_data=result_to_update
+    ))
+
+    assert response_updateresult.success == True, f"response_updateresult: expected True, got {response_updateresult.success}"
+    assert response_updateresult.results[0].is_fraudulent == True, "Result not updated correctly"
+    objects['result1'] = response_updateresult.results[0]
+
+def test_delete_result(objects):
+    transaction_stub = objects['transaction_stub']
+
+    response_deleteresult = transaction_stub.DeleteResult(services_pb2.DeleteResultMessage(
+        user=objects['user1'], transaction=objects['transaction1'], result=objects['result1']
+    ))
+    assert response_deleteresult.success == True, f"response_deleteresult: expected True, got {response_deleteresult.success}"
+
+def test_get_all_transactions(objects):
+    transaction_stub = objects['transaction_stub']
+
+    response_alltransactions = transaction_stub.GetAllTransactions(objects['user1'])
+    assert response_alltransactions.success == True, f"response_alltransactions: expected True, got {response_alltransactions.success}"
+    assert len(response_alltransactions.transactions) > 0, "Expected a transactions field with a length bigger than 0"
+    assert response_alltransactions.transactions[0].transaction_id, "Expected transaction_id present"
+
+def test_fetch_transactions_of_user(objects):
+    transaction_stub = objects['transaction_stub']
+
+    response_usertransactions = transaction_stub.FetchTransactionsOfUser(objects['user1'])
+    assert response_usertransactions.success == True, f"response_usertransactions: expected True, got {response_usertransactions.success}"
+    assert all(tx.customer.username == objects['user1'].username for tx in response_usertransactions.transactions), "User mismatch in fetched transactions"
+
+def test_get_all_results(objects):
+    transaction_stub = objects['transaction_stub']
+
+    # Re-add result first
+    result = services_pb2.Result(
+        result_id=0,
+        transaction_id=objects['transaction1'].transaction_id,
+        timestamp=proto_timestamp,
+        is_fraudulent=False,
+        confidence=0.75
+    )
+    response_addresult = transaction_stub.AddResult(services_pb2.AddResultMessage(
+        user=objects['user1'], transaction=objects['transaction1'], result=result
+    ))
+    assert response_addresult.success == True, f"Add before GetAllResults failed"
+    objects['result1'] = response_addresult.results[0]
+
+    response_allresults = transaction_stub.GetAllResults(objects['user1'])
+    assert response_allresults.success == True, f"response_allresults: expected True, got {response_allresults.success}"
+    assert len(response_allresults.results) > 0, "Expected a results field with a length bigger than 0"
+    assert response_allresults.results[0].result_id, "Expected result_id present"
+
+def test_fetch_results_of_transaction(objects):
+    transaction_stub = objects['transaction_stub']
+
+    response_fetchresults = transaction_stub.FetchResultsOfTransaction(services_pb2.FetchResultsOfTransactionMessage(
+        user=objects['user1'], transaction=objects['transaction1']
+    ))
+    assert response_fetchresults.success == True, f"response_fetchresults: expected True, got {response_fetchresults.success}"
+    assert all(r.transaction_id == objects['transaction1'].transaction_id for r in response_fetchresults.results), "Transaction mismatch in fetched results"
+
 
 if __name__ == '__main__':
     # Establish a gRPC channel to the server running on localhost at port 50051
@@ -177,3 +283,10 @@ if __name__ == '__main__':
         test_add_transaction(objects)
         test_update_transaction(objects)
         test_delete_transaction(objects)
+        test_add_result(objects)
+        test_update_result(objects)
+        test_delete_result(objects)
+        test_get_all_transactions(objects)
+        test_fetch_transactions_of_user(objects)
+        test_get_all_results(objects)
+        test_fetch_results_of_transaction(objects)

@@ -115,16 +115,16 @@ message DeleteTransactionResponse {
 }
 
 message Result {
-    int32 Result_id = 1;
+    int32 result_id = 1;
     int32 transaction_id = 2;
     google.protobuf.Timestamp timestamp = 3;
     bool is_fraudulent = 4;
-    int32 confidence = 5;
+    float confidence = 5;
 }
 
 message AddResultMessage {
     User user = 1;
-    Transaction Transaction = 2;
+    Transaction transaction = 2;
     Result result = 3;
 }
 
@@ -182,18 +182,14 @@ message FetchResultsOfTransactionMessage {
 message FetchResultsOfTransactionResponse {
     bool success = 1;
     string error_message = 2;
-    repeated Result Result = 3;
-}
-
-message GetAllResultsMessage {
-    User user = 1;
+    repeated Result results = 3;
 }
 
 message GetAllResultsResponse {
     User user = 1;
     bool success = 2;
     string error_message = 3;
-    repeated Result Results = 4;
+    repeated Result results = 4;
 }
 
 service AuthenticationService {

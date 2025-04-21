@@ -108,8 +108,6 @@ class AuthenticationService(services_pb2_grpc.AuthenticationServiceServicer):
         
         user_dict = self.users[request.user.user_id]
 
-        print(user_dict['token'] == request.token)
-        print(user_dict['user'] == request.user)
 
         if user_dict['user'] == request.user and user_dict['token'] == request.token:
             return services_pb2.VerifyTokenResponse(success = True)
@@ -264,13 +262,17 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
         if request.new_result_data.transaction_id not in self.transactions:
             return services_pb2.UpdateResultResponse(success=False, error_message='Transaction not present')
         
+        if request.old_result_data.result_id not in self.results:
+            return services_pb2.UpdateResultResponse(success=False, error_message='Result not present')
+        
         id = request.old_result_data.result_id
-        self.results[id]['result'].transaction_id = request.new_result_data.transaction_id
-        self.results[id]['result'].timestamp = request.new_result_data.timestamp
-        self.results[id]['result'].is_fraudulent = request.new_result_data.is_fraudulent
-        self.results[id]['result'].confidence = request.new_result_data.confidence
+        result = self.results[id]['result']
+        result.transaction_id = request.new_result_data.transaction_id
+        result.timestamp.CopyFrom(request.new_result_data.timestamp)
+        result.is_fraudulent = request.new_result_data.is_fraudulent
+        result.confidence = request.new_result_data.confidence
         print(f'Updated transaction with id = {id}')
-        return services_pb2.UpdateResultResponse(success=True, error_message='', results=[self.results[id]])
+        return services_pb2.UpdateResultResponse(success=True, error_message='', results=[result])
 
     def DeleteResult(self, request, cntext):
         """
@@ -295,8 +297,11 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
         if request.result.transaction_id not in self.transactions:
             return services_pb2.DeleteResultResponse(success=False, error_message='Transaction not present')
         
+        if request.result.result_id not in self.results:
+            return services_pb2.UpdateResultResponse(success=False, error_message='Result not present')
+        
         result = self.results[request.result.result_id]['result']
-        self.transactions.pop(request.result.result_id)
+        self.results.pop(request.result.result_id)
         print(f'Deleted transaction with id = {request.result.result_id} and it\'s transaction\'s id: {result.transaction_id}')
         return services_pb2.DeleteResultResponse(success=True, error_message='')
     
@@ -311,7 +316,7 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
         """
 
         auth_service = AuthenticationService()
-        success, token, error_msg, role = auth_service.authenticate_user(request.user.user_id, request.user.username, request.user.password)
+        success, token, error_msg, role = auth_service.authenticate_user(request.user_id, request.username, request.password)
 
         if not success:
             return services_pb2.GetAllTransactionsResponse(success=False, error_message=error_msg)
@@ -334,7 +339,7 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
         """
 
         auth_service = AuthenticationService()
-        success, token, error_msg, role = auth_service.authenticate_user(request.user.user_id, request.user.username, request.user.password)
+        success, token, error_msg, role = auth_service.authenticate_user(request.user_id, request.username, request.password)
 
         if not success:
             return services_pb2.FetchTransactionsOfUserResponse(success=False, error_message=error_msg)
@@ -343,8 +348,8 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
             return services_pb2.FetchTransactionsOfUserResponse(user=request, success=False, error_message='User not authorized')
         
         found = []
-        for transaction_id, transaction_dict in self.transactions:
-            if transaction_dict['transaction'].user_id == request.user_id:
+        for transaction_id, transaction_dict in self.transactions.items():
+            if transaction_dict['transaction'].customer.user_id == request.user_id:
                 found.append(transaction_dict['transaction'])
 
         return services_pb2.FetchTransactionsOfUserResponse(user=request, success=True, error_message='', transactions=found)
@@ -360,19 +365,19 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
         """
 
         auth_service = AuthenticationService()
-        success, token, error_msg, role = auth_service.authenticate_user(request.user.user_id, request.user.username, request.user.password)
+        success, token, error_msg, role = auth_service.authenticate_user(request.user_id, request.username, request.password)
 
         if not success:
             return services_pb2.GetAllResultsResponse(success=False, error_message=error_msg)
         
-        if request.user.role != 1 and request.user.role != 3:
-            return services_pb2.GetAllResultsResponse(user=request.user, result=request.result, success=False, error_message='User not authorized')
+        if request.role != 1 and request.role != 3:
+            return services_pb2.GetAllResultsResponse(user=request, success=False, error_message='User not authorized')
         
         found = []
         for r_dict in self.results.values():
             found.append(r_dict['result'])
 
-        return services_pb2.GetAllResultsResponse(user=request.user, result=request.result, success=True, error_message='', results=found)
+        return services_pb2.GetAllResultsResponse(user=request, success=True, error_message='', results=found)
 
     def FetchResultsOfTransaction(self, request, context):
         """
