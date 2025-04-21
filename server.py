@@ -26,12 +26,11 @@ class AuthenticationService(services_pb2_grpc.AuthenticationServiceServicer):
 
     def AddUser(self, request, context):
         """
-        Implementation of the AddUser service method. Adds a user to the internal
-        users list. If there is no id, the next highest id will be assigned to the new user.
-        If there is a user with the same id, the request will be rejected.
-        :param request: the request to process.
-        :param context: grpc context object
-        :return: an AddUserResponse object
+        Adds a new user to the server's in-memory database.
+        Automatically assigns a unique user ID and generates a token.
+        
+        Returns:
+            AddUserResponse with the created user and success status.
         """
         if request.user_id == 0:
             request.user_id = self.current_id
@@ -47,11 +46,10 @@ class AuthenticationService(services_pb2_grpc.AuthenticationServiceServicer):
 
     def UpdateUser(self, request, context):
         """
-        Implementation of the UpdateUser service method. Updates an already existing user in the internal
-        users list. If there is no id (meaning the user doesn't exist), the function will return an error.
-        :param request: the request to process.
-        :param context: grpc context object
-        :return: an UpdateUserResponse object
+        Updates the details (username, password, role) of an existing user.
+        
+        Returns:
+            UpdateUserResponse with the updated user and success status.
         """
         
         if request.old_user_data.user_id not in self.users:
@@ -65,11 +63,10 @@ class AuthenticationService(services_pb2_grpc.AuthenticationServiceServicer):
 
     def DeleteUser(self, request, context):
         """
-        Implementation of the DeleteUser service method. Deletes an existing user  from the internal
-        users list. If there is no id (meaning the user doesn't exist), the function will return an error.
-        :param request: the request to process.
-        :param context: grpc context object
-        :return: an DeleteUserResponse object
+        Deletes an existing user from the server.
+        
+        Returns:
+            DeleteUserResponse indicating success or failure.
         """
         
         if request.user_id not in self.users:
@@ -82,10 +79,11 @@ class AuthenticationService(services_pb2_grpc.AuthenticationServiceServicer):
     
     def Authenticate(self, request, context):
         """
-        Implementation of the Authenticate service method. Checks whether a given username and password pair returns a user or not.
-        :param request: the request to process.
-        :param context: grpc context object
-        :return: an AuthenticationResponse object
+        Authenticates a user based on their username and password.
+        Generates and returns a new token if authentication succeeds.
+        
+        Returns:
+            AuthenticationResponse with token, role, and status.
         """
         success, token, error_msg, role = self.authenticate_user(request.user_id, request.username, request.password)
         if success:
@@ -95,10 +93,10 @@ class AuthenticationService(services_pb2_grpc.AuthenticationServiceServicer):
 
     def VerifyToken(self, request, context):
         """
-        Implementation of the VerifyToken service method. Checks whether a given token for a given user is still valid or not.
-        :param request: the request to process.
-        :param context: grpc context object
-        :return: a boolean
+        Verifies if the provided token matches the stored token for the given user.
+        
+        Returns:
+            VerifyTokenResponse indicating whether the token is valid.
         """
         if request.token == '':
             return services_pb2.VerifyTokenResponse(success = False)
@@ -122,10 +120,11 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
 
     def AddTransaction(self, request, context):
         """
-        Implementation of the AddTransaction service method.
-        :param request:
-        :param context:
-        :return: an AddTransactionResponse object
+        Adds a new transaction to the server if the user is authenticated and authorized.
+        Assigns a unique transaction ID.
+
+        Returns:
+            AddTransactionResponse with the created transaction and success status.
         """
 
         auth_service = AuthenticationService()
@@ -150,10 +149,11 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
     
     def UpdateTransaction(self, request, context):
         """
-        Implementation of the AddTransaction service method.
-        :param request:
-        :param context:
-        :return: an UpdateTransactionResponse object.
+        Updates an existing transaction's customer, status, vendor_id, and amount.
+        Requires valid authentication and authorization.
+
+        Returns:
+            UpdateTransactionResponse with updated transaction and status.
         """
 
         auth_service = AuthenticationService()
@@ -180,10 +180,11 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
         
     def DeleteTransaction(self, request, context):
         """
-        Implementation of the DeleteTransaction service method.
-        :param request:
-        :param context:
-        :return: a DeleteTransactionResponse object.
+        Deletes an existing transaction.
+        Only authorized users can delete transactions.
+
+        Returns:
+            DeleteTransactionResponse indicating success or failure.
         """
 
         auth_service = AuthenticationService()
@@ -207,10 +208,11 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
 
     def AddResult(self, request, context):
         """
-        Implementation of the AddResult service method.
-        :param request:
-        :param context:
-        :return: an AddResultResponse object
+        Adds a new result tied to an existing transaction.
+        Ensures the transaction exists and the result ID is unique.
+
+        Returns:
+            AddResultResponse with the created result and success status.
         """
 
         auth_service = AuthenticationService()
@@ -241,10 +243,11 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
     
     def UpdateResult(self, request, context):
         """
-        Implementation of the UpdateResult service method.
-        :param request:
-        :param context:
-        :return: an UpdateResultResponse object.
+        Updates a result's data including timestamp, fraud status, and confidence score.
+        User must be authorized, and the result must already exist.
+
+        Returns:
+            UpdateResultResponse with the updated result and status.
         """
 
         auth_service = AuthenticationService()
@@ -276,10 +279,11 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
 
     def DeleteResult(self, request, cntext):
         """
-        Implementation of the DeleteResult service method.
-        :param request:
-        :param context:
-        :return: a DeleteResultResponse object.
+        Deletes a result based on its ID and associated transaction.
+        Ensures authorization and transaction validity.
+
+        Returns:
+            DeleteResultResponse indicating success or failure.
         """
 
         auth_service = AuthenticationService()
@@ -309,10 +313,11 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
 
     def GetAllTransactions(self, request, context):
         """
-        Implementation of the GetAllTransactions service method.
-        :param request:
-        :param context:
-        :return: a table containing metadata information for each customer transaction (customer, timestamp, status (submitted, accepted, rejected), vendor-ID, amount).
+        Retrieves all transactions stored on the server.
+        Only users with the appropriate role may access this data.
+
+        Returns:
+            GetAllTransactionsResponse with a list of transactions.
         """
 
         auth_service = AuthenticationService()
@@ -332,10 +337,11 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
     
     def FetchTransactionsOfUser(self, request, context):
         """
-        Implementation of the FetchTransactionsOfUser service method.
-        :param request:
-        :param context:
-        :return: a table containing metadata information for each customer transaction (customer, timestamp, status (submitted, accepted, rejected), vendor-ID, amount).
+        Retrieves all transactions submitted by a specific user.
+        Requires authentication and authorization.
+
+        Returns:
+            FetchTransactionsOfUserResponse with the user's transactions.
         """
 
         auth_service = AuthenticationService()
@@ -358,10 +364,11 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
  
     def GetAllResults(self, request, context):
         """
-        Implementation of the GetAllResults service method.
-        :param request:
-        :param context:
-        :return: a table containing metadata information for each customer transaction (customer, timestamp, status (submitted, accepted, rejected), vendor-ID, amount).
+        Retrieves all results from the server.
+        Requires user authentication and authorization.
+
+        Returns:
+            GetAllResultsResponse with a list of all results.
         """
 
         auth_service = AuthenticationService()
@@ -381,10 +388,11 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
 
     def FetchResultsOfTransaction(self, request, context):
         """
-        Implementation of the FetchResultOfTransaction service method.
-        :param request:
-        :param context:
-        :return: a table containing metadata information for each customer transaction (customer, timestamp, status (submitted, accepted, rejected), vendor-ID, amount).
+        Fetches all results associated with a specific transaction.
+        Requires the user to be authenticated and authorized.
+
+        Returns:
+            FetchResultsOfTransactionResponse with results tied to the transaction.
         """
         
         auth_service = AuthenticationService()
