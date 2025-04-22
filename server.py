@@ -15,6 +15,18 @@ class AuthenticationService(services_pb2_grpc.AuthenticationServiceServicer):
     users = {}  # In-memory user store: {user_id: {'user': user_obj, 'token': token}}
     current_id = 1  # Auto-incrementing user ID
 
+    def log_info(self, request, context, func_name):
+        source = context.peer()
+        metadata = context.invocation_metadata()
+        request_data = str(request)
+    
+        print(f"=== [{func_name} Request Log] ===")
+        print(f"Source      : {source}")
+        print(f"Destination : localhost:50051")
+        print(f"Headers     : {metadata}")
+        print(f"Message     : {request_data}")
+        print("=============================")
+    
     def authenticate_user(self, user_id, username, password):
         """
         Validates a user's credentials and generates a token if valid.
@@ -40,6 +52,7 @@ class AuthenticationService(services_pb2_grpc.AuthenticationServiceServicer):
         Returns:
             AddUserResponse: success status and error message if any
         """
+        self.log_info(request, context, "AddUser")
         if request.user_id == 0:
             request.user_id = self.current_id
             self.current_id += 1
