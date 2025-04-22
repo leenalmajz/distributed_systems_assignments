@@ -72,6 +72,7 @@ class AuthenticationService(services_pb2_grpc.AuthenticationServiceServicer):
         Returns:
             UpdateUserResponse: success status and error message if any
         """
+        self.log_info(request, context, "UpdateUser")
         if request.old_user_data.user_id not in self.users:
             return services_pb2.UpdateUserResponse(success=False, error_message='User not present')
 
@@ -90,6 +91,7 @@ class AuthenticationService(services_pb2_grpc.AuthenticationServiceServicer):
         Returns:
             DeleteUserResponse: success status and error message if any
         """
+        self.log_info(request, context, "DeleteUser")
         if request.user_id not in self.users:
             return services_pb2.DeleteUserResponse(success=False, error_message='User not present')
 
@@ -104,6 +106,7 @@ class AuthenticationService(services_pb2_grpc.AuthenticationServiceServicer):
         Returns:
             AuthenticationResponse: success status, token, error message, and user role
         """
+        self.log_info(request, context, "Authenticate")
         success, token, error_msg, role = self.authenticate_user(request.user_id, request.username, request.password)
         return services_pb2.AuthenticationResponse(success=success, error_message=error_msg, role=role if success else 0, token=token or '')
 
@@ -114,6 +117,7 @@ class AuthenticationService(services_pb2_grpc.AuthenticationServiceServicer):
         Returns:
             VerifyTokenResponse: success status
         """
+        self.log_info(request, context, "VerifyToken")
         if request.token == '' or request.user.user_id not in self.users:
             return services_pb2.VerifyTokenResponse(success=False)
 
@@ -136,6 +140,18 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
     results = {}       # {result_id: {result: Result}}
     current_transaction_id = 1
     current_result_id = 1
+    
+    def log_info(self, request, context, func_name):
+        source = context.peer()
+        metadata = context.invocation_metadata()
+        request_data = str(request)
+    
+        print(f"=== [{func_name} Request Log] ===")
+        print(f"Source      : {source}")
+        print(f"Destination : localhost:50051")
+        print(f"Headers     : {metadata}")
+        print(f"Message     : {request_data}")
+        print("=============================")
 
     def AddTransaction(self, request, context):
         """
@@ -144,6 +160,7 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
         Returns:
             AddTransactionResponse: success status, error message, and transaction details
         """
+        self.log_info(request, context, "AddTransaction")
         auth_service = AuthenticationService()
         success, token, error_msg, role = auth_service.authenticate_user(request.user.user_id, request.user.username, request.user.password)
 
@@ -171,6 +188,7 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
         Returns:
             UpdateTransactionResponse: success status, error message, and updated transaction details
         """
+        self.log_info(request, context, "UpdateTransaction")
         auth_service = AuthenticationService()
         success, token, error_msg, role = auth_service.authenticate_user(request.user.user_id, request.user.username, request.user.password)
 
@@ -197,6 +215,7 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
         Returns:
             DeleteTransactionResponse: success status and error message if any
         """
+        self.log_info(request, context, "DeleteTransaction")
         auth_service = AuthenticationService()
         success, token, error_msg, role = auth_service.authenticate_user(request.user.user_id, request.user.username, request.user.password)
 
@@ -218,6 +237,7 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
         Returns:
             AddResultResponse: success status, error message, and result details
         """
+        self.log_info(request, context, "AddResult")
         auth_service = AuthenticationService()
         success, token, error_msg, role = auth_service.authenticate_user(request.user.user_id, request.user.username, request.user.password)
 
@@ -248,6 +268,7 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
         Returns:
             UpdateResultResponse: success status, error message, and updated result details
         """
+        self.log_info(request, context, "UpdateResult")
         auth_service = AuthenticationService()
         success, token, error_msg, role = auth_service.authenticate_user(request.user.user_id, request.user.username, request.user.password)
 
@@ -276,6 +297,7 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
         Returns:
             DeleteResultResponse: success status and error message if any
         """
+        self.log_info(request, context, "DeleteResult")
         auth_service = AuthenticationService()
         success, token, error_msg, role = auth_service.authenticate_user(request.user.user_id, request.user.username, request.user.password)
 
@@ -301,6 +323,7 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
         Returns:
             GetAllTransactionsResponse: success status, error message, and list of transactions
         """
+        self.log_info(request, context, "GetAllTransactions")
         auth_service = AuthenticationService()
         success, token, error_msg, role = auth_service.authenticate_user(request.user_id, request.username, request.password)
 
@@ -317,6 +340,7 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
         Returns:
             FetchTransactionsOfUserResponse: success status, error message, and list of transactions
         """
+        self.log_info(request, context, "FetchTransactionsOfUser")
         auth_service = AuthenticationService()
         success, token, error_msg, role = auth_service.authenticate_user(request.user_id, request.username, request.password)
 
@@ -333,6 +357,7 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
         Returns:
             GetAllResultsResponse: success status, error message, and list of results
         """
+        self.log_info(request, context, "GetAllResults")
         auth_service = AuthenticationService()
         success, token, error_msg, role = auth_service.authenticate_user(request.user_id, request.username, request.password)
 
@@ -349,6 +374,7 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
         Returns:
             FetchResultsOfTransactionResponse: success status, error message, and list of results
         """
+        self.log_info(request, context, "FetchResultIfTransaction")
         auth_service = AuthenticationService()
         success, token, error_msg, role = auth_service.authenticate_user(request.user.user_id, request.user.username, request.user.password)
 
