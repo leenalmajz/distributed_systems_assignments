@@ -347,3 +347,5 @@ if __name__ == '__main__':
         test_fetch_transactions_of_user(objects)
         test_get_all_results(objects)
         test_fetch_results_of_transaction(objects)
+        
+        print("All tests ran successfully")
