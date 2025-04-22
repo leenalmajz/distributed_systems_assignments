@@ -15,7 +15,8 @@ This project implements a gRPC-based distributed system with authentication and 
 - Fetch all transactions or transactions of a specific user.
 - Fetch results of a specific transaction.
 
-
+## Framework Choice
+gRPC was chosen for its simplicity and performance. The project is split betweeen logical services, AuthenticationService and TransactionService, which gRPC supports naturally clean separation (Service-oriented architecture). It also has built-in authentication support secure communication and token vertification. gRPC is good in speed and efficiency since it uses HTTP/2 and Protocol Buffers for serialization, which ensures faster transmission and reduced payload sizes compared to traditional REST APIs with JSON. 
 
 ## Prerequisites
 
