@@ -1,18 +1,27 @@
-""" TODO:
-    1. add documentation
-    2. add context
-    3. add testing"""
+"""gRPC Server Implementation for Authentication and Transaction Services"""
 
-import grpc, secrets, logging
+import grpc
+import secrets
+import logging
 from concurrent import futures
-import services_pb2 
+import services_pb2
 import services_pb2_grpc
 
 class AuthenticationService(services_pb2_grpc.AuthenticationServiceServicer):
-    users = {}
-    current_id = 1
+    """
+    Provides methods for user management including authentication,
+    token verification, addition, update, and deletion.
+    """
+    users = {}  # In-memory user store: {user_id: {'user': user_obj, 'token': token}}
+    current_id = 1  # Auto-incrementing user ID
 
     def authenticate_user(self, user_id, username, password):
+        """
+        Validates a user's credentials and generates a token if valid.
+
+        Returns:
+            (success: bool, token: str|None, error_msg: str, role: int|None)
+        """
         if username == "" or password == "":
             return (False, None, 'username or password not given', None)
 
@@ -26,11 +35,10 @@ class AuthenticationService(services_pb2_grpc.AuthenticationServiceServicer):
 
     def AddUser(self, request, context):
         """
-        Adds a new user to the server's in-memory database.
-        Automatically assigns a unique user ID and generates a token.
-        
+        Adds a new user to the in-memory user store.
+
         Returns:
-            AddUserResponse with the created user and success status.
+            AddUserResponse: success status and error message if any
         """
         if request.user_id == 0:
             request.user_id = self.current_id
@@ -46,96 +54,92 @@ class AuthenticationService(services_pb2_grpc.AuthenticationServiceServicer):
 
     def UpdateUser(self, request, context):
         """
-        Updates the details (username, password, role) of an existing user.
-        
+        Updates existing user data.
+
         Returns:
-            UpdateUserResponse with the updated user and success status.
+            UpdateUserResponse: success status and error message if any
         """
-        
         if request.old_user_data.user_id not in self.users:
             return services_pb2.UpdateUserResponse(success=False, error_message='User not present')
-        self.users[request.old_user_data.user_id]['user'].username = request.new_user_data.username
-        self.users[request.old_user_data.user_id]['user'].password = request.new_user_data.password
-        self.users[request.old_user_data.user_id]['user'].role = request.new_user_data.role
+
+        user_record = self.users[request.old_user_data.user_id]['user']
+        user_record.username = request.new_user_data.username
+        user_record.password = request.new_user_data.password
+        user_record.role = request.new_user_data.role
 
         print(f'Updated user with id = {request.old_user_data.user_id} and name {request.new_user_data.username}')
-        return services_pb2.UpdateUserResponse(success=True, error_message='', users=[self.users[request.old_user_data.user_id]['user']])
+        return services_pb2.UpdateUserResponse(success=True, error_message='', users=[user_record])
 
     def DeleteUser(self, request, context):
         """
-        Deletes an existing user from the server.
-        
+        Deletes a user by ID.
+
         Returns:
-            DeleteUserResponse indicating success or failure.
+            DeleteUserResponse: success status and error message if any
         """
-        
         if request.user_id not in self.users:
             return services_pb2.DeleteUserResponse(success=False, error_message='User not present')
-        
-        user = self.users[request.user_id]['user']
-        self.users.pop(request.user_id)
+
+        user = self.users.pop(request.user_id)['user']
         print(f'Deleted user with id = {request.user_id} and name {user.username}')
         return services_pb2.DeleteUserResponse(success=True, error_message='')
-    
+
     def Authenticate(self, request, context):
         """
-        Authenticates a user based on their username and password.
-        Generates and returns a new token if authentication succeeds.
-        
+        Authenticates a user and returns a new token.
+
         Returns:
-            AuthenticationResponse with token, role, and status.
+            AuthenticationResponse: success status, token, error message, and user role
         """
         success, token, error_msg, role = self.authenticate_user(request.user_id, request.username, request.password)
-        if success:
-            return services_pb2.AuthenticationResponse(success=True, error_message='', role=role, token=token)
-        else:
-            return services_pb2.AuthenticationResponse(success=False, error_message=error_msg)
+        return services_pb2.AuthenticationResponse(success=success, error_message=error_msg, role=role if success else 0, token=token or '')
 
     def VerifyToken(self, request, context):
         """
-        Verifies if the provided token matches the stored token for the given user.
-        
+        Verifies whether a provided token is valid for a given user.
+
         Returns:
-            VerifyTokenResponse indicating whether the token is valid.
+            VerifyTokenResponse: success status
         """
-        if request.token == '':
-            return services_pb2.VerifyTokenResponse(success = False)
-        
-        if request.user.user_id not in self.users:
-            return services_pb2.VerifyTokenResponse(success = False)
-        
+        if request.token == '' or request.user.user_id not in self.users:
+            return services_pb2.VerifyTokenResponse(success=False)
+
         user_dict = self.users[request.user.user_id]
-
-
         if user_dict['user'] == request.user and user_dict['token'] == request.token:
-            return services_pb2.VerifyTokenResponse(success = True)
-        return services_pb2.VerifyTokenResponse(success = False)
+            return services_pb2.VerifyTokenResponse(success=True)
+        
+        return services_pb2.VerifyTokenResponse(success=False)
 
 
+# -------------------------------
+# Transaction Service Class
+# -------------------------------
 class TransactionService(services_pb2_grpc.TransactionServiceServicer):
-    transactions = {} # stores transactions ids as keys and transaction objects as value
-    results = {} # stores result ids as keys and result objects as values
+    """
+    Handles transaction and result management including
+    creation, modification, deletion, and retrieval.
+    """
+    transactions = {}  # {transaction_id: {transaction: Transaction}}
+    results = {}       # {result_id: {result: Result}}
     current_transaction_id = 1
     current_result_id = 1
 
     def AddTransaction(self, request, context):
         """
-        Adds a new transaction to the server if the user is authenticated and authorized.
-        Assigns a unique transaction ID.
+        Adds a new transaction for authorized users.
 
         Returns:
-            AddTransactionResponse with the created transaction and success status.
+            AddTransactionResponse: success status, error message, and transaction details
         """
-
         auth_service = AuthenticationService()
         success, token, error_msg, role = auth_service.authenticate_user(request.user.user_id, request.user.username, request.user.password)
 
         if not success:
             return services_pb2.AddTransactionResponse(success=False, error_message=error_msg)
-        
-        if request.user.role != 1 and request.user.role != 3:
+
+        if request.user.role not in (1, 3):
             return services_pb2.AddTransactionResponse(success=False, error_message='User not authorized')
-        
+
         if request.transaction.transaction_id == 0:
             request.transaction.transaction_id = self.current_transaction_id
             self.current_transaction_id += 1
@@ -146,90 +150,73 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
         self.transactions[request.transaction.transaction_id] = {'transaction': request.transaction}
         print(f'Added new transaction with id = {request.transaction.transaction_id}')
         return services_pb2.AddTransactionResponse(success=True, error_message='', transactions=[request.transaction])
-    
+
     def UpdateTransaction(self, request, context):
         """
-        Updates an existing transaction's customer, status, vendor_id, and amount.
-        Requires valid authentication and authorization.
+        Updates existing transaction information.
 
         Returns:
-            UpdateTransactionResponse with updated transaction and status.
+            UpdateTransactionResponse: success status, error message, and updated transaction details
         """
-
         auth_service = AuthenticationService()
         success, token, error_msg, role = auth_service.authenticate_user(request.user.user_id, request.user.username, request.user.password)
 
-        if not success:
-            return services_pb2.UpdateTransactionResponse(success=False, error_message=error_msg)
-        
-        if request.user.role != 1 and request.user.role != 3:
-            return services_pb2.UpdateTransactionResponse(success=False, error_message='User not authorized')
-        
-        if request.old_transaction_data.transaction_id not in self.transactions:
-            return services_pb2.UpdateTransactionResponse(success=False, error_message='Transaction not present')
-        
-        id = request.old_transaction_data.transaction_id
-        transaction = self.transactions[id]['transaction']
-        transaction.customer.CopyFrom(request.new_transaction_data.customer)
-        transaction.status = request.new_transaction_data.status
-        transaction.vendor_id = request.new_transaction_data.vendor_id
-        transaction.amount = request.new_transaction_data.amount
+        if not success or request.user.role not in (1, 3):
+            return services_pb2.UpdateTransactionResponse(success=False, error_message=error_msg or 'User not authorized')
 
-        print(f'Updated transaction with id = {id}')
-        return services_pb2.UpdateTransactionResponse(success=True, error_message='', transactions=[transaction])
-        
+        tid = request.old_transaction_data.transaction_id
+        if tid not in self.transactions:
+            return services_pb2.UpdateTransactionResponse(success=False, error_message='Transaction not present')
+
+        txn = self.transactions[tid]['transaction']
+        txn.customer.CopyFrom(request.new_transaction_data.customer)
+        txn.status = request.new_transaction_data.status
+        txn.vendor_id = request.new_transaction_data.vendor_id
+        txn.amount = request.new_transaction_data.amount
+
+        print(f'Updated transaction with id = {tid}')
+        return services_pb2.UpdateTransactionResponse(success=True, error_message='', transactions=[txn])
+
     def DeleteTransaction(self, request, context):
         """
-        Deletes an existing transaction.
-        Only authorized users can delete transactions.
+        Deletes a transaction by ID.
 
         Returns:
-            DeleteTransactionResponse indicating success or failure.
+            DeleteTransactionResponse: success status and error message if any
         """
-
         auth_service = AuthenticationService()
         success, token, error_msg, role = auth_service.authenticate_user(request.user.user_id, request.user.username, request.user.password)
 
-        if not success:
-            return services_pb2.DeleteTransactionResponse(success=False, error_message=error_msg)
-        
-        if request.user.role != 1 and request.user.role != 3:
-            return services_pb2.DeleteTransactionResponse(success=False, error_message='User not authorized')
-        
-        if request.transaction.transaction_id not in self.transactions:
+        if not success or request.user.role not in (1, 3):
+            return services_pb2.DeleteTransactionResponse(success=False, error_message=error_msg or 'User not authorized')
+
+        tid = request.transaction.transaction_id
+        if tid not in self.transactions:
             return services_pb2.DeleteTransactionResponse(success=False, error_message='Transaction not present')
-        
-        transaction = self.transactions[request.transaction.transaction_id]['transaction']
-        self.transactions.pop(request.transaction.transaction_id)
-        print(f'Deleted transaction with id = {request.transaction.transaction_id} and it\'s customer\'s name: {transaction.customer.username}')
+
+        txn = self.transactions.pop(tid)['transaction']
+        print(f'Deleted transaction with id = {tid} and customer: {txn.customer.username}')
         return services_pb2.DeleteTransactionResponse(success=True, error_message='')
-
-
 
     def AddResult(self, request, context):
         """
-        Adds a new result tied to an existing transaction.
-        Ensures the transaction exists and the result ID is unique.
+        Adds a result linked to a transaction.
 
         Returns:
-            AddResultResponse with the created result and success status.
+            AddResultResponse: success status, error message, and result details
         """
-
         auth_service = AuthenticationService()
         success, token, error_msg, role = auth_service.authenticate_user(request.user.user_id, request.user.username, request.user.password)
 
-        if not success:
-            return services_pb2.AddResultResponse(success=False, error_message=error_msg)
-        
-        if request.user.role != 1 and request.user.role != 3:
-            return services_pb2.AddResultResponse(success=False, error_message='User not authorized')
-        
+        if not success or request.user.role not in (1, 3):
+            return services_pb2.AddResultResponse(success=False, error_message=error_msg or 'User not authorized')
+
         if request.result.transaction_id != request.transaction.transaction_id:
             return services_pb2.AddResultResponse(success=False, error_message='Transaction id mismatch')
 
         if request.result.transaction_id not in self.transactions:
             return services_pb2.AddResultResponse(success=False, error_message='Transaction not present')
-        
+
         if request.result.result_id == 0:
             request.result.result_id = self.current_result_id
             self.current_result_id += 1
@@ -240,183 +227,131 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
         self.results[request.result.result_id] = {'result': request.result}
         print(f'Added new result with id = {request.result.result_id}')
         return services_pb2.AddResultResponse(success=True, error_message='', results=[request.result])
-    
+
     def UpdateResult(self, request, context):
         """
-        Updates a result's data including timestamp, fraud status, and confidence score.
-        User must be authorized, and the result must already exist.
+        Updates result data such as fraud status and confidence.
 
         Returns:
-            UpdateResultResponse with the updated result and status.
+            UpdateResultResponse: success status, error message, and updated result details
         """
-
         auth_service = AuthenticationService()
         success, token, error_msg, role = auth_service.authenticate_user(request.user.user_id, request.user.username, request.user.password)
 
-        if not success:
-            return services_pb2.UpdateResultResponse(success=False, error_message=error_msg)
-        
-        if request.user.role != 1 and request.user.role != 3:
-            return services_pb2.UpdateResultResponse(success=False, error_message='User not authorized')
-        
-        if request.new_result_data.transaction_id != request.transaction.transaction_id:
-            return services_pb2.UpdateResultResponse(success=False, error_message='Transaction id mismatch')
+        if not success or request.user.role not in (1, 3):
+            return services_pb2.UpdateResultResponse(success=False, error_message=error_msg or 'User not authorized')
 
-        if request.new_result_data.transaction_id not in self.transactions:
-            return services_pb2.UpdateResultResponse(success=False, error_message='Transaction not present')
-        
-        if request.old_result_data.result_id not in self.results:
+        if request.new_result_data.transaction_id != request.transaction.transaction_id or \
+           request.new_result_data.transaction_id not in self.transactions:
+            return services_pb2.UpdateResultResponse(success=False, error_message='Transaction not present or mismatch')
+
+        rid = request.old_result_data.result_id
+        if rid not in self.results:
             return services_pb2.UpdateResultResponse(success=False, error_message='Result not present')
-        
-        id = request.old_result_data.result_id
-        result = self.results[id]['result']
-        result.transaction_id = request.new_result_data.transaction_id
+
+        result = self.results[rid]['result']
         result.timestamp.CopyFrom(request.new_result_data.timestamp)
         result.is_fraudulent = request.new_result_data.is_fraudulent
         result.confidence = request.new_result_data.confidence
-        print(f'Updated transaction with id = {id}')
+        print(f'Updated result with id = {rid}')
         return services_pb2.UpdateResultResponse(success=True, error_message='', results=[result])
 
     def DeleteResult(self, request, cntext):
         """
-        Deletes a result based on its ID and associated transaction.
-        Ensures authorization and transaction validity.
+        Deletes a result by ID.
 
         Returns:
-            DeleteResultResponse indicating success or failure.
+            DeleteResultResponse: success status and error message if any
         """
-
         auth_service = AuthenticationService()
         success, token, error_msg, role = auth_service.authenticate_user(request.user.user_id, request.user.username, request.user.password)
 
-        if not success:
-            return services_pb2.DeleteResultResponse(success=False, error_message=error_msg)
-        
-        if request.user.role != 1 and request.user.role != 3:
-            return services_pb2.DeleteResultResponse(success=False, error_message='User not authorized')
-        
-        if request.result.transaction_id != request.transaction.transaction_id:
-            return services_pb2.DeleteResultResponse(success=False, error_message='Transaction id mismatch')
+        if not success or request.user.role not in (1, 3):
+            return services_pb2.DeleteResultResponse(success=False, error_message=error_msg or 'User not authorized')
 
-        if request.result.transaction_id not in self.transactions:
-            return services_pb2.DeleteResultResponse(success=False, error_message='Transaction not present')
-        
-        if request.result.result_id not in self.results:
-            return services_pb2.UpdateResultResponse(success=False, error_message='Result not present')
-        
-        result = self.results[request.result.result_id]['result']
-        self.results.pop(request.result.result_id)
-        print(f'Deleted transaction with id = {request.result.result_id} and it\'s transaction\'s id: {result.transaction_id}')
+        if request.result.transaction_id != request.transaction.transaction_id or \
+           request.result.transaction_id not in self.transactions:
+            return services_pb2.DeleteResultResponse(success=False, error_message='Transaction mismatch or not found')
+
+        rid = request.result.result_id
+        if rid not in self.results:
+            return services_pb2.DeleteResultResponse(success=False, error_message='Result not present')
+
+        self.results.pop(rid)
+        print(f'Deleted result with id = {rid}')
         return services_pb2.DeleteResultResponse(success=True, error_message='')
-    
-
 
     def GetAllTransactions(self, request, context):
         """
-        Retrieves all transactions stored on the server.
-        Only users with the appropriate role may access this data.
+        Returns all transactions to authorized users.
 
         Returns:
-            GetAllTransactionsResponse with a list of transactions.
+            GetAllTransactionsResponse: success status, error message, and list of transactions
         """
-
         auth_service = AuthenticationService()
         success, token, error_msg, role = auth_service.authenticate_user(request.user_id, request.username, request.password)
 
-        if not success:
-            return services_pb2.GetAllTransactionsResponse(success=False, error_message=error_msg)
-        
-        if request.role != 1 and request.role != 3:
-            return services_pb2.GetAllTransactionsResponse(user=request, success=False, error_message='User not authorized')
-        
-        found = []
-        for t_dict in self.transactions.values():
-            found.append(t_dict['transaction'])
+        if not success or request.role not in (1, 3):
+            return services_pb2.GetAllTransactionsResponse(success=False, error_message=error_msg or 'User not authorized')
 
-        return services_pb2.GetAllTransactionsResponse(user=request, success=True, error_message='', transactions=found)
-    
+        all_transactions = [tx['transaction'] for tx in self.transactions.values()]
+        return services_pb2.GetAllTransactionsResponse(user=request, success=True, error_message='', transactions=all_transactions)
+
     def FetchTransactionsOfUser(self, request, context):
         """
-        Retrieves all transactions submitted by a specific user.
-        Requires authentication and authorization.
+        Returns all transactions submitted by a user.
 
         Returns:
-            FetchTransactionsOfUserResponse with the user's transactions.
+            FetchTransactionsOfUserResponse: success status, error message, and list of transactions
         """
-
         auth_service = AuthenticationService()
         success, token, error_msg, role = auth_service.authenticate_user(request.user_id, request.username, request.password)
 
-        if not success:
-            return services_pb2.FetchTransactionsOfUserResponse(success=False, error_message=error_msg)
-        
-        if request.role != 1 and request.role != 3:
-            return services_pb2.FetchTransactionsOfUserResponse(user=request, success=False, error_message='User not authorized')
-        
-        found = []
-        for transaction_id, transaction_dict in self.transactions.items():
-            if transaction_dict['transaction'].customer.user_id == request.user_id:
-                found.append(transaction_dict['transaction'])
+        if not success or request.role not in (1, 3):
+            return services_pb2.FetchTransactionsOfUserResponse(success=False, error_message=error_msg or 'User not authorized')
 
-        return services_pb2.FetchTransactionsOfUserResponse(user=request, success=True, error_message='', transactions=found)
+        user_transactions = [t['transaction'] for t in self.transactions.values() if t['transaction'].customer.user_id == request.user_id]
+        return services_pb2.FetchTransactionsOfUserResponse(user=request, success=True, error_message='', transactions=user_transactions)
 
-
- 
     def GetAllResults(self, request, context):
         """
-        Retrieves all results from the server.
-        Requires user authentication and authorization.
+        Returns all results in the system.
 
         Returns:
-            GetAllResultsResponse with a list of all results.
+            GetAllResultsResponse: success status, error message, and list of results
         """
-
         auth_service = AuthenticationService()
         success, token, error_msg, role = auth_service.authenticate_user(request.user_id, request.username, request.password)
 
-        if not success:
-            return services_pb2.GetAllResultsResponse(success=False, error_message=error_msg)
-        
-        if request.role != 1 and request.role != 3:
-            return services_pb2.GetAllResultsResponse(user=request, success=False, error_message='User not authorized')
-        
-        found = []
-        for r_dict in self.results.values():
-            found.append(r_dict['result'])
+        if not success or request.role not in (1, 3):
+            return services_pb2.GetAllResultsResponse(success=False, error_message=error_msg or 'User not authorized')
 
-        return services_pb2.GetAllResultsResponse(user=request, success=True, error_message='', results=found)
+        all_results = [r['result'] for r in self.results.values()]
+        return services_pb2.GetAllResultsResponse(user=request, success=True, error_message='', results=all_results)
 
     def FetchResultsOfTransaction(self, request, context):
         """
-        Fetches all results associated with a specific transaction.
-        Requires the user to be authenticated and authorized.
+        Returns all results tied to a specific transaction.
 
         Returns:
-            FetchResultsOfTransactionResponse with results tied to the transaction.
+            FetchResultsOfTransactionResponse: success status, error message, and list of results
         """
-        
         auth_service = AuthenticationService()
         success, token, error_msg, role = auth_service.authenticate_user(request.user.user_id, request.user.username, request.user.password)
 
-        if not success:
-            return services_pb2.FetchResultOfTransactionResponse(success=False, error_message=error_msg)
-        
-        if request.user.role != 1 and request.user.role != 3:
-            return services_pb2.FetchResultOfTransactionResponse(success=False, error_message='User not authorized')
-        
+        if not success or request.user.role not in (1, 3):
+            return services_pb2.FetchResultOfTransactionResponse(success=False, error_message=error_msg or 'User not authorized')
+
         if request.transaction.transaction_id not in self.transactions:
             return services_pb2.FetchResultOfTransactionResponse(success=False, error_message='Transaction not present')
 
-
-        found = []
-        for result_id, result_dict in self.results.items():
-            if result_dict['result'].transaction_id == request.transaction.transaction_id:
-                found.append(result_dict['result'])
-        
-        return services_pb2.FetchResultsOfTransactionResponse(success=True, error_message='', results=found)
-    
+        related_results = [r['result'] for r in self.results.values() if r['result'].transaction_id == request.transaction.transaction_id]
+        return services_pb2.FetchResultsOfTransactionResponse(success=True, error_message='', results=related_results)
 
 def serve():
+    """
+    Starts the gRPC server and registers services.
+    """
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     services_pb2_grpc.add_AuthenticationServiceServicer_to_server(AuthenticationService(), server)
     services_pb2_grpc.add_TransactionServiceServicer_to_server(TransactionService(), server)

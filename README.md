@@ -1,4 +1,4 @@
-# Distributed Systems Assignments
+# Distributed Systems Assignment
 
 This project implements a gRPC-based distributed system with authentication and transaction services. It includes a server, client, and Docker setup for deployment.
 
@@ -15,27 +15,50 @@ This project implements a gRPC-based distributed system with authentication and 
 - Fetch all transactions or transactions of a specific user.
 - Fetch results of a specific transaction.
 
-## Project Structure
-├── client.py # gRPC client implementation 
-├── server.py # gRPC server implementation 
-├── services.proto # Protocol Buffers definition 
-├── services_pb2.py # Generated Python code from .proto 
-├── services_pb2_grpc.py # Generated gRPC code from .proto 
-├── Dockerfile # Dockerfile for containerizing the server 
-├── docker-compose.yml # Docker Compose file for multi-container setup 
-├── requirements.txt # Python dependencies 
-└── README.md # Project documentation
-
-
 ## Prerequisites
 
 - Python 3.11 or later
 - `grpcio` and `protobuf` libraries
 - Docker and Docker Compose
 
-## Setup
+## Usage
 
-### 1. Install Dependencies
-Install the required Python dependencies:
-```bash
-pip install -r [requirements.txt](http://_vscodecontentref_/9)
+First install grpcio-tools
+
+```
+pip install grpcio-tools
+```
+
+Generate gRPC code
+
+```
+python -m grpc_tools.protoc --proto_path=. --python_out=. --grpc_python_out=. services.proto
+```
+
+Build the Docker image
+
+```
+docker build -t grpc:latest .
+```
+
+Run the docker container
+
+```
+docker run -p 50051:50051 grpc:latest
+```
+
+Alternatively, use Docker Compose to start the server and Redis
+
+```
+docker-compose up
+```
+
+Run the client
+
+```
+python client.py
+```
+
+## Authors
+Leen Al Majzoub
+Botond Hernyes
