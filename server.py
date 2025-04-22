@@ -290,7 +290,7 @@ class TransactionService(services_pb2_grpc.TransactionServiceServicer):
         print(f'Updated result with id = {rid}')
         return services_pb2.UpdateResultResponse(success=True, error_message='', results=[result])
 
-    def DeleteResult(self, request, cntext):
+    def DeleteResult(self, request, context):
         """
         Deletes a result by ID.
 
