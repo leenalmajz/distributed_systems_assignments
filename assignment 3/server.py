@@ -1,4 +1,8 @@
-"""This file runs the server and handles the endpoints for the API."""
+"""TODO:
+    1. Create a dictionary with users as keys and tokens as values.
+    2. Create a function to give tokens to users. when they log in.
+
+"""
 
 import os
 import json
@@ -8,10 +12,14 @@ import threading
 import time
 import logging
 from datetime import datetime
+import secrets
 
 def start_app(queue_manager, auth_manager):
     app = Flask(__name__)
-    
+
+    #  Dictionary to store tokens for users
+    tokens = {}
+
     LOG_FILE = "message_queue.log"
 
     # Logging setup
@@ -30,6 +38,13 @@ def start_app(queue_manager, auth_manager):
             "body": body,
         }
         logging.info(json.dumps(log_entry))
+    
+    def generate_token(user):
+        """Generates a unique token for the given user and stores it."""
+        token = secrets.token_urlsafe()
+        tokens[user.username] = token
+        
+        return token
 
     def get_user_from_request():
         """
@@ -62,9 +77,46 @@ def start_app(queue_manager, auth_manager):
         """
         return datetime.utcnow().isoformat()
 
+
+
     ##################################################
     #_____________________Routes_____________________#
     ##################################################
+
+    @app.route('/login', methods=['POST'])
+    def login():
+        """
+        Endpoint for user login.
+        Handles authentication and token generation.
+        """
+        data = request.get_json()
+        if not data or 'username' not in data or 'password' not in data:
+            return jsonify({'error': 'Missing username or password'}), 400
+
+        username = data['username']
+        password = data['password']
+
+        #  TODO: Implement authentication here.
+        
+        if username == "test" and password == "password123":
+            user = User(user_id=1, username=username, password=password, role="user")
+        elif username == "admin" and password == "admin123":
+            user = User(user_id=2, username=username, password=password, role="admin")
+        elif username == "agent" and password == "agent123":
+            user = User(user_id=3, username=username, password=password, role="agent")
+        else:
+            return jsonify({'error': 'Invalid credentials'}), 401
+
+        token = generate_token(user) # generate token after successful login
+
+        response_data = {
+            'token': token,
+            'username': username,
+            'role': user.role,  # Include the user's role
+        }
+        log_message(source=request.remote_addr, destination="/login", headers=request.headers, body=data)
+        return jsonify(response_data), 200
+
 
     @app.route('/queues', methods=['GET'])
     def list_queues():
