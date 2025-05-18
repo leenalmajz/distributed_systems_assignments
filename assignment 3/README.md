@@ -7,10 +7,10 @@ This project implements a message queue system with user authentication and auth
 ## File Descriptions
 
 * `auth_mngr.py`: This module defines the `AuthenticationManager` class, which is responsible for managing user authentication tokens. It supports different user roles (BASIC, ADMINISTRATOR, SECRETARY, AGENT) and provides methods for saving, deleting, and authenticating tokens.
+* `queue_mngr.py`: This module defines the `QueueManager` class, which manages the message queues. It provides methods for creating, listing, deleting queues, and pushing and pulling messages.  It also handles saving queue data to a file.
 * `config.py`: This module provides the `load_config` function, which loads the application's configuration from a YAML file (default: `config.yaml`).
 * `main.py`: This is the main entry point of the application. It initializes the `QueueManager` and `AuthenticationManager`, and starts the Flask application defined in `server.py`.
 * `models.py`: This module defines the data models used in the application, including `Message`, `Transaction`, `Result`, and `User` classes.  These classes represent the structure of the data being stored and exchanged.
-* `queue_mngr.py`: This module defines the `QueueManager` class, which manages the message queues. It provides methods for creating, listing, deleting queues, and pushing and pulling messages.  It also handles saving queue data to a file.
 * `server.py`: This module defines the Flask application and its routes. It handles API requests for managing queues and messages, and includes authentication and authorization checks.  It also includes logging of requests and responses.
 
 ## Configuration
@@ -93,6 +93,7 @@ The project requires the following Python packages:
             ```
 * `POST /queues/<queue_name>/messages`:
     * Description: Adds a message to the specified queue.
+    * Authentication: Requires a valid administrator or agent token in the `Authorization` header.
     * Request Body:
 
         ```json
@@ -117,7 +118,7 @@ The project requires the following Python packages:
             ```
 * `GET /queues/<queue_name>/messages/first`:
     * Description: Retrieves and removes the first message from the specified queue.
-    * Authentication: Requires a valid user token in the `Authorization` header.
+    * Authentication: Requires a valid administrator or agent token in the `Authorization` header.
     * Response:
         * Body:
 
@@ -133,10 +134,6 @@ The project requires the following Python packages:
                 }
             }
             ```
-            * Body:
-                ```json
-               null
-                ```
 
 ## Authentication and Authorization
 
