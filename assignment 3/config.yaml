@@ -2,7 +2,3 @@ QueueManager:
   path: "queues.json"
   max_length: 999
   save_period_time: 60
-
-AuthenticationManager:
-  admin_tokens: ["admin1", "admin2"]
-  agent_tokens: ["agent1", "agent2"]

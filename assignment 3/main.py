@@ -9,10 +9,9 @@ from .server import start_app
 def run():
     conf = load_config()
     queue_data = conf['QueueManager']
-    auth_data = conf['AuthenticationManager']
     
     queue_manager = QueueManager(queue_data['path'], queue_data['max_length'], queue_data['save_period_time'])
-    auth_manager = AuthenticationManager(auth_data['admin_tokens'], auth_data['agent_tokens'])
+    auth_manager = AuthenticationManager()
 
     app = start_app(queue_manager, auth_manager)
     app.run(debug=True, port=7500)
