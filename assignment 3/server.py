@@ -13,8 +13,10 @@ import time
 import logging
 from datetime import datetime
 import secrets
+from .auth_mngr import AuthenticationManager
+from .queue_mngr import QueueManager
 
-def start_app(queue_manager, auth_manager):
+def start_app(queue_manager: QueueManager, auth_manager: AuthenticationManager):
     app = Flask(__name__)
 
     #  Dictionary to store tokens for users
@@ -95,8 +97,6 @@ def start_app(queue_manager, auth_manager):
 
         username = data['username']
         password = data['password']
-
-        #  TODO: Implement authentication here.
         
         if username == "test" and password == "password123":
             user = User(user_id=1, username=username, password=password, role="user")
@@ -108,6 +108,7 @@ def start_app(queue_manager, auth_manager):
             return jsonify({'error': 'Invalid credentials'}), 401
 
         token = generate_token(user) # generate token after successful login
+        auth_manager.save_token(token, user.role)
 
         response_data = {
             'token': token,
