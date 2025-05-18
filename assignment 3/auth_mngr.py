@@ -6,32 +6,25 @@ class AuthenticationManager():
         self.secretary_tokens: List[str] = []
         self.agent_tokens: List[str] = []
 
-    def save_token(self, token: str, role: int):
-        '''
-        User roles:
-        BASIC = 0
-        ADMINISTRATOR = 1
-        SECRETARY = 2
-        AGENT = 3
-        '''
-        if role == 0:
+    def save_token(self, token: str, role: str):
+        if role == "basic":
             self.basic_tokens.append(token)
-        elif role == 1:
+        elif role == "admin":
             self.admin_tokens.append(token)
-        elif role == 2:
+        elif role == "secretary":
             self.secretary_tokens.append(token)
-        elif role == 3:
+        elif role == "agent":
             self.agent_tokens.append(token)
 
     def delete_token(self, token: str, role: int):
         try:
-            if role == 0:
+            if role == "basic":
                 self.basic_tokens.remove(token)
-            elif role == 1:
+            elif role == "admin":
                 self.admin_tokens.remove(token)
-            elif role == 2:
+            elif role == "secretary":
                 self.secretary_tokens.remove(token)
-            elif role == 3:
+            elif role == "agent":
                 self.agent_tokens.remove(token)
         except ValueError as e:
             return False
