@@ -1,7 +1,7 @@
 from typing import Dict
 import threading, pathlib, json, time, atexit, collections
 
-class Storage():
+class QueueManager():
     def __init__(self, path: str, max_length: int, save_period_time: int):
         self.file = pathlib.Path(path)
         self.max_length = max_length
