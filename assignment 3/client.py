@@ -1,0 +1,49 @@
+import requests
+
+# 1. Login
+login_url = "http://localhost:7500/login"
+login_data = {"username": "admin", "password": "admin123"}
+
+try:
+    response = requests.post(login_url, json=login_data)
+    response.raise_for_status()  # Raises an exception for HTTP errors
+    token = response.json()["token"]
+    print("Token:", token)
+except requests.exceptions.RequestException as e:
+    print("Request failed:", e)
+except ValueError as e:
+    print("Invalid JSON response:", e)
+
+# 2. Create a queue
+try:
+    queue_name = "test_queue"
+    headers = {"Authorization": token}
+    create_queue_url = f"http://localhost:7500/queues/{queue_name}"
+    response = requests.post(create_queue_url, headers=headers)
+    print(response.json())
+except requests.exceptions.RequestException as e:
+    print("Request failed:", e)
+except ValueError as e:
+    print("Invalid JSON response:", e)
+
+
+# 3. Push a message
+try:
+    push_url = f"http://localhost:7500/queues/{queue_name}/messages"
+    message = {"transaction_id": "123", "customer": {"user_id": 1, "username": "admin", "password": "admin123", "role": "user"}, "status": 0, "vendor_id": "456", "amount": 100}
+    response = requests.post(push_url, json=message, headers=headers)
+    print(response.json())
+except requests.exceptions.RequestException as e:
+    print("Request failed:", e)
+except ValueError as e:
+    print("Invalid JSON response:", e)
+
+# 4. Pull a message
+try:
+    pull_url = f"http://localhost:7500/queues/{queue_name}/messages/first"
+    response = requests.get(pull_url, headers=headers)
+    print(response.json())
+except requests.exceptions.RequestException as e:
+    print("Request failed:", e)
+except ValueError as e:
+    print("Invalid JSON response:", e)

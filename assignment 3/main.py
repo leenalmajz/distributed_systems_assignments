@@ -1,10 +1,10 @@
 # Add middleware for logging requests/responses
 
 import flask, json, os, yaml
-from .queue_mngr import QueueManager
-from .auth_mngr import AuthenticationManager
-from .config import load_config
-from .server import start_app
+from queue_mngr import QueueManager
+from auth_mngr import AuthenticationManager
+from config import load_config
+from server import start_app
 
 def run():
     conf = load_config()

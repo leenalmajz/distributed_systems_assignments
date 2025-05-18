@@ -27,6 +27,7 @@ class QueueManager():
                 cont.update({queue_name: list(queue_content)})
             with self.file.open(mode = "w") as f:
                 json.dump(cont, f)
+                print("file saved.")
 
     def periodical_save(self):
         while True:

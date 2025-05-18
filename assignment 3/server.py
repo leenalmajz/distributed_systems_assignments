@@ -1,9 +1,3 @@
-"""TODO:
-    1. Create a dictionary with users as keys and tokens as values.
-    2. Create a function to give tokens to users. when they log in.
-
-"""
-
 import os
 import json
 from flask import Flask, request, jsonify, abort
@@ -13,8 +7,8 @@ import time
 import logging
 from datetime import datetime
 import secrets
-from .auth_mngr import AuthenticationManager
-from .queue_mngr import QueueManager
+from auth_mngr import AuthenticationManager
+from queue_mngr import QueueManager
 
 def start_app(queue_manager: QueueManager, auth_manager: AuthenticationManager):
     app = Flask(__name__)
@@ -32,10 +26,12 @@ def start_app(queue_manager: QueueManager, auth_manager: AuthenticationManager):
         """
         Logs a message with detailed information.
         """
+        serializable_headers = dict(headers) if headers else None
+
         log_entry = {
             "source": source,
             "destination": destination,
-            "headers": headers,
+            "headers": serializable_headers,
             "metadata": metadata,
             "body": body,
         }
@@ -44,34 +40,28 @@ def start_app(queue_manager: QueueManager, auth_manager: AuthenticationManager):
     def generate_token(user):
         """Generates a unique token for the given user and stores it."""
         token = secrets.token_urlsafe()
-        tokens[user.username] = token
+        tokens[user] = token
         
         return token
 
-    def get_user_from_request():
+    def get_user_from_request() -> User | None:
         """
         Helper function to extract user information from the request headers.
         Returns:
             User: The user object, or None if the user cannot be authenticated.
         """
-        # TODO: Implement authentication logic here.
 
-        auth_header = request.headers.get("Authorization")
-        if not auth_header:
-            return None  # TODO: Handle missing auth header
+        token_data = request.headers.get("Authorization")
+        if not token_data:
+            return None
 
-        #  Extract user data from the header.
         try:
-            token_data = json.loads(auth_header)
-            user = User(
-                user_id=token_data["user_id"],
-                username=token_data["username"],
-                password="password123",
-                role=token_data["role"],
-            )
-            return user
+            for user, token in tokens.items():
+                if token == token_data:
+                    return user
+            return None
         except json.JSONDecodeError:
-            return None  # TODO: Handle invalid token data
+            return None
 
     def get_timestamp():
         """
@@ -91,32 +81,35 @@ def start_app(queue_manager: QueueManager, auth_manager: AuthenticationManager):
         Endpoint for user login.
         Handles authentication and token generation.
         """
-        data = request.get_json()
-        if not data or 'username' not in data or 'password' not in data:
-            return jsonify({'error': 'Missing username or password'}), 400
+        try:
+            data = request.get_json()
+            if not data or 'username' not in data or 'password' not in data:
+                return jsonify({'error': 'Missing username or password'}), 400
 
-        username = data['username']
-        password = data['password']
-        
-        if username == "test" and password == "password123":
-            user = User(user_id=1, username=username, password=password, role="user")
-        elif username == "admin" and password == "admin123":
-            user = User(user_id=2, username=username, password=password, role="admin")
-        elif username == "agent" and password == "agent123":
-            user = User(user_id=3, username=username, password=password, role="agent")
-        else:
-            return jsonify({'error': 'Invalid credentials'}), 401
+            username = data['username']
+            password = data['password']
+            
+            if username == "test" and password == "password123":
+                user = User(user_id=1, username=username, password=password, role="user")
+            elif username == "admin" and password == "admin123":
+                user = User(user_id=2, username=username, password=password, role="admin")
+            elif username == "agent" and password == "agent123":
+                user = User(user_id=3, username=username, password=password, role="agent")
+            else:
+                return jsonify({'error': 'Invalid credentials'}), 401
 
-        token = generate_token(user) # generate token after successful login
-        auth_manager.save_token(token, user.role)
+            token = generate_token(user) # generate token after successful login
+            auth_manager.save_token(token, user.role)
 
-        response_data = {
-            'token': token,
-            'username': username,
-            'role': user.role,  # Include the user's role
-        }
-        log_message(source=request.remote_addr, destination="/login", headers=request.headers, body=data)
-        return jsonify(response_data), 200
+            response_data = {
+                'token': token,
+                'username': username,
+                'role': user.role,  # Include the user's role
+            }
+            log_message(source=request.remote_addr, destination="/login", headers=request.headers, body=data)
+            return jsonify(response_data), 200
+        except Exception as e:
+            return jsonify({'error': str(e)}), 500
 
 
     @app.route('/queues', methods=['GET'])
@@ -141,7 +134,7 @@ def start_app(queue_manager: QueueManager, auth_manager: AuthenticationManager):
         if not user:
             log_message(source=request.remote_addr, destination=f"/queues/{queue_name}", headers=request.headers, body=None)
             abort(401)
-        if not auth_manager.auth_admin(user):
+        if not auth_manager.auth_admin(tokens[user]):
             log_message(source=request.remote_addr, destination=f"/queues/{queue_name}", headers=request.headers, body=None)
             abort(403)
         if queue_manager.create_queue(queue_name):
@@ -160,7 +153,7 @@ def start_app(queue_manager: QueueManager, auth_manager: AuthenticationManager):
         if not user:
             log_message(source=request.remote_addr, destination=f"/queues/{queue_name}", headers=request.headers, body=None)
             abort(401)
-        if not auth_manager.auth_admin(user):
+        if not auth_manager.auth_admin(tokens[user]):
             log_message(source=request.remote_addr, destination=f"/queues/{queue_name}", headers=request.headers, body=None)
             abort(403)
         if queue_name not in queue_manager.queues:
@@ -179,7 +172,7 @@ def start_app(queue_manager: QueueManager, auth_manager: AuthenticationManager):
         if not user:
             log_message(source=request.remote_addr, destination=f"/queues/{queue_name}/messages", headers=request.headers, body=request.get_json())
             abort(401)
-        if not auth_manager.auth_any(user):
+        if not auth_manager.auth_any(tokens[user]):
             log_message(source=request.remote_addr, destination=f"/queues/{queue_name}/messages", headers=request.headers, body=request.get_json())
             abort(403)
 
@@ -223,19 +216,19 @@ def start_app(queue_manager: QueueManager, auth_manager: AuthenticationManager):
         if not user:
             log_message(source=request.remote_addr, destination=f"/queues/{queue_name}/messages/first", headers=request.headers, body=None)
             abort(401)
-        if not auth_manager.auth_any(user):
+
+        if not auth_manager.auth_any(tokens[user]):
             log_message(source=request.remote_addr, destination=f"/queues/{queue_name}/messages/first", headers=request.headers, body=None)
-            abort(403)
+            abort(403, description="Unauthorized")
         if queue_name not in queue_manager.queues:
             log_message(source=request.remote_addr, destination=f"/queues/{queue_name}/messages/first", headers=request.headers, body=None)
             return jsonify({'error': 'Queue not found'}), 404
-        try:
-            message = queue_manager.pull(queue_name)
+        message = queue_manager.pull(queue_name)
+        if message is None:
             log_message(source=request.remote_addr, destination=f"/queues/{queue_name}/messages/first", headers=request.headers, body=None)
-            return jsonify(message.to_dict()), 200
-        except IndexError:
-            log_message(source=request.remote_addr, destination=f"/queues/{queue_name}/messages/first", headers=request.headers, body=None)
-            return jsonify({'error': 'Queue is empty'}), 204  #  204 No Content
+            return jsonify({'error': 'Queue is empty'}), 500
+        log_message(source=request.remote_addr, destination=f"/queues/{queue_name}/messages/first", headers=request.headers, body=None)
+        return jsonify(message.to_dict()), 200
 
     return app
 
