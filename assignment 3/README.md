@@ -198,7 +198,13 @@ python main.py
 The server will start on http://localhost:7500.
 
 
-## How to test
+### How to test (Optional)
+
+Run in a different terminal 
+
+```bash
+python client.py
+```
 
 
 ## Conclusion
