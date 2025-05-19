@@ -7,10 +7,10 @@ import time
 import logging
 from datetime import datetime
 import secrets
-from auth_mngr import AuthenticationManager
+from auth_mngr import AuthorizationManager
 from queue_mngr import QueueManager
 
-def start_app(queue_manager: QueueManager, auth_manager: AuthenticationManager):
+def start_app(queue_manager: QueueManager, auth_manager: AuthorizationManager):
     app = Flask(__name__)
 
     #  Dictionary to store tokens for users
@@ -79,7 +79,7 @@ def start_app(queue_manager: QueueManager, auth_manager: AuthenticationManager):
     def login():
         """
         Endpoint for user login.
-        Handles authentication and token generation.
+        Handles token generation.
         """
         try:
             data = request.get_json()
@@ -117,24 +117,24 @@ def start_app(queue_manager: QueueManager, auth_manager: AuthenticationManager):
         """
         Lists all queues.
         """
-        user = get_user_from_request()
+        user = get_user_from_request()  # gets the user from the header
         if not user:
             log_message(source=request.remote_addr, destination="/queues", headers=request.headers, body=None)
             abort(401)
         log_message(source=request.remote_addr, destination="/queues", headers=request.headers, body=None)
 
-        return jsonify(list(queue_manager.queues.keys())), 200
+        return jsonify(list(queue_manager.list_queue_names())), 200
 
     @app.route('/queues/<string:queue_name>', methods=['POST'])
     def create_queue(queue_name):
         """
         Creates a new queue.
         """
-        user = get_user_from_request()
+        user = get_user_from_request()  # gets the user from the header
         if not user:
             log_message(source=request.remote_addr, destination=f"/queues/{queue_name}", headers=request.headers, body=None)
             abort(401)
-        if not auth_manager.auth_admin(tokens[user]):
+        if not auth_manager.auth_admin(tokens[user]):   # Check if the user is authorized (here only admin)
             log_message(source=request.remote_addr, destination=f"/queues/{queue_name}", headers=request.headers, body=None)
             abort(403)
         if queue_manager.create_queue(queue_name):
@@ -149,11 +149,11 @@ def start_app(queue_manager: QueueManager, auth_manager: AuthenticationManager):
         """
         Deletes a queue.
         """
-        user = get_user_from_request()
+        user = get_user_from_request()  # gets the user from the header
         if not user:
             log_message(source=request.remote_addr, destination=f"/queues/{queue_name}", headers=request.headers, body=None)
             abort(401)
-        if not auth_manager.auth_admin(tokens[user]):
+        if not auth_manager.auth_admin(tokens[user]):   # Check if the user is authorized (here only admin)
             log_message(source=request.remote_addr, destination=f"/queues/{queue_name}", headers=request.headers, body=None)
             abort(403)
         if queue_name not in queue_manager.queues:
@@ -168,11 +168,11 @@ def start_app(queue_manager: QueueManager, auth_manager: AuthenticationManager):
         """
         Adds a message to the queue.
         """
-        user = get_user_from_request()
+        user = get_user_from_request()  # gets the user from the header
         if not user:
             log_message(source=request.remote_addr, destination=f"/queues/{queue_name}/messages", headers=request.headers, body=request.get_json())
             abort(401)
-        if not auth_manager.auth_any(tokens[user]):
+        if not auth_manager.auth_any(tokens[user]):  # Check if the user is authorized (here either admin or agent)
             log_message(source=request.remote_addr, destination=f"/queues/{queue_name}/messages", headers=request.headers, body=request.get_json())
             abort(403)
 
@@ -181,7 +181,7 @@ def start_app(queue_manager: QueueManager, auth_manager: AuthenticationManager):
             log_message(source=request.remote_addr, destination=f"/queues/{queue_name}/messages", headers=request.headers, body=request.get_json())
             return jsonify({'error': 'Invalid message data'}), 400
 
-        # Determine if it is a Transaction or Result message.
+        # Determine if it is a Transaction or a Result message.
         if "transaction_id" in message_data and "customer" in message_data and "status" in message_data:
             try:
                 message = Message(body=Transaction.from_dict(message_data).to_dict())
@@ -195,7 +195,7 @@ def start_app(queue_manager: QueueManager, auth_manager: AuthenticationManager):
                 log_message(source=request.remote_addr, destination=f"/queues/{queue_name}/messages", headers=request.headers, body=request.get_json())
                 return jsonify({'error': f'Invalid result data: {e}'}), 400
         else:
-            message = Message(body=message_data) #handles other message types
+            message = Message(body=message_data) # if it's some other message type
         if queue_name not in queue_manager.queues:
             log_message(source=request.remote_addr, destination=f"/queues/{queue_name}/messages", headers=request.headers, body=request.get_json())
             return jsonify({'error': 'Queue not found'}), 404
@@ -205,19 +205,19 @@ def start_app(queue_manager: QueueManager, auth_manager: AuthenticationManager):
             return jsonify({'message': 'Message added to queue'}), 201
         except ValueError as e:
             log_message(source=request.remote_addr, destination=f"/queues/{queue_name}/messages", headers=request.headers, body=request.get_json())
-            return jsonify({'error': str(e)}), 400  #  Return a 400 Bad Request
+            return jsonify({'error': str(e)}), 400
 
     @app.route('/queues/<string:queue_name>/messages/first', methods=['GET'])
     def pull_message(queue_name):
         """
         Removes and returns the first message from the queue.
         """
-        user = get_user_from_request()
+        user = get_user_from_request()  # gets the user from the header
         if not user:
             log_message(source=request.remote_addr, destination=f"/queues/{queue_name}/messages/first", headers=request.headers, body=None)
             abort(401)
 
-        if not auth_manager.auth_any(tokens[user]):
+        if not auth_manager.auth_any(tokens[user]):  # Check if the user is authorized (here either admin or agent)
             log_message(source=request.remote_addr, destination=f"/queues/{queue_name}/messages/first", headers=request.headers, body=None)
             abort(403, description="Unauthorized")
         if queue_name not in queue_manager.queues:

@@ -1,3 +1,10 @@
+#####################
+#####################
+# THIS FILE IS NOT NECESSARY FOR THE PROGRAM TO WORK
+# IT ONLY HAS TESTING PURPOSES
+#####################
+#####################
+
 import requests
 
 # 1. Login
