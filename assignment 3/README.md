@@ -93,14 +93,6 @@ QueueManager:
 * `GET /queues`:
     * Description: Retrieves a list of all queues.
     * Authentication: Requires a valid user token in the `Authorization` header.
-        * Request Body:
-
-        ```json
-        {
-            "username": "string",
-            "password": "string"
-        }
-        ```
     * Response:
         * Body:
 
@@ -119,7 +111,7 @@ QueueManager:
 
             ```json
             {
-                "result": "ok"
+                "result": "Queue {queue_name} created"
             }
             ```
 * `DELETE /queues/<queue_name>`:
@@ -130,23 +122,25 @@ QueueManager:
 
             ```json
             {
-                "result": "ok"
+                "result": "Queue {queue_name} deleted"
             }
             ```
 * `POST /queues/<queue_name>/messages`:
     * Description: Adds a message to the specified queue.
-    * Request Body:
+    * Request Body (e.g. for adding transaction data):
 
         ```json
         {
-            "body": {
-                "key1": "value1",
-                "key2": "value2"
+            "transaction_id": "string",
+            "customer": {
+                "user_id": 1, 
+                "username": "string", 
+                "password": "string", 
+                "role": "string"
             },
-            "metadata": {
-                "priority": "high",
-                "sender": "user1"
-            }
+            "status": 0, 
+            "vendor_id": "string", 
+            "amount": 100
         }
         ```
     * Response:
@@ -154,7 +148,7 @@ QueueManager:
 
             ```json
             {
-                "result": "ok"
+                "result": "Message added to queue"
             }
             ```
 * `GET /queues/<queue_name>/messages/first`:
@@ -165,20 +159,26 @@ QueueManager:
 
             ```json
             {
-                "body": {
-                    "key1": "value1",
-                    "key2": "value2"
+                "transaction_id": "string",
+                "customer": {
+                    "user_id": 1, 
+                    "username": "string", 
+                    "password": "string", 
+                    "role": "string"
                 },
-                "metadata": {
-                    "priority": "high",
-                    "sender": "user1"
-                }
+                "status": 0, 
+                "vendor_id": "string", 
+                "amount": 100
             }
             ```
-            * Body:
-                ```json
-               null
-                ```
+        Response if there are no more messages in the queue:
+        * Body:
+
+            ```json
+            {
+                "response": "Queue is empty"
+            }
+            ```
 
 
 ## How to Run
