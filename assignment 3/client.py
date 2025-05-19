@@ -39,6 +39,18 @@ except ValueError as e:
     print("Invalid JSON response:", e)
 
 # 4. Pull a message
+
+# first push a new one
+try:
+    push_url = f"http://localhost:7500/queues/{queue_name}/messages"
+    message = {"transaction_id": "124", "customer": {"user_id": 1, "username": "admin", "password": "admin123", "role": "user"}, "status": 1, "vendor_id": "444", "amount": 200}
+    response = requests.post(push_url, json=message, headers=headers)
+    print(response.json())
+except requests.exceptions.RequestException as e:
+    print("Request failed:", e)
+except ValueError as e:
+    print("Invalid JSON response:", e)
+
 try:
     pull_url = f"http://localhost:7500/queues/{queue_name}/messages/first"
     response = requests.get(pull_url, headers=headers)

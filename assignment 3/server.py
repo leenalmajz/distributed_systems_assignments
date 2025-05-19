@@ -223,12 +223,12 @@ def start_app(queue_manager: QueueManager, auth_manager: AuthenticationManager):
         if queue_name not in queue_manager.queues:
             log_message(source=request.remote_addr, destination=f"/queues/{queue_name}/messages/first", headers=request.headers, body=None)
             return jsonify({'error': 'Queue not found'}), 404
-        message = queue_manager.pull(queue_name)
-        if message is None:
+        message_body = queue_manager.pull(queue_name)
+        if message_body is None:
             log_message(source=request.remote_addr, destination=f"/queues/{queue_name}/messages/first", headers=request.headers, body=None)
             return jsonify({'error': 'Queue is empty'}), 500
         log_message(source=request.remote_addr, destination=f"/queues/{queue_name}/messages/first", headers=request.headers, body=None)
-        return jsonify(message.to_dict()), 200
+        return jsonify(message_body), 200
 
     return app
 

@@ -1,5 +1,6 @@
 from typing import Dict
 import threading, pathlib, json, time, atexit, collections
+from models import Message
 
 class QueueManager():
     def __init__(self, path: str, max_length: int, save_period_time: int):
@@ -16,18 +17,20 @@ class QueueManager():
                 for queue_name, queue_content in cont.items():
                     self.queues.update({queue_name: collections.deque(queue_content, maxlen = self.max_length)})
 
-        t = threading.Thread(target=self.periodical_save, daemon=True)
+        t = threading.Thread(target=self.periodical_save)
         t.start()   
         atexit.register(self.save_to_file)  # Save the file when the server stops
 
     def save_to_file(self):
+        if len(self.queues) == 0:
+            return
         with self.thread_lock:
             cont = {}
             for queue_name, queue_content in self.queues.items():
                 cont.update({queue_name: list(queue_content)})
             with self.file.open(mode = "w") as f:
                 json.dump(cont, f)
-                print("file saved.")
+            print("File saved")
 
     def periodical_save(self):
         while True:
@@ -58,12 +61,12 @@ class QueueManager():
                 return True
             return False
 
-    def push(self, queue_name, content):
+    def push(self, queue_name, content: Message):
         with self.thread_lock:
             queue = self.queues.get(queue_name)
             if len(queue) >= self.max_length:
                 return False
-            queue.append(content)
+            queue.append(content.body)
             return True
 
     def pull(self, queue_name):

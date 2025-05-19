@@ -1,4 +1,4 @@
 QueueManager:
   path: "queues.json"
   max_length: 999
-  save_period_time: 60
+  save_period_time: 20
