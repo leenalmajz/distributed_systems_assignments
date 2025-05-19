@@ -22,6 +22,7 @@ except ValueError as e:
     print("Invalid JSON response:", e)
 
 # 2. Create a queue
+# THIS ALREADY EXISTS IN THE PERSISTENT STORAGE, SO IT WILL GIVE AN ERROR
 try:
     queue_name = "test_queue"
     headers = {"Authorization": token}
