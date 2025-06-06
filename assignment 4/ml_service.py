@@ -1,29 +1,31 @@
-import pickle
+import joblib
 from mpi4py import MPI
+import pandas as pd
+import numpy as np
 from config import load_config
 from queue_mngr import QueueManager
 import time
 import os
 
-class MLService:
-    def __init__(self, queue_manager: QueueManager, model_path: str):
+class MLService():
+    def __init__(self, queue_manager: QueueManager, model_path: str, num_processors: int):
         self.comm = MPI.COMM_WORLD
         self.rank = self.comm.Get_rank()
-        self.size = self.comm.Get_size()
+        self.size = num_processors
         self.queue_manager = queue_manager
-        self.model = None
+        self.model = self.load_model(model_path)
         
+    def load_model(self, model_path: str):
         if self.rank == 0:
             if not os.path.exists(model_path):
-                raise FileNotFoundError(f"Model file {model_path} not found")
-            with open(model_path, 'rb') as f:
-                self.model = pickle.load(f)
+                raise FileNotFoundError(f"Model file {model_path} not found.")
+            return joblib.load(model_path)
 
     def process_transactions(self, transactions_queue = 'transactions', results_queue  = 'results'):
-        if self.rank == 0:
+        if self.rank == 0:  # Master
             while True:
                 transactions = []
-                for _ in range(self.size - 1):
+                for _ in range(self.size):
                     transaction = self.queue_manager.pull(transactions_queue)
                     if transaction is None: # If there are no more transactions
                         break
@@ -34,8 +36,8 @@ class MLService:
                     continue
             
                 # Distributing transactions between processes
-                for i, transaction in enumerate(transactions):
-                    self.comm.send(transaction, dest = i+1, tag = 1)    # tag is 1 for sending, 2 for receiving if rang = 0. If not, the numbers are flipped
+                for i, transaction in range(min(len(transactions), self.size)): # If there would be (somehow) more transactions than processes, limit the transactions sent
+                    self.comm.send(transactions[i], dest = i+1, tag = 1)    # tag is 1 for sending, 2 for receiving if rang = 0. If not, the numbers are flipped
 
                 # Gathering results
                 results = []
@@ -46,19 +48,38 @@ class MLService:
                 for result in results:  # Pushing results to the queue
                     self.queue_manager.push(results_queue, {'body': result})
 
-        else:
+        else:   # Worker
             while True:
                 transaction = self.comm.recv(source = 0, tag = 1)
+                time.sleep(0.5)
 
-                # TODO: This is a placeholder
-                result = {
-                    'transaction_id': transaction['transaction_id'],
-                    'timestamp': time.time(),
-                    'is_fraudulent': False,
-                    'confidence': 0.0
-                }
+                result = self.predict_from_transaction(transaction)
+                time.sleep(0.5)
+
                 self.comm.send(result, dest = 0, tag = 2)
 
+    def predict_from_transaction(self, transaction):
+        # Save customer_id for reference
+        customer_id = transaction['customer']['user_id']
+
+        # Preprocess
+        df_processed = transaction.copy()
+        df_processed['timestamp'] = pd.to_datetime(df_processed['timestamp']).astype(int) / 10**9
+
+        # Drop unused columns
+        df_processed.pop('customer')
+        df_processed.pop('transaction_id')
+
+        # Generate predictions
+        predictions = self.model.predict(df_processed)
+
+        # Return predictions alongside customer_id
+        result = pd.DataFrame({
+            'customer_id': customer_id,
+            'predicted_fraudulent': predictions
+        })
+
+        return result
 
 
 if __name__ == "__main__":
@@ -72,4 +93,5 @@ if __name__ == "__main__":
     if not queue_manager.create_queue('results'):
         print('"results" queue already exists!')
 
-    service = MLService(queue_manager, conf['MLModel']['path'])
+    ml_data = conf['MLModel']
+    service = MLService(queue_manager, ml_data['path'], ml_data['num_processors'])
