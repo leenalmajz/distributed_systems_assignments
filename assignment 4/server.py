@@ -11,7 +11,7 @@ from auth_mngr import AuthorizationManager
 from queue_mngr import QueueManager
 from ml_service import MLService
 
-def start_app(queue_manager: QueueManager, auth_manager: AuthorizationManager, ml_service: MLService):
+def start_app(queue_manager: QueueManager, auth_manager: AuthorizationManager):
     app = Flask(__name__)
 
     #  Dictionary to store tokens for users

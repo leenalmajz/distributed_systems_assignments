@@ -1,9 +1,6 @@
-import joblib
+import joblib, time, datetime, os, threading
 from mpi4py import MPI
 from queue_mngr import QueueManager
-import time
-import datetime
-import os
 
 class MLService():
     def __init__(self, queue_manager: QueueManager, model_path: str, num_processors: int):
@@ -12,6 +9,10 @@ class MLService():
         self.size = num_processors
         self.queue_manager = queue_manager
         self.model = self.load_model(model_path)
+
+        self.thread_lock = threading.Lock()
+        t = threading.Thread(target=self.process_transactions)   # setting up a thread to run a periodical save simultaneously to everything else
+        t.start()
         
     def load_model(self, model_path: str):
         if self.rank == 0:
