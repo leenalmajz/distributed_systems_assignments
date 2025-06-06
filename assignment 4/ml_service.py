@@ -3,10 +3,10 @@ from mpi4py import MPI
 from queue_mngr import QueueManager
 
 class MLService():
-    def __init__(self, queue_manager: QueueManager, model_path: str, num_processors: int):
+    def __init__(self, queue_manager: QueueManager, model_path: str):
         self.comm = MPI.COMM_WORLD
         self.rank = self.comm.Get_rank()    # Gets the ranks of the processes: 0 = master, anything else is a worker process
-        self.size = num_processors          # Number of processors is the number of worker processors. Set to 5 as default in the config file
+        self.size = self.comm.Get_size()    # Number of processors is the number of worker processors. Set to 5 as default in the docker-compose.yml
         self.queue_manager = queue_manager
         self.model = self.load_model(model_path)    # Loads the pre-trained model
 

@@ -5,4 +5,3 @@ QueueManager:
 
 MLModel:
   path: "fraud_rf_model.pkl"
-  num_processors: 5
