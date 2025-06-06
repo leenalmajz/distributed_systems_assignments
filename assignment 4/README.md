@@ -51,10 +51,8 @@ QueueManager:
 ```yaml
 MLService:
     path: "fraud_rf_model.pkl"
-    num_workers: 5
 ```
 * 	`path`: Path where the random forest model is located
-*   `num_workers`: Default number of worker processes
 
 ## Module Descriptions
 
