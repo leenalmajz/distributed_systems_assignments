@@ -1,10 +1,9 @@
 import joblib
 from mpi4py import MPI
-import pandas as pd
-import numpy as np
 from config import load_config
 from queue_mngr import QueueManager
 import time
+import datetime
 import os
 
 class MLService():
@@ -64,7 +63,7 @@ class MLService():
 
         # Preprocess
         df_processed = transaction.copy()
-        df_processed['timestamp'] = pd.to_datetime(df_processed['timestamp']).astype(int) / 10**9
+        df_processed.update({'timestamp': datetime.datetime.now()})
 
         # Drop unused columns
         df_processed.pop('customer')
@@ -74,10 +73,10 @@ class MLService():
         predictions = self.model.predict(df_processed)
 
         # Return predictions alongside customer_id
-        result = pd.DataFrame({
+        result = {
             'customer_id': customer_id,
             'predicted_fraudulent': predictions
-        })
+        }
 
         return result
 
