@@ -24,7 +24,7 @@ class MLService():
         t = threading.Thread(target=self.process_transactions)   # setting up a thread to run the processes in the background
         t.start()
         
-    def load_model(self, model_path: str):
+    def load_model(self, model_path: str):  # Loads the pre-trained model from the pkl file
         if self.rank == 0:
             if not os.path.exists(model_path):
                 raise FileNotFoundError(f"Model file {model_path} not found.")
@@ -58,7 +58,7 @@ class MLService():
 
         else:   # Worker
             while True:
-                transaction = self.comm.recv(source = 0, tag = 1)
+                transaction = self.comm.recv(source = 0, tag = 1)   # Gets the transaction from the master process
                 time.sleep(0.5)
 
                 result = self.predict_from_transaction(transaction) # Getting the result from the model (if it's fraudulent or not)
