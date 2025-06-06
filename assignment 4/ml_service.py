@@ -1,4 +1,4 @@
-import joblib, time, datetime, os, threading
+import joblib, time, datetime, os
 from mpi4py import MPI
 from queue_mngr import QueueManager
 
@@ -14,10 +14,6 @@ class MLService():
             print(f"Master initialized with {self.size-1} workers")
         else:
             print(f"Worker {self.rank} ready")
-
-        self.thread_lock = threading.Lock()
-        t = threading.Thread(target=self.process_transactions)   # setting up a thread to run the processes in the background
-        t.start()
         
     def load_model(self, model_path: str):  # Loads the pre-trained model from the pkl file
         if self.rank == 0:
