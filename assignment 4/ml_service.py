@@ -5,13 +5,13 @@ from queue_mngr import QueueManager
 class MLService():
     def __init__(self, queue_manager: QueueManager, model_path: str, num_processors: int):
         self.comm = MPI.COMM_WORLD
-        self.rank = self.comm.Get_rank()
-        self.size = num_processors
+        self.rank = self.comm.Get_rank()    # Gets the ranks of the processes: 0 = master, anything else is a worker process
+        self.size = num_processors          # Number of processors is the number of worker processors. Set to 5 as default in the config file
         self.queue_manager = queue_manager
-        self.model = self.load_model(model_path)
+        self.model = self.load_model(model_path)    # Loads the pre-trained model
 
         self.thread_lock = threading.Lock()
-        t = threading.Thread(target=self.process_transactions)   # setting up a thread to run a periodical save simultaneously to everything else
+        t = threading.Thread(target=self.process_transactions)   # setting up a thread to run the processes in the background
         t.start()
         
     def load_model(self, model_path: str):
@@ -29,13 +29,12 @@ class MLService():
                     if transaction is None: # If there are no more transactions
                         break
                     transactions.append(transaction)
-                
                 if len(transactions) == 0:
                     time.sleep(1)   # wait for 1 second if the queue is empty
                     continue
             
                 # Distributing transactions between processes
-                for i, transaction in range(min(len(transactions), self.size)): # If there would be (somehow) more transactions than processes, limit the transactions sent
+                for i in range(min(len(transactions), self.size)): # If there would be (somehow) more transactions than processes, limit the transactions sent
                     self.comm.send(transactions[i], dest = i+1, tag = 1)    # tag is 1 for transactions, 2 is for results
 
                 # Gathering results

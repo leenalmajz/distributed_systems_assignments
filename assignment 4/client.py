@@ -24,7 +24,7 @@ except ValueError as e:
 # 2. Create a queue
 # THIS ALREADY EXISTS IN THE PERSISTENT STORAGE, SO IT WILL GIVE AN ERROR
 try:
-    queue_name = "test_queue"
+    queue_name = "transactions"
     headers = {"Authorization": token}
     create_queue_url = f"http://localhost:7500/queues/{queue_name}"
     response = requests.post(create_queue_url, headers=headers)
