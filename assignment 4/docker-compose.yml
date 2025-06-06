@@ -20,15 +20,14 @@ services:
   master:
     build: .
     hostname: master
-    command: [
-    "mpirun",
-    "--hostfile", "/app/hostfile",
-    "-np", "5",
-    "--mca", "plm_rsh_no_tree_spawn", "1",  
-    "--mca", "plm_rsh_agent", "/bin/false", 
-    "--allow-run-as-root",                  
-    "python3", "ml_service.py"
-  ]
+    command: >
+      sh -c "sleep 5 &&  # Wait for workers to initialize
+      mpirun --hostfile /app/hostfile -np 5
+      --mca plm_rsh_no_tree_spawn 1
+      --mca plm_rsh_agent /bin/false
+      --allow-run-as-root
+      --mca btl_tcp_if_include eth0
+      python3 ml_service.py"
 
     volumes:
       - .:/app
@@ -48,7 +47,7 @@ services:
   worker1:
     build: .
     hostname: worker1
-    command: ["python3", "ml_service.py"]
+    command: ["python3", "-c", "from mpi4py import MPI; import time; time.sleep(3600)"]
     volumes:
       - .:/app
     networks:
@@ -57,7 +56,7 @@ services:
   worker2:
     build: .
     hostname: worker2
-    command: ["python3", "ml_service.py"]
+    command: ["python3", "-c", "from mpi4py import MPI; import time; time.sleep(3600)"]
     volumes:
       - .:/app
     networks:
@@ -66,7 +65,7 @@ services:
   worker3:
     build: .
     hostname: worker3
-    command: ["python3", "ml_service.py"]
+    command: ["python3", "-c", "from mpi4py import MPI; import time; time.sleep(3600)"]
     volumes:
       - .:/app
     networks:
@@ -75,7 +74,7 @@ services:
   worker4:
     build: .
     hostname: worker4
-    command: ["python3", "ml_service.py"]
+    command: ["python3", "-c", "from mpi4py import MPI; import time; time.sleep(3600)"]
     volumes:
       - .:/app
     networks:
@@ -84,7 +83,7 @@ services:
   worker5:
     build: .
     hostname: worker5
-    command: ["python3", "ml_service.py"]
+    command: ["python3", "-c", "from mpi4py import MPI; import time; time.sleep(3600)"]
     volumes:
       - .:/app
     networks:

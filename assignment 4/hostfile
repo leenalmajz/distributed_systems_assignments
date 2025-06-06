@@ -1,5 +1,5 @@
-worker1
-worker2
-worker3 
-worker4
-worker5
+worker1 slots=1
+worker2 slots=1
+worker3 slots=1
+worker4 slots=1
+worker5 slots=1
