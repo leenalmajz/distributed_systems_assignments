@@ -1,11 +1,18 @@
 version: '3.8'
 
 services:
-  app:
+  master:
     build: .
-    hostname: app
+    hostname: master
     ports:
       - "7500:7500"
+    command:
+      - sh
+      - -c
+      - |
+        sleep 5
+        mpirun --host worker1,worker2,worker3,worker4,worker5 -np 5 python3 ml_service.py &
+        python3 main.py
     volumes:
       - .:/app
     environment:
@@ -13,28 +20,6 @@ services:
       - FLASK_ENV=development
       - FLASK_RUN_HOST=0.0.0.0  # Explicit host binding
       - FLASK_RUN_PORT=7500
-    depends_on:
-      rabbitmq:
-        condition: service_healthy
-    command: python3 main.py
-  master:
-    build: .
-    hostname: master
-    command:
-    - sh
-    - -c
-    - |
-      sleep 5
-      mpirun --hostfile /app/hostfile -np 5 \
-      --mca plm_rsh_no_tree_spawn 1 \
-      --mca plm_rsh_agent /bin/false \
-      --allow-run-as-root \
-      --mca btl_tcp_if_include eth0 \
-      python3 ml_service.py
-
-    volumes:
-      - .:/app
-    environment:
       - RABBITMQ_HOST=rabbitmq
       - MODEL_PATH=/app/fraud_rf_model.pkl
     networks:
