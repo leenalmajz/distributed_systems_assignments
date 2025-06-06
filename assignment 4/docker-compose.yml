@@ -4,7 +4,16 @@ services:
   master:
     build: .
     hostname: master
-    command: ["mpirun", "--hostfile", "/app/hostfile", "-np", "6", "python3", "ml_service.py"]
+    command: [
+    "mpirun",
+    "--hostfile", "/app/hostfile",
+    "-np", "5",
+    "--mca", "plm_rsh_no_tree_spawn", "1",  
+    "--mca", "plm_rsh_agent", "/bin/false", 
+    "--allow-run-as-root",                  
+    "python3", "ml_service.py"
+  ]
+
     volumes:
       - .:/app
     environment:

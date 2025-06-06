@@ -20,6 +20,10 @@ COPY requirements.txt /tmp/requirements.txt
 # Install Python packages from requirements.txt
 RUN pip3 install --no-cache-dir -r /tmp/requirements.txt 
 
+# Ensure MPI can communicate over TCP
+ENV OMPI_MCA_btl=tcp,self
+ENV OMPI_MCA_plm=isolated
+
 # Switch to the non-root user
 USER mpiuser
 
