@@ -2,16 +2,6 @@ import joblib, time, datetime, os, threading
 from mpi4py import MPI
 from queue_mngr import QueueManager
 
-def __init__(self, queue_manager: QueueManager, model_path: str, num_processors: int):
-    self.comm = MPI.COMM_WORLD
-    self.rank = self.comm.Get_rank()
-    self.size = self.comm.Get_size()  # Use actual MPI size instead of num_processors
-    
-    if self.rank == 0:
-        print(f"Master initialized with {self.size-1} workers")
-    else:
-        print(f"Worker {self.rank} ready")
-
 class MLService():
     def __init__(self, queue_manager: QueueManager, model_path: str, num_processors: int):
         self.comm = MPI.COMM_WORLD
@@ -19,6 +9,11 @@ class MLService():
         self.size = num_processors          # Number of processors is the number of worker processors. Set to 5 as default in the config file
         self.queue_manager = queue_manager
         self.model = self.load_model(model_path)    # Loads the pre-trained model
+
+        if self.rank == 0:
+            print(f"Master initialized with {self.size-1} workers")
+        else:
+            print(f"Worker {self.rank} ready")
 
         self.thread_lock = threading.Lock()
         t = threading.Thread(target=self.process_transactions)   # setting up a thread to run the processes in the background
