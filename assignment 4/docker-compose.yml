@@ -1,0 +1,78 @@
+version: '1.0.0.'
+
+services:
+  master:
+    build: .
+    hostname: master
+    command: -hostfile /app/hosts -np 6 python3 ml_service.py
+    volumes:
+      - .:/app
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+      - MODEL_PATH=/app/fraud_rf_model.pkl
+    networks:
+      - mpi_network
+    depends_on:
+      - rabbitmq
+      - worker1
+      - worker2
+      - worker3
+      - worker4
+      - worker5
+
+  worker1:
+    build: .
+    hostname: worker1
+    command: -hostfile /app/hosts python3 ml_service.py
+    volumes:
+      - .:/app
+    networks:
+      - mpi_network
+
+  worker2:
+    build: .
+    hostname: worker2
+    command: -hostfile /app/hosts python3 ml_service.py
+    volumes:
+      - .:/app
+    networks:
+      - mpi_network
+
+  worker3:
+    build: .
+    hostname: worker3
+    command: -hostfile /app/hosts python3 ml_service.py
+    volumes:
+      - .:/app
+    networks:
+      - mpi_network
+
+  worker4:
+    build: .
+    hostname: worker4
+    command: -hostfile /app/hosts python3 ml_service.py
+    volumes:
+      - .:/app
+    networks:
+      - mpi_network
+
+  worker5:
+    build: .
+    hostname: worker5
+    command: -hostfile /app/hosts python3 ml_service.py
+    volumes:
+      - .:/app
+    networks:
+      - mpi_network
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"  # Advance Message Queuing Protocol (AMQP)
+      - "15672:15672"  # Management UI
+    networks:
+      - mpi_network
+
+networks:
+  mpi_network:
+    driver: bridge
