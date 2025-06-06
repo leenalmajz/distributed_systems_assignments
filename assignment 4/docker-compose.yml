@@ -11,14 +11,14 @@ services:
       - -c
       - |
         sleep 5
-        mpirun --host worker1,worker2,worker3,worker4,worker5 -np 5 python3 ml_service.py &
+        mpirun --allow-run-as-root --host worker1,worker2,worker3,worker4,worker5 -np 5 python3 ml_service.py &
         python3 main.py
     volumes:
       - .:/app
     environment:
       - FLASK_APP=main.py
       - FLASK_ENV=development
-      - FLASK_RUN_HOST=0.0.0.0  # Explicit host binding
+      - FLASK_RUN_HOST=0.0.0.0
       - FLASK_RUN_PORT=7500
       - RABBITMQ_HOST=rabbitmq
       - MODEL_PATH=/app/fraud_rf_model.pkl
@@ -35,7 +35,7 @@ services:
   worker1:
     build: .
     hostname: worker1
-    command: ["python3", "-c", "from mpi4py import MPI; import time; time.sleep(3600)"]
+    command: ["python3", "-c", "from mpi4py import MPI; print(f'Worker {MPI.COMM_WORLD.Get_rank()} initialized'); import time; time.sleep(3600)"]
     volumes:
       - .:/app
     networks:
@@ -44,7 +44,7 @@ services:
   worker2:
     build: .
     hostname: worker2
-    command: ["python3", "-c", "from mpi4py import MPI; import time; time.sleep(3600)"]
+    command: ["python3", "-c", "from mpi4py import MPI; print(f'Worker {MPI.COMM_WORLD.Get_rank()} initialized'); import time; time.sleep(3600)"]
     volumes:
       - .:/app
     networks:
@@ -53,7 +53,7 @@ services:
   worker3:
     build: .
     hostname: worker3
-    command: ["python3", "-c", "from mpi4py import MPI; import time; time.sleep(3600)"]
+    command: ["python3", "-c", "from mpi4py import MPI; print(f'Worker {MPI.COMM_WORLD.Get_rank()} initialized'); import time; time.sleep(3600)"]
     volumes:
       - .:/app
     networks:
@@ -62,7 +62,7 @@ services:
   worker4:
     build: .
     hostname: worker4
-    command: ["python3", "-c", "from mpi4py import MPI; import time; time.sleep(3600)"]
+    command: ["python3", "-c", "from mpi4py import MPI; print(f'Worker {MPI.COMM_WORLD.Get_rank()} initialized'); import time; time.sleep(3600)"]
     volumes:
       - .:/app
     networks:
@@ -71,7 +71,7 @@ services:
   worker5:
     build: .
     hostname: worker5
-    command: ["python3", "-c", "from mpi4py import MPI; import time; time.sleep(3600)"]
+    command: ["python3", "-c", "from mpi4py import MPI; print(f'Worker {MPI.COMM_WORLD.Get_rank()} initialized'); import time; time.sleep(3600)"]
     volumes:
       - .:/app
     networks:
@@ -80,8 +80,8 @@ services:
   rabbitmq:
     image: rabbitmq:3-management
     ports:
-      - "5672:5672"  # Advance Message Queuing Protocol (AMQP)
-      - "15672:15672"  # Management UI
+      - "5672:5672"
+      - "15672:15672"
     networks:
       - mpi_network
     healthcheck:
