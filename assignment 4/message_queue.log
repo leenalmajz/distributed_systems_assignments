@@ -1061,3 +1061,77 @@
 2025-06-06 12:41:37 [INFO] 192.168.65.1 - - [06/Jun/2025 12:41:37] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
 2025-06-06 12:41:37 [INFO] {"source": "192.168.65.1", "destination": "/queues/transactions/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "fP-dGNTJ4DAq7-2E8HeNaMGMJrKmKvx5gbt54wcfn7A"}, "metadata": null, "body": null}
 2025-06-06 12:41:37 [INFO] 192.168.65.1 - - [06/Jun/2025 12:41:37] "GET /queues/transactions/messages/first HTTP/1.1" 200 -
+2025-06-06 14:47:39 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:7500
+ * Running on http://10.0.0.21:7500
+2025-06-06 14:47:39 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-06 14:47:39 [INFO]  * Restarting with stat
+2025-06-06 14:47:40 [WARNING]  * Debugger is active!
+2025-06-06 14:47:40 [INFO]  * Debugger PIN: 313-464-571
+2025-06-06 14:47:42 [INFO] {"source": "127.0.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-06-06 14:47:42 [INFO] 127.0.0.1 - - [06/Jun/2025 14:47:42] "POST /login HTTP/1.1" 200 -
+2025-06-06 14:47:44 [INFO] {"source": "127.0.0.1", "destination": "/queues/transactions", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "yWJHFIh6ZupMPhtlsFURf4_oz46dGqEdtFsRO31JT1E", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-06-06 14:47:44 [INFO] 127.0.0.1 - - [06/Jun/2025 14:47:44] "[31m[1mPOST /queues/transactions HTTP/1.1[0m" 409 -
+2025-06-06 14:47:46 [INFO] {"source": "127.0.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "yWJHFIh6ZupMPhtlsFURf4_oz46dGqEdtFsRO31JT1E", "Content-Length": "162", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "123", "customer": {"user_id": 1, "username": "admin", "password": "admin123", "role": "user"}, "status": 0, "vendor_id": "456", "amount": 100}}
+2025-06-06 14:47:46 [INFO] 127.0.0.1 - - [06/Jun/2025 14:47:46] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-06 14:47:48 [INFO] {"source": "127.0.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "yWJHFIh6ZupMPhtlsFURf4_oz46dGqEdtFsRO31JT1E", "Content-Length": "162", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "124", "customer": {"user_id": 1, "username": "admin", "password": "admin123", "role": "user"}, "status": 1, "vendor_id": "444", "amount": 200}}
+2025-06-06 14:47:48 [INFO] 127.0.0.1 - - [06/Jun/2025 14:47:48] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-06 14:47:50 [INFO] {"source": "127.0.0.1", "destination": "/queues/transactions/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "yWJHFIh6ZupMPhtlsFURf4_oz46dGqEdtFsRO31JT1E"}, "metadata": null, "body": null}
+2025-06-06 14:47:50 [INFO] 127.0.0.1 - - [06/Jun/2025 14:47:50] "GET /queues/transactions/messages/first HTTP/1.1" 200 -
+2025-06-06 12:48:20 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:7500
+ * Running on http://172.18.0.8:7500
+2025-06-06 12:48:20 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-06 12:48:20 [INFO]  * Restarting with stat
+2025-06-06 12:48:22 [WARNING]  * Debugger is active!
+2025-06-06 12:48:22 [INFO]  * Debugger PIN: 115-630-752
+2025-06-06 12:48:33 [INFO] {"source": "172.18.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-06-06 12:48:33 [INFO] 172.18.0.1 - - [06/Jun/2025 12:48:33] "POST /login HTTP/1.1" 200 -
+2025-06-06 12:48:33 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "DuCZohWhuS12ODstjCilK0UBYyNiaudY-4rHGxEwoxw", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-06-06 12:48:33 [INFO] 172.18.0.1 - - [06/Jun/2025 12:48:33] "[31m[1mPOST /queues/transactions HTTP/1.1[0m" 409 -
+2025-06-06 12:48:33 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "DuCZohWhuS12ODstjCilK0UBYyNiaudY-4rHGxEwoxw", "Content-Length": "162", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "123", "customer": {"user_id": 1, "username": "admin", "password": "admin123", "role": "user"}, "status": 0, "vendor_id": "456", "amount": 100}}
+2025-06-06 12:48:33 [INFO] 172.18.0.1 - - [06/Jun/2025 12:48:33] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-06 12:48:33 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "DuCZohWhuS12ODstjCilK0UBYyNiaudY-4rHGxEwoxw", "Content-Length": "162", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "124", "customer": {"user_id": 1, "username": "admin", "password": "admin123", "role": "user"}, "status": 1, "vendor_id": "444", "amount": 200}}
+2025-06-06 12:48:33 [INFO] 172.18.0.1 - - [06/Jun/2025 12:48:33] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-06 12:48:33 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "DuCZohWhuS12ODstjCilK0UBYyNiaudY-4rHGxEwoxw"}, "metadata": null, "body": null}
+2025-06-06 12:48:33 [INFO] 172.18.0.1 - - [06/Jun/2025 12:48:33] "GET /queues/transactions/messages/first HTTP/1.1" 200 -
+2025-06-06 12:48:55 [INFO] {"source": "172.18.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-06-06 12:48:55 [INFO] 172.18.0.1 - - [06/Jun/2025 12:48:55] "POST /login HTTP/1.1" 200 -
+2025-06-06 12:48:55 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "lscJYotjyVq4KU5sOpVZxqRVcuNlCuNxGYRTYQtvytM", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-06-06 12:48:55 [INFO] 172.18.0.1 - - [06/Jun/2025 12:48:55] "[31m[1mPOST /queues/transactions HTTP/1.1[0m" 409 -
+2025-06-06 12:48:55 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "lscJYotjyVq4KU5sOpVZxqRVcuNlCuNxGYRTYQtvytM", "Content-Length": "162", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "123", "customer": {"user_id": 1, "username": "admin", "password": "admin123", "role": "user"}, "status": 0, "vendor_id": "456", "amount": 100}}
+2025-06-06 12:48:55 [INFO] 172.18.0.1 - - [06/Jun/2025 12:48:55] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-06 12:48:55 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "lscJYotjyVq4KU5sOpVZxqRVcuNlCuNxGYRTYQtvytM", "Content-Length": "162", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "124", "customer": {"user_id": 1, "username": "admin", "password": "admin123", "role": "user"}, "status": 1, "vendor_id": "444", "amount": 200}}
+2025-06-06 12:48:55 [INFO] 172.18.0.1 - - [06/Jun/2025 12:48:55] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-06 12:48:55 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "lscJYotjyVq4KU5sOpVZxqRVcuNlCuNxGYRTYQtvytM"}, "metadata": null, "body": null}
+2025-06-06 12:48:55 [INFO] 172.18.0.1 - - [06/Jun/2025 12:48:55] "GET /queues/transactions/messages/first HTTP/1.1" 200 -
+2025-06-06 12:49:28 [INFO]  * Detected change in '/app/ml_service.py', reloading
+2025-06-06 12:49:50 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:7500
+ * Running on http://172.18.0.8:7500
+2025-06-06 12:49:50 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-06 12:49:50 [INFO]  * Restarting with stat
+2025-06-06 12:49:52 [WARNING]  * Debugger is active!
+2025-06-06 12:49:52 [INFO]  * Debugger PIN: 130-108-244
+2025-06-06 12:50:23 [INFO] {"source": "172.18.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-06-06 12:50:23 [INFO] 172.18.0.1 - - [06/Jun/2025 12:50:23] "POST /login HTTP/1.1" 200 -
+2025-06-06 12:50:23 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "mcHjnlK89219Mn1kHzg_UYyHHC6XF5XtyOAMGczKmD8", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-06-06 12:50:23 [INFO] 172.18.0.1 - - [06/Jun/2025 12:50:23] "[31m[1mPOST /queues/transactions HTTP/1.1[0m" 409 -
+2025-06-06 12:50:23 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "mcHjnlK89219Mn1kHzg_UYyHHC6XF5XtyOAMGczKmD8", "Content-Length": "162", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "123", "customer": {"user_id": 1, "username": "admin", "password": "admin123", "role": "user"}, "status": 0, "vendor_id": "456", "amount": 100}}
+2025-06-06 12:50:23 [INFO] 172.18.0.1 - - [06/Jun/2025 12:50:23] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-06 12:50:23 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "mcHjnlK89219Mn1kHzg_UYyHHC6XF5XtyOAMGczKmD8", "Content-Length": "162", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "124", "customer": {"user_id": 1, "username": "admin", "password": "admin123", "role": "user"}, "status": 1, "vendor_id": "444", "amount": 200}}
+2025-06-06 12:50:23 [INFO] 172.18.0.1 - - [06/Jun/2025 12:50:23] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-06 12:50:23 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "mcHjnlK89219Mn1kHzg_UYyHHC6XF5XtyOAMGczKmD8"}, "metadata": null, "body": null}
+2025-06-06 12:50:23 [INFO] 172.18.0.1 - - [06/Jun/2025 12:50:23] "GET /queues/transactions/messages/first HTTP/1.1" 200 -
+2025-06-06 12:52:04 [INFO]  * Detected change in '/app/main.py', reloading
+2025-06-06 12:59:16 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:7500
+ * Running on http://172.18.0.8:7500
+2025-06-06 12:59:16 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-06 12:59:16 [INFO]  * Restarting with stat
+2025-06-06 12:59:17 [WARNING]  * Debugger is active!
+2025-06-06 12:59:17 [INFO]  * Debugger PIN: 135-637-608

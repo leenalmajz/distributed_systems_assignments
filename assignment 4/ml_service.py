@@ -1,6 +1,7 @@
 import joblib, time, datetime, os
 from mpi4py import MPI
 from queue_mngr import QueueManager
+from config import load_config
 
 class MLService():
     def __init__(self, queue_manager: QueueManager, model_path: str):
@@ -22,6 +23,7 @@ class MLService():
             return joblib.load(model_path)
 
     def process_transactions(self, transactions_queue = 'transactions', results_queue  = 'results'):
+        print(self.rank)
         if self.rank == 0:  # Master
             while True:
                 transactions = []
@@ -79,3 +81,11 @@ class MLService():
         }
 
         return result
+    
+if __name__ == "__main__":
+    conf = load_config()    # Loads data from the config file
+    queue_data = conf['QueueManager']
+    ml_data = conf['MLModel']
+
+    queue_manager = QueueManager(queue_data['path'], queue_data['max_length'], queue_data['save_period_time'])  # Creates a QueueManager instance
+    ml_service = MLService(queue_manager, ml_data['path'])   # Creates the MLService class instance

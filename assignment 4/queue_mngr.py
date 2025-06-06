@@ -4,6 +4,8 @@ from models import Message
 
 class QueueManager():
     index = 0
+    singleton_instance = None
+
     def __init__(self, path: str, max_length: int, save_period_time: int):
         QueueManager.index += 1
         if QueueManager.index > 1:  # Makes sure only one queue manager is created. For some reason we had a problem that multiple queue managers existed at the same time.

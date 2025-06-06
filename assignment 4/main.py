@@ -19,9 +19,6 @@ def run():
     if not queue_manager.create_queue('results'):
         print("Results queue already exists")
 
-    ml_data = conf['MLModel']
-    ml_service = MLService(queue_manager, ml_data['path'])   # Creates the MLService class instance
-
     app = start_app(queue_manager, auth_manager)    # Creates all of the necessary functions for the server app and returns the app
     app.run(host='0.0.0.0', debug=True, port=7500)  # Starts running the server
 
