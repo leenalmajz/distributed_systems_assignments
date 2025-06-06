@@ -9,17 +9,25 @@ RUN apt-get update && apt-get install -y \
     openmpi-bin \
     && rm -rf /var/lib/apt/lists/*
 
+# Create a non-root user
+RUN useradd -m mpiuser && \
+    mkdir /app && \
+    chown mpiuser:mpiuser /app
+
 # Copy the requirements.txt file into the container
 COPY requirements.txt /tmp/requirements.txt
 
 # Install Python packages from requirements.txt
 RUN pip3 install --no-cache-dir -r /tmp/requirements.txt 
 
+# Switch to the non-root user
+USER mpiuser
+
 # Set the working directory
 WORKDIR /app
 
 # Copy the application files
-COPY . .
+COPY --chown=mpiuser:mpiuser . .
 
-# Set the entrypoint to run mpirun
-ENTRYPOINT ["mpirun"]
+# Run the application using mpirun
+CMD ["mpirun", "--hostfile", "hosts", "-np", "6", "python3", "ml_service.py"]
