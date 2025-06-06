@@ -1,6 +1,18 @@
 version: '3.8'
 
 services:
+  app:
+    build: .
+    hostname: app
+    ports:
+      - "7500:7500"
+    volumes:
+      - .:/app
+    environment:
+      - FLASK_ENV=development
+    depends_on:
+      - rabbitmq
+    command: python3 main.py
   master:
     build: .
     hostname: master
