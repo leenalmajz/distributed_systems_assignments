@@ -23,7 +23,7 @@ def run():
     ml_service = MLService(queue_manager, ml_data['path'], ml_data['num_processors'])   # Creates the MLService class instance
 
     app = start_app(queue_manager, auth_manager)    # Creates all of the necessary functions for the server app and returns the app
-    app.run(debug=True, port=7500)  # Starts running the server
+    app.run(host='0.0.0.0', debug=True, port=7500)  # Starts running the server
 
 if __name__ == "__main__":
     run()

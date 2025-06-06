@@ -76,6 +76,10 @@ def start_app(queue_manager: QueueManager, auth_manager: AuthorizationManager):
     #_____________________Routes_____________________#
     ##################################################
 
+    @app.route('/')
+    def home():
+        return "ML Service is running", 200
+        
     @app.route('/login', methods=['POST'])
     def login():
         """

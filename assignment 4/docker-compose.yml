@@ -9,9 +9,13 @@ services:
     volumes:
       - .:/app
     environment:
+      - FLASK_APP=main.py
       - FLASK_ENV=development
+      - FLASK_RUN_HOST=0.0.0.0  # Explicit host binding
+      - FLASK_RUN_PORT=7500
     depends_on:
-      - rabbitmq
+      rabbitmq:
+        condition: service_healthy
     command: python3 main.py
   master:
     build: .
@@ -93,6 +97,11 @@ services:
       - "15672:15672"  # Management UI
     networks:
       - mpi_network
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "status"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
 
 networks:
   mpi_network:
