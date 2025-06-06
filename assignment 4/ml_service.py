@@ -87,5 +87,5 @@ if __name__ == "__main__":
     queue_data = conf['QueueManager']
     ml_data = conf['MLModel']
 
-    queue_manager = QueueManager(queue_data['path'], queue_data['max_length'], queue_data['save_period_time'])  # Creates a QueueManager instance
+    queue_manager = QueueManager.get_instance(queue_data['path'], queue_data['max_length'], queue_data['save_period_time']) # Creates a QueueManager instance
     ml_service = MLService(queue_manager, ml_data['path'])   # Creates the MLService class instance

@@ -10,7 +10,7 @@ def run():
     conf = load_config()    # Loads data from the config file
     queue_data = conf['QueueManager']
     
-    queue_manager = QueueManager(queue_data['path'], queue_data['max_length'], queue_data['save_period_time'])  # Creates a QueueManager instance
+    queue_manager = QueueManager.get_instance(queue_data['path'], queue_data['max_length'], queue_data['save_period_time'])  # Creates a QueueManager instance
     auth_manager = AuthorizationManager()  # Creates an AuthorizationManager instance
 
     # Ensure required queues exist

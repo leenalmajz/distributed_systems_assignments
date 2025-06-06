@@ -27,6 +27,13 @@ class QueueManager():
         t.start()   
         atexit.register(self.save_to_file)  # Save the file when the server stops
 
+    @staticmethod
+    def get_instance(path = 'queues.json', length = 999, period_time = 20):
+        if QueueManager.singleton_instance is None:
+            QueueManager.singleton_instance = QueueManager(path, length, period_time)
+
+        return QueueManager.singleton_instance
+
     def save_to_file(self):
         '''
         Saves the queues and their content into a json file
