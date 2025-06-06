@@ -1,0 +1,861 @@
+2025-05-18 17:21:15 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:7500
+2025-05-18 17:21:15 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-18 17:21:15 [INFO]  * Restarting with stat
+2025-05-18 17:21:15 [WARNING]  * Debugger is active!
+2025-05-18 17:21:15 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:21:37 [INFO] 127.0.0.1 - - [18/May/2025 17:21:37] "[33mGET / HTTP/1.1[0m" 404 -
+2025-05-18 17:21:39 [INFO] 127.0.0.1 - - [18/May/2025 17:21:39] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-18 17:22:21 [ERROR] 127.0.0.1 - - [18/May/2025 17:22:21] code 400, message Bad request version ('jj\x13\x01\x13\x02\x13\x03\xc0+\xc0/\xc0,\xc00\xcc©\xcc¨\xc0\x13\xc0\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06Ejj\x00\x00\x00')
+2025-05-18 17:22:21 [INFO] 127.0.0.1 - - [18/May/2025 17:22:21] "[35m[1m\x16\x03\x01\x06\xb2\x01\x00\x06®\x03\x03÷ff\x14fÓÄD\x9dv(C\x8f0#Ä°~ ]\x8c\x80\xc0\x89\x10\\\x9b¦t\xe3K\x1d \x1e\x9fB\x8a\x1c\xf1÷\x97\x0fRw\x15\xbe\xf9'\xe5\xbeGDçBí\xc6K­\x18I\x051¬\xcf\x05\x00 jj\x13\x01\x13\x02\x13\x03\xc0+\xc0/\xc0,\xc00\xcc©\xcc¨\xc0\x13\xc0\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06Ejj\x00\x00\x00[0m" HTTPStatus.BAD_REQUEST -
+2025-05-18 17:22:21 [ERROR] 127.0.0.1 - - [18/May/2025 17:22:21] code 400, message Bad request version ('\x08©E\xfe\x148§\xc6ü\x00')
+2025-05-18 17:22:21 [INFO] 127.0.0.1 - - [18/May/2025 17:22:21] "[35m[1m\x16\x03\x01\x06\xf2\x01\x00\x06î\x03\x030D\x9eV\x8bCi\xf8î\x93+\x0b\xd8\xdeI\x9aô\x8d=\x96\xcf§,EB\x7f\xb2\x01\xefZ\x84l \x13\xcc\xf1jÍ\x95ôdi\xef\xbfÉDKÔ\xf1ó\x10`\xeae`îf=\xcfUm\x0e\x85Z\xe6\x00 \xaa\xaa\x13\x01\x13\x02\x13\x03\xc0+\xc0/\xc0,\xc00\xcc©\xcc¨\xc0\x13\xc0\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x85\x8a\x8a\x00\x00\x00#\x00\x00\xff\x01\x00\x01\x00\x00\x0b\x00\x02\x01\x00\xfe\x0d\x00ú\x00\x00\x01\x00\x01á\x00 ¦\xdb\xec;K ­`\x81}=ä\x96Í!â\xf9\xc5\xd9\x0e|\x96T\x0e\x1fë-\x9dô§6$\x00\xd0\x95\x139ôä\x13©\xcfäb\x8eÎV¬'\x92\x10\x01\\$\xa1DH\xffßË\xcf±\xef\x82\xaan°\x9d]T/@\xc6Ä\x1d\xaf\x18ÁjP\x1f\x91\x8b\x0eóéaVM\x872\x11\xbf\x04_\x12C\xc0x\x98p\x0dK9\x88\xea?\x89}I\x167\xeaÁÚeSU¤v\x8f\x8c\xd1\x99CL\x8e&\xb9.WÔv\xe0\x8b¦ôîö_\xc8K-y\x0b\xfbT=Pt\xd5\x06\xd1÷\xcaF,5\x05\xca´\xf0\x13¬z\x07Î>Ýy 1\x19\x1fÂn\x14gQ~6\x1eÓO\x1c\xbd8@\x8açÎ\xca¨,BÉA\x92÷a\xd5\\Ë\xe6\x93 \xa5\xf1ay(4?`\xd5\x09p8×V\x174l\xdb\x00ca\xf8\x8b\xa3\x19-\x1e\x08©E\xfe\x148§\xc6ü\x00[0m" HTTPStatus.BAD_REQUEST -
+2025-05-18 17:22:22 [ERROR] 127.0.0.1 - - [18/May/2025 17:22:22] code 400, message Bad HTTP/0.9 request type ("\x16\x03\x01\x06\xb2\x01\x00\x06®\x03\x036\x15'):\xd5\xe8}")
+2025-05-18 17:22:22 [INFO] 127.0.0.1 - - [18/May/2025 17:22:22] "[35m[1m\x16\x03\x01\x06\xb2\x01\x00\x06®\x03\x036\x15'):\xd5\xe8} \xb3cS[0m" HTTPStatus.BAD_REQUEST -
+2025-05-18 17:22:22 [ERROR] 127.0.0.1 - - [18/May/2025 17:22:22] code 400, message Bad request version ('\x02h2\x08http/1.1\x00')
+2025-05-18 17:22:22 [INFO] 127.0.0.1 - - [18/May/2025 17:22:22] "[35m[1m\x16\x03\x01\x06\xf2\x01\x00\x06î\x03\x03\xd0ßk«n\xff\xc0>ßl¸l®\xef_\x8cµL\x88ÔShr\x0fF\x91\x81\x1a6\xca\x92- R\xeaó\x7f\x04\xa3\x8e7áG\xdeU\x9al óQ\x81\x07\x97%\xc0ßôJ\x09\x1d\x00´÷\xcaI\x00 **\x13\x01\x13\x02\x13\x03\xc0+\xc0/\xc0,\xc00\xcc©\xcc¨\xc0\x13\xc0\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x85ZZ\x00\x00\x00\x05\x00\x05\x01\x00\x00\x00\x00\xff\x01\x00\x01\x00\x00\x12\x00\x00\x00\x0d\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00#\x00\x00\x00\x17\x00\x00\x00\x1b\x00\x03\x02\x00\x02\x00\x00\x00\x0e\x00\x0c\x00\x00\x09localhost\xfe\x0d\x00ú\x00\x00\x01\x00\x01E\x00 #ç\xa3H\xe0°\x052J×\x08Ö¨;\x14îF\\XÖ:&z\\\x03A^@yHO5\x00\xd0\x93~\xd0\x11w\x9f}m\xe8\x08\xd2\xf0\x90\xfe\x13\x94\xcf\x03\x85g·\xaa\xbf\xccý\xbfâ\xc8\x11gÝ\xcf@m9Óe{\x11\xd2^ \x8e<\x89\xbc®pÎ\xea}®fi\x1e\x9f\x84uË\x89\xef|\x10\x89TÄÁÄ[ë\x8eµ\xc5d"LË`N®\x96R\xbe4\x94@e -\xcf\xf5\x94\x0d\xaa\xc3×\x17\xe5wß\xeaÍ\x8f^\x8eÄ\x17bY\x9dX\x1b.\\\xe8\x8dÄw\x07\x89¤\x18\x13:Ä%zä5\xd8-\x02\x8e\x0fu\xf5\xf9\x97\xd0J\x14o@\x00dOH\x05\x04M\xfe\xcc\xd8Lx\x82\x11\x95}\xf0Ô\xf0\x0b\xe5\xca\xf0\x80Í\xd8\x8a\x9c©\xc5c:\x88\xc02ý&Ë'\xc8{1\x81\x0e\x05\xc0ô"\x0f\xaf,ó\x101\x14\x0f\xbem5_+ömWâ\x00\x10\x00\x0e\x00\x0c\x02h2\x08http/1.1\x00[0m" HTTPStatus.BAD_REQUEST -
+2025-05-18 17:22:22 [ERROR] 127.0.0.1 - - [18/May/2025 17:22:22] code 400, message Bad request version ('\x00\x02\x01\x00\x00-\x00\x02\x01\x01\x00')
+2025-05-18 17:22:22 [INFO] 127.0.0.1 - - [18/May/2025 17:22:22] "[35m[1m\x16\x03\x01\x07\x12\x01\x00\x07\x0e\x03\x03\x16\xa2e]\x17¤\x8cÄ\xd9\\\xc0sµo\x98\xca\x80E4!/§!\x0d­\x16\x06\xdb\xa2t9\x9d >ß\xb90\x9b1(Z\xfezA\x9dWZPN\x00|;~<\x8c\x09\xf0\xf0\xe31Y÷ÖB\x9f\x00 JJ\x13\x01\x13\x02\x13\x03\xc0+\xc0/\xc0,\xc00\xcc©\xcc¨\xc0\x13\xc0\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\xa5\x9a\x9a\x00\x00\x00#\x00\x00\x00\x0d\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\xff\x01\x00\x01\x00\x00\x12\x00\x00\x00\x0b\x00\x02\x01\x00\x00-\x00\x02\x01\x01\x00[0m" HTTPStatus.BAD_REQUEST -
+2025-05-18 17:22:22 [ERROR] 127.0.0.1 - - [18/May/2025 17:22:22] code 400, message Bad request version ('z\xa2;hÇ2\xb9')
+2025-05-18 17:22:22 [INFO] 127.0.0.1 - - [18/May/2025 17:22:22] "[35m[1m\x16\x03\x01\x07\x12\x01\x00\x07\x0e\x03\x03\x13\x18 Tk\x7f\x02ÉÄ\xc0\x13S/xµ\x10\xdb×\x1bB+\x0c\x97ÄÚ\xf0\x1f×\xafP\x89J \x9b#j\x9e\x8e\x1c1 \xd1J\x10@\x8e\x11´E\x8d\x88\xf9\xf9]»\x9f\x0e~\x9f_\x08\x06ÓY\x11\x00 ZZ\x13\x01\x13\x02\x13\x03\xc0+\xc0/\xc0,\xc00\xcc©\xcc¨\xc0\x13\xc0\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\xa5jj\x00\x00\x00\x17\x00\x00\xfe\x0d\x01\x1a\x00\x00\x01\x00\x01s\x00 z\xa2;hÇ2\xb9[0m" HTTPStatus.BAD_REQUEST -
+2025-05-18 17:24:48 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\client.py', reloading
+2025-05-18 17:24:48 [INFO]  * Restarting with stat
+2025-05-18 17:24:48 [WARNING]  * Debugger is active!
+2025-05-18 17:24:48 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:25:13 [INFO] 127.0.0.1 - - [18/May/2025 17:25:13] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2025-05-18 17:27:57 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 17:27:57 [INFO]  * Restarting with stat
+2025-05-18 17:27:57 [WARNING]  * Debugger is active!
+2025-05-18 17:27:57 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:28:01 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 17:28:01 [INFO]  * Restarting with stat
+2025-05-18 17:28:01 [WARNING]  * Debugger is active!
+2025-05-18 17:28:01 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:28:42 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 17:28:42 [INFO]  * Restarting with stat
+2025-05-18 17:29:08 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:7500
+2025-05-18 17:29:08 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-18 17:29:08 [INFO]  * Restarting with stat
+2025-05-18 17:29:09 [WARNING]  * Debugger is active!
+2025-05-18 17:29:09 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:29:25 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\client.py', reloading
+2025-05-18 17:29:25 [INFO]  * Restarting with stat
+2025-05-18 17:29:25 [WARNING]  * Debugger is active!
+2025-05-18 17:29:25 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:29:26 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\client.py', reloading
+2025-05-18 17:29:26 [INFO]  * Restarting with stat
+2025-05-18 17:29:26 [WARNING]  * Debugger is active!
+2025-05-18 17:29:26 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:29:50 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\client.py', reloading
+2025-05-18 17:29:50 [INFO]  * Restarting with stat
+2025-05-18 17:29:50 [WARNING]  * Debugger is active!
+2025-05-18 17:29:50 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:29:55 [INFO] {"source": "127.0.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-05-18 17:29:55 [INFO] 127.0.0.1 - - [18/May/2025 17:29:55] "POST /login HTTP/1.1" 200 -
+2025-05-18 17:30:05 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\client.py', reloading
+2025-05-18 17:30:05 [INFO]  * Restarting with stat
+2025-05-18 17:30:05 [WARNING]  * Debugger is active!
+2025-05-18 17:30:05 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:30:10 [INFO] {"source": "127.0.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-05-18 17:30:10 [INFO] 127.0.0.1 - - [18/May/2025 17:30:10] "POST /login HTTP/1.1" 200 -
+2025-05-18 17:30:12 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "m19pECufX5Ur--7G7f108djRLQk2KmPwN7BYMeW8a_4", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-05-18 17:30:12 [INFO] 127.0.0.1 - - [18/May/2025 17:30:12] "[31m[1mPOST /queues/test_queue HTTP/1.1[0m" 401 -
+2025-05-18 17:30:26 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\client.py', reloading
+2025-05-18 17:30:26 [INFO]  * Restarting with stat
+2025-05-18 17:30:27 [WARNING]  * Debugger is active!
+2025-05-18 17:30:27 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:30:36 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\client.py', reloading
+2025-05-18 17:30:36 [INFO]  * Restarting with stat
+2025-05-18 17:30:36 [WARNING]  * Debugger is active!
+2025-05-18 17:30:36 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:30:38 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\client.py', reloading
+2025-05-18 17:30:38 [INFO]  * Restarting with stat
+2025-05-18 17:30:39 [WARNING]  * Debugger is active!
+2025-05-18 17:30:39 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:30:40 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\client.py', reloading
+2025-05-18 17:30:40 [INFO]  * Restarting with stat
+2025-05-18 17:30:40 [WARNING]  * Debugger is active!
+2025-05-18 17:30:40 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:30:42 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\client.py', reloading
+2025-05-18 17:30:42 [INFO]  * Restarting with stat
+2025-05-18 17:30:42 [WARNING]  * Debugger is active!
+2025-05-18 17:30:42 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:30:48 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\client.py', reloading
+2025-05-18 17:30:48 [INFO]  * Restarting with stat
+2025-05-18 17:30:48 [WARNING]  * Debugger is active!
+2025-05-18 17:30:48 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:30:49 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\client.py', reloading
+2025-05-18 17:30:49 [INFO]  * Restarting with stat
+2025-05-18 17:30:50 [WARNING]  * Debugger is active!
+2025-05-18 17:30:50 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:30:51 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\client.py', reloading
+2025-05-18 17:30:51 [INFO]  * Restarting with stat
+2025-05-18 17:30:51 [WARNING]  * Debugger is active!
+2025-05-18 17:30:51 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:30:52 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\client.py', reloading
+2025-05-18 17:30:52 [INFO]  * Restarting with stat
+2025-05-18 17:30:52 [WARNING]  * Debugger is active!
+2025-05-18 17:30:52 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:30:55 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\client.py', reloading
+2025-05-18 17:30:55 [INFO]  * Restarting with stat
+2025-05-18 17:30:56 [WARNING]  * Debugger is active!
+2025-05-18 17:30:56 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:30:58 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\client.py', reloading
+2025-05-18 17:30:58 [INFO]  * Restarting with stat
+2025-05-18 17:30:59 [WARNING]  * Debugger is active!
+2025-05-18 17:30:59 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:31:01 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\client.py', reloading
+2025-05-18 17:31:01 [INFO]  * Restarting with stat
+2025-05-18 17:31:01 [WARNING]  * Debugger is active!
+2025-05-18 17:31:01 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:31:07 [INFO] {"source": "127.0.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-05-18 17:31:07 [INFO] 127.0.0.1 - - [18/May/2025 17:31:07] "POST /login HTTP/1.1" 200 -
+2025-05-18 17:31:09 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "fkHncBW_mECsn2ppMl04c_kV26QynQwXtR7-nIIeFZE", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-05-18 17:31:09 [INFO] 127.0.0.1 - - [18/May/2025 17:31:09] "[31m[1mPOST /queues/test_queue HTTP/1.1[0m" 401 -
+2025-05-18 17:31:11 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "fkHncBW_mECsn2ppMl04c_kV26QynQwXtR7-nIIeFZE", "Content-Length": "137", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "123", "customer": {"user_id": 1, "username": "test", "role": "user"}, "status": 0, "vendor_id": "456", "amount": 100}}
+2025-05-18 17:31:11 [INFO] 127.0.0.1 - - [18/May/2025 17:31:11] "[31m[1mPOST /queues/test_queue/messages HTTP/1.1[0m" 401 -
+2025-05-18 17:31:13 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "fkHncBW_mECsn2ppMl04c_kV26QynQwXtR7-nIIeFZE"}, "metadata": null, "body": null}
+2025-05-18 17:31:13 [INFO] 127.0.0.1 - - [18/May/2025 17:31:13] "[31m[1mGET /queues/test_queue/messages/first HTTP/1.1[0m" 401 -
+2025-05-18 17:48:07 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 17:48:07 [INFO]  * Restarting with stat
+2025-05-18 17:48:08 [WARNING]  * Debugger is active!
+2025-05-18 17:48:08 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:48:20 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 17:48:20 [INFO]  * Restarting with stat
+2025-05-18 17:48:20 [WARNING]  * Debugger is active!
+2025-05-18 17:48:20 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:48:22 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 17:48:22 [INFO]  * Restarting with stat
+2025-05-18 17:48:22 [WARNING]  * Debugger is active!
+2025-05-18 17:48:22 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:49:52 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 17:49:52 [INFO]  * Restarting with stat
+2025-05-18 17:50:52 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:7500
+2025-05-18 17:50:52 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-18 17:50:52 [INFO]  * Restarting with stat
+2025-05-18 17:50:52 [WARNING]  * Debugger is active!
+2025-05-18 17:50:52 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:50:59 [INFO] {"source": "127.0.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-05-18 17:50:59 [INFO] 127.0.0.1 - - [18/May/2025 17:50:59] "POST /login HTTP/1.1" 200 -
+2025-05-18 17:51:01 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "bqdAca2fA5-e1yoliSjx7sgI9yWQeHigH-5qyJFGS9A", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-05-18 17:51:01 [INFO] 127.0.0.1 - - [18/May/2025 17:51:01] "[31m[1mPOST /queues/test_queue HTTP/1.1[0m" 401 -
+2025-05-18 17:51:04 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "bqdAca2fA5-e1yoliSjx7sgI9yWQeHigH-5qyJFGS9A", "Content-Length": "137", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "123", "customer": {"user_id": 1, "username": "test", "role": "user"}, "status": 0, "vendor_id": "456", "amount": 100}}
+2025-05-18 17:51:04 [INFO] 127.0.0.1 - - [18/May/2025 17:51:04] "[31m[1mPOST /queues/test_queue/messages HTTP/1.1[0m" 401 -
+2025-05-18 17:51:06 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "bqdAca2fA5-e1yoliSjx7sgI9yWQeHigH-5qyJFGS9A"}, "metadata": null, "body": null}
+2025-05-18 17:51:06 [INFO] 127.0.0.1 - - [18/May/2025 17:51:06] "[31m[1mGET /queues/test_queue/messages/first HTTP/1.1[0m" 401 -
+2025-05-18 17:52:09 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 17:52:09 [INFO]  * Restarting with stat
+2025-05-18 17:52:10 [WARNING]  * Debugger is active!
+2025-05-18 17:52:10 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:52:10 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 17:52:10 [INFO]  * Restarting with stat
+2025-05-18 17:52:10 [WARNING]  * Debugger is active!
+2025-05-18 17:52:10 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:52:11 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 17:52:11 [INFO]  * Restarting with stat
+2025-05-18 17:52:11 [WARNING]  * Debugger is active!
+2025-05-18 17:52:11 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:52:11 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 17:52:11 [INFO]  * Restarting with stat
+2025-05-18 17:52:11 [WARNING]  * Debugger is active!
+2025-05-18 17:52:11 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:52:13 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 17:52:13 [INFO]  * Restarting with stat
+2025-05-18 17:52:13 [WARNING]  * Debugger is active!
+2025-05-18 17:52:13 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:52:14 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 17:52:14 [INFO]  * Restarting with stat
+2025-05-18 17:52:15 [WARNING]  * Debugger is active!
+2025-05-18 17:52:15 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:52:17 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 17:52:17 [INFO]  * Restarting with stat
+2025-05-18 17:52:17 [WARNING]  * Debugger is active!
+2025-05-18 17:52:17 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:52:19 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 17:52:19 [INFO]  * Restarting with stat
+2025-05-18 17:52:19 [WARNING]  * Debugger is active!
+2025-05-18 17:52:19 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:52:20 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 17:52:20 [INFO]  * Restarting with stat
+2025-05-18 17:52:21 [WARNING]  * Debugger is active!
+2025-05-18 17:52:21 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:52:22 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 17:52:22 [INFO]  * Restarting with stat
+2025-05-18 17:52:22 [WARNING]  * Debugger is active!
+2025-05-18 17:52:22 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:52:25 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 17:52:25 [INFO]  * Restarting with stat
+2025-05-18 17:52:25 [WARNING]  * Debugger is active!
+2025-05-18 17:52:25 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:52:26 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 17:52:26 [INFO]  * Restarting with stat
+2025-05-18 17:52:27 [WARNING]  * Debugger is active!
+2025-05-18 17:52:27 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:52:29 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 17:52:29 [INFO]  * Restarting with stat
+2025-05-18 17:52:29 [WARNING]  * Debugger is active!
+2025-05-18 17:52:29 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:52:31 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 17:52:31 [INFO]  * Restarting with stat
+2025-05-18 17:52:31 [WARNING]  * Debugger is active!
+2025-05-18 17:52:31 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:52:32 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 17:52:32 [INFO]  * Restarting with stat
+2025-05-18 17:52:33 [WARNING]  * Debugger is active!
+2025-05-18 17:52:33 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:52:33 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 17:52:33 [INFO]  * Restarting with stat
+2025-05-18 17:52:33 [WARNING]  * Debugger is active!
+2025-05-18 17:52:33 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:52:37 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 17:52:37 [INFO]  * Restarting with stat
+2025-05-18 17:52:37 [WARNING]  * Debugger is active!
+2025-05-18 17:52:37 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:52:38 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 17:52:38 [INFO]  * Restarting with stat
+2025-05-18 17:52:39 [WARNING]  * Debugger is active!
+2025-05-18 17:52:39 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:52:43 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:7500
+2025-05-18 17:52:43 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-18 17:52:43 [INFO]  * Restarting with stat
+2025-05-18 17:52:43 [WARNING]  * Debugger is active!
+2025-05-18 17:52:43 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:52:48 [INFO] {"source": "127.0.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-05-18 17:52:48 [INFO] 127.0.0.1 - - [18/May/2025 17:52:48] "POST /login HTTP/1.1" 200 -
+2025-05-18 17:52:50 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "jSjTmYNfhJDfDENcnzElEC_9jSHJGKtxgVaDCyJWlW4", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-05-18 17:52:50 [INFO] 127.0.0.1 - - [18/May/2025 17:52:50] "[31m[1mPOST /queues/test_queue HTTP/1.1[0m" 401 -
+2025-05-18 17:52:52 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "jSjTmYNfhJDfDENcnzElEC_9jSHJGKtxgVaDCyJWlW4", "Content-Length": "137", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "123", "customer": {"user_id": 1, "username": "test", "role": "user"}, "status": 0, "vendor_id": "456", "amount": 100}}
+2025-05-18 17:52:52 [INFO] 127.0.0.1 - - [18/May/2025 17:52:52] "[31m[1mPOST /queues/test_queue/messages HTTP/1.1[0m" 401 -
+2025-05-18 17:52:54 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "jSjTmYNfhJDfDENcnzElEC_9jSHJGKtxgVaDCyJWlW4"}, "metadata": null, "body": null}
+2025-05-18 17:52:54 [INFO] 127.0.0.1 - - [18/May/2025 17:52:54] "[31m[1mGET /queues/test_queue/messages/first HTTP/1.1[0m" 401 -
+2025-05-18 17:55:49 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-18 17:55:49 [INFO]  * Restarting with stat
+2025-05-18 17:55:49 [WARNING]  * Debugger is active!
+2025-05-18 17:55:49 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:55:50 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-18 17:55:50 [INFO]  * Restarting with stat
+2025-05-18 17:58:00 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:7500
+2025-05-18 17:58:00 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-18 17:58:00 [INFO]  * Restarting with stat
+2025-05-18 17:58:00 [WARNING]  * Debugger is active!
+2025-05-18 17:58:00 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:58:08 [INFO] {"source": "127.0.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-05-18 17:58:08 [INFO] 127.0.0.1 - - [18/May/2025 17:58:08] "POST /login HTTP/1.1" 200 -
+2025-05-18 17:58:10 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "l60PPyw6JSLkS7OpLpVm_HLv5wd4jBeHpXHEarI4UL0", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-05-18 17:58:10 [INFO] 127.0.0.1 - - [18/May/2025 17:58:10] "[31m[1mPOST /queues/test_queue HTTP/1.1[0m" 401 -
+2025-05-18 17:58:12 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "l60PPyw6JSLkS7OpLpVm_HLv5wd4jBeHpXHEarI4UL0", "Content-Length": "137", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "123", "customer": {"user_id": 1, "username": "test", "role": "user"}, "status": 0, "vendor_id": "456", "amount": 100}}
+2025-05-18 17:58:12 [INFO] 127.0.0.1 - - [18/May/2025 17:58:12] "[31m[1mPOST /queues/test_queue/messages HTTP/1.1[0m" 401 -
+2025-05-18 17:58:14 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "l60PPyw6JSLkS7OpLpVm_HLv5wd4jBeHpXHEarI4UL0"}, "metadata": null, "body": null}
+2025-05-18 17:58:14 [INFO] 127.0.0.1 - - [18/May/2025 17:58:14] "[31m[1mGET /queues/test_queue/messages/first HTTP/1.1[0m" 401 -
+2025-05-18 17:58:21 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 17:58:21 [INFO]  * Restarting with stat
+2025-05-18 17:58:22 [WARNING]  * Debugger is active!
+2025-05-18 17:58:22 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:58:22 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 17:58:22 [INFO]  * Restarting with stat
+2025-05-18 17:58:22 [WARNING]  * Debugger is active!
+2025-05-18 17:58:22 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:58:25 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 17:58:25 [INFO]  * Restarting with stat
+2025-05-18 17:58:25 [WARNING]  * Debugger is active!
+2025-05-18 17:58:25 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:58:26 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 17:58:26 [INFO]  * Restarting with stat
+2025-05-18 17:58:27 [WARNING]  * Debugger is active!
+2025-05-18 17:58:27 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:58:27 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 17:58:27 [INFO]  * Restarting with stat
+2025-05-18 17:58:27 [WARNING]  * Debugger is active!
+2025-05-18 17:58:27 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:58:29 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 17:58:29 [INFO]  * Restarting with stat
+2025-05-18 17:58:29 [WARNING]  * Debugger is active!
+2025-05-18 17:58:29 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:58:36 [INFO] {"source": "127.0.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-05-18 17:58:36 [INFO] 127.0.0.1 - - [18/May/2025 17:58:36] "POST /login HTTP/1.1" 200 -
+2025-05-18 17:58:38 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "dTU5Kj45LsvoM6K73wsiGhOrOdboGlT9Qk416vRH894", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-05-18 17:58:38 [INFO] 127.0.0.1 - - [18/May/2025 17:58:38] "[31m[1mPOST /queues/test_queue HTTP/1.1[0m" 401 -
+2025-05-18 17:58:40 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "dTU5Kj45LsvoM6K73wsiGhOrOdboGlT9Qk416vRH894", "Content-Length": "137", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "123", "customer": {"user_id": 1, "username": "test", "role": "user"}, "status": 0, "vendor_id": "456", "amount": 100}}
+2025-05-18 17:58:40 [INFO] 127.0.0.1 - - [18/May/2025 17:58:40] "[31m[1mPOST /queues/test_queue/messages HTTP/1.1[0m" 401 -
+2025-05-18 17:58:42 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "dTU5Kj45LsvoM6K73wsiGhOrOdboGlT9Qk416vRH894"}, "metadata": null, "body": null}
+2025-05-18 17:58:42 [INFO] 127.0.0.1 - - [18/May/2025 17:58:42] "[31m[1mGET /queues/test_queue/messages/first HTTP/1.1[0m" 401 -
+2025-05-18 17:58:47 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:7500
+2025-05-18 17:58:47 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-18 17:58:47 [INFO]  * Restarting with stat
+2025-05-18 17:58:47 [WARNING]  * Debugger is active!
+2025-05-18 17:58:47 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:58:52 [INFO] {"source": "127.0.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-05-18 17:58:52 [INFO] 127.0.0.1 - - [18/May/2025 17:58:52] "POST /login HTTP/1.1" 200 -
+2025-05-18 17:58:54 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "mLeOWd8Y3sGYF8sAi1FaXNRAu1OEP4Uz82JNFqCVrv8", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-05-18 17:58:54 [INFO] 127.0.0.1 - - [18/May/2025 17:58:54] "[31m[1mPOST /queues/test_queue HTTP/1.1[0m" 401 -
+2025-05-18 17:58:56 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "mLeOWd8Y3sGYF8sAi1FaXNRAu1OEP4Uz82JNFqCVrv8", "Content-Length": "137", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "123", "customer": {"user_id": 1, "username": "test", "role": "user"}, "status": 0, "vendor_id": "456", "amount": 100}}
+2025-05-18 17:58:56 [INFO] 127.0.0.1 - - [18/May/2025 17:58:56] "[31m[1mPOST /queues/test_queue/messages HTTP/1.1[0m" 401 -
+2025-05-18 17:58:58 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "mLeOWd8Y3sGYF8sAi1FaXNRAu1OEP4Uz82JNFqCVrv8"}, "metadata": null, "body": null}
+2025-05-18 17:58:58 [INFO] 127.0.0.1 - - [18/May/2025 17:58:58] "[31m[1mGET /queues/test_queue/messages/first HTTP/1.1[0m" 401 -
+2025-05-18 17:59:07 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\client.py', reloading
+2025-05-18 17:59:07 [INFO]  * Restarting with stat
+2025-05-18 17:59:07 [WARNING]  * Debugger is active!
+2025-05-18 17:59:07 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:59:15 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 17:59:15 [INFO]  * Restarting with stat
+2025-05-18 17:59:15 [WARNING]  * Debugger is active!
+2025-05-18 17:59:15 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:59:17 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 17:59:17 [INFO]  * Restarting with stat
+2025-05-18 17:59:17 [WARNING]  * Debugger is active!
+2025-05-18 17:59:17 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:59:17 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 17:59:17 [INFO]  * Restarting with stat
+2025-05-18 17:59:18 [WARNING]  * Debugger is active!
+2025-05-18 17:59:18 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:59:23 [INFO] {"source": "127.0.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-05-18 17:59:23 [INFO] 127.0.0.1 - - [18/May/2025 17:59:23] "POST /login HTTP/1.1" 200 -
+2025-05-18 17:59:25 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "S9WHsJNz5Yv2OXdIrak-PkaG913ckwS_r_JjadniGR0", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-05-18 17:59:25 [INFO] 127.0.0.1 - - [18/May/2025 17:59:25] "[31m[1mPOST /queues/test_queue HTTP/1.1[0m" 401 -
+2025-05-18 17:59:27 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "S9WHsJNz5Yv2OXdIrak-PkaG913ckwS_r_JjadniGR0", "Content-Length": "137", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "123", "customer": {"user_id": 1, "username": "test", "role": "user"}, "status": 0, "vendor_id": "456", "amount": 100}}
+2025-05-18 17:59:27 [INFO] 127.0.0.1 - - [18/May/2025 17:59:27] "[31m[1mPOST /queues/test_queue/messages HTTP/1.1[0m" 401 -
+2025-05-18 17:59:29 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "S9WHsJNz5Yv2OXdIrak-PkaG913ckwS_r_JjadniGR0"}, "metadata": null, "body": null}
+2025-05-18 17:59:29 [INFO] 127.0.0.1 - - [18/May/2025 17:59:29] "[31m[1mGET /queues/test_queue/messages/first HTTP/1.1[0m" 401 -
+2025-05-18 17:59:37 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 17:59:37 [INFO]  * Restarting with stat
+2025-05-18 17:59:37 [WARNING]  * Debugger is active!
+2025-05-18 17:59:37 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:59:39 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 17:59:39 [INFO]  * Restarting with stat
+2025-05-18 17:59:40 [WARNING]  * Debugger is active!
+2025-05-18 17:59:40 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:59:41 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 17:59:41 [INFO]  * Restarting with stat
+2025-05-18 17:59:41 [WARNING]  * Debugger is active!
+2025-05-18 17:59:41 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:59:44 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 17:59:44 [INFO]  * Restarting with stat
+2025-05-18 17:59:44 [WARNING]  * Debugger is active!
+2025-05-18 17:59:44 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:59:47 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 17:59:47 [INFO]  * Restarting with stat
+2025-05-18 17:59:47 [WARNING]  * Debugger is active!
+2025-05-18 17:59:47 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 17:59:51 [INFO] {"source": "127.0.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-05-18 17:59:51 [INFO] 127.0.0.1 - - [18/May/2025 17:59:51] "POST /login HTTP/1.1" 200 -
+2025-05-18 17:59:53 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "kXSiCu_rM-4XPAmCPHnDUNmHEUVRU74G0yK6gIMZrf8", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-05-18 17:59:53 [INFO] 127.0.0.1 - - [18/May/2025 17:59:53] "[31m[1mPOST /queues/test_queue HTTP/1.1[0m" 403 -
+2025-05-18 17:59:55 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "kXSiCu_rM-4XPAmCPHnDUNmHEUVRU74G0yK6gIMZrf8", "Content-Length": "137", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "123", "customer": {"user_id": 1, "username": "test", "role": "user"}, "status": 0, "vendor_id": "456", "amount": 100}}
+2025-05-18 17:59:55 [INFO] 127.0.0.1 - - [18/May/2025 17:59:55] "[31m[1mPOST /queues/test_queue/messages HTTP/1.1[0m" 403 -
+2025-05-18 17:59:57 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "kXSiCu_rM-4XPAmCPHnDUNmHEUVRU74G0yK6gIMZrf8"}, "metadata": null, "body": null}
+2025-05-18 17:59:57 [INFO] 127.0.0.1 - - [18/May/2025 17:59:57] "[31m[1mGET /queues/test_queue/messages/first HTTP/1.1[0m" 403 -
+2025-05-18 18:00:35 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 18:00:35 [INFO]  * Restarting with stat
+2025-05-18 18:00:35 [WARNING]  * Debugger is active!
+2025-05-18 18:00:35 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 18:00:35 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 18:00:35 [INFO]  * Restarting with stat
+2025-05-18 18:00:36 [WARNING]  * Debugger is active!
+2025-05-18 18:00:36 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 18:00:39 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 18:00:39 [INFO]  * Restarting with stat
+2025-05-18 18:01:06 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:7500
+2025-05-18 18:01:06 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-18 18:01:06 [INFO]  * Restarting with stat
+2025-05-18 18:01:06 [WARNING]  * Debugger is active!
+2025-05-18 18:01:06 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 18:01:20 [INFO] {"source": "127.0.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-05-18 18:01:20 [INFO] 127.0.0.1 - - [18/May/2025 18:01:20] "POST /login HTTP/1.1" 200 -
+2025-05-18 18:01:22 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "QFTkxuYhK8DszIQiT4X2WzgjGJu841FemTmGPnbLLr8", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-05-18 18:01:22 [INFO] 127.0.0.1 - - [18/May/2025 18:01:22] "[31m[1mPOST /queues/test_queue HTTP/1.1[0m" 403 -
+2025-05-18 18:01:24 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "QFTkxuYhK8DszIQiT4X2WzgjGJu841FemTmGPnbLLr8", "Content-Length": "137", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "123", "customer": {"user_id": 1, "username": "test", "role": "user"}, "status": 0, "vendor_id": "456", "amount": 100}}
+2025-05-18 18:01:24 [INFO] 127.0.0.1 - - [18/May/2025 18:01:24] "[31m[1mPOST /queues/test_queue/messages HTTP/1.1[0m" 403 -
+2025-05-18 18:01:26 [INFO] 127.0.0.1 - - [18/May/2025 18:01:26] "[35m[1mGET /queues/test_queue/messages/first HTTP/1.1[0m" 500 -
+2025-05-18 18:03:03 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 18:03:03 [INFO]  * Restarting with stat
+2025-05-18 18:03:03 [WARNING]  * Debugger is active!
+2025-05-18 18:03:03 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 18:03:07 [INFO] {"source": "127.0.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-05-18 18:03:07 [INFO] 127.0.0.1 - - [18/May/2025 18:03:07] "POST /login HTTP/1.1" 200 -
+2025-05-18 18:03:09 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "yBWBH2N5O_n2xXI0emiagm6MHCsMk34VQOyHMinPHso", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-05-18 18:03:09 [INFO] 127.0.0.1 - - [18/May/2025 18:03:09] "[31m[1mPOST /queues/test_queue HTTP/1.1[0m" 403 -
+2025-05-18 18:03:11 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "yBWBH2N5O_n2xXI0emiagm6MHCsMk34VQOyHMinPHso", "Content-Length": "137", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "123", "customer": {"user_id": 1, "username": "test", "role": "user"}, "status": 0, "vendor_id": "456", "amount": 100}}
+2025-05-18 18:03:11 [INFO] 127.0.0.1 - - [18/May/2025 18:03:11] "[31m[1mPOST /queues/test_queue/messages HTTP/1.1[0m" 403 -
+2025-05-18 18:03:13 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "yBWBH2N5O_n2xXI0emiagm6MHCsMk34VQOyHMinPHso"}, "metadata": null, "body": null}
+2025-05-18 18:03:13 [INFO] 127.0.0.1 - - [18/May/2025 18:03:13] "[31m[1mGET /queues/test_queue/messages/first HTTP/1.1[0m" 403 -
+2025-05-18 18:04:24 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 18:04:24 [INFO]  * Restarting with stat
+2025-05-18 18:04:24 [WARNING]  * Debugger is active!
+2025-05-18 18:04:25 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 18:04:38 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:7500
+2025-05-18 18:04:38 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-18 18:04:38 [INFO]  * Restarting with stat
+2025-05-18 18:04:38 [WARNING]  * Debugger is active!
+2025-05-18 18:04:38 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 18:04:42 [INFO] {"source": "127.0.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-05-18 18:04:42 [INFO] 127.0.0.1 - - [18/May/2025 18:04:42] "POST /login HTTP/1.1" 200 -
+2025-05-18 18:04:44 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "pbqyKij3Nc583NLm8hvYIiaOZmPEBfpoSnOMWlJp5uw", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-05-18 18:04:44 [INFO] 127.0.0.1 - - [18/May/2025 18:04:44] "[31m[1mPOST /queues/test_queue HTTP/1.1[0m" 403 -
+2025-05-18 18:04:46 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "pbqyKij3Nc583NLm8hvYIiaOZmPEBfpoSnOMWlJp5uw", "Content-Length": "137", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "123", "customer": {"user_id": 1, "username": "test", "role": "user"}, "status": 0, "vendor_id": "456", "amount": 100}}
+2025-05-18 18:04:46 [INFO] 127.0.0.1 - - [18/May/2025 18:04:46] "[31m[1mPOST /queues/test_queue/messages HTTP/1.1[0m" 403 -
+2025-05-18 18:04:48 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "pbqyKij3Nc583NLm8hvYIiaOZmPEBfpoSnOMWlJp5uw"}, "metadata": null, "body": null}
+2025-05-18 18:04:48 [INFO] 127.0.0.1 - - [18/May/2025 18:04:48] "[31m[1mGET /queues/test_queue/messages/first HTTP/1.1[0m" 403 -
+2025-05-18 18:05:15 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 18:05:15 [INFO]  * Restarting with stat
+2025-05-18 18:05:15 [WARNING]  * Debugger is active!
+2025-05-18 18:05:15 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 18:05:16 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 18:05:16 [INFO]  * Restarting with stat
+2025-05-18 18:05:16 [WARNING]  * Debugger is active!
+2025-05-18 18:05:16 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 18:05:17 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 18:05:17 [INFO]  * Restarting with stat
+2025-05-18 18:05:18 [WARNING]  * Debugger is active!
+2025-05-18 18:05:18 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 18:05:20 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 18:05:20 [INFO]  * Restarting with stat
+2025-05-18 18:05:20 [WARNING]  * Debugger is active!
+2025-05-18 18:05:20 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 18:05:22 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 18:05:22 [INFO]  * Restarting with stat
+2025-05-18 18:05:22 [WARNING]  * Debugger is active!
+2025-05-18 18:05:22 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 18:05:29 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 18:05:29 [INFO]  * Restarting with stat
+2025-05-18 18:05:29 [WARNING]  * Debugger is active!
+2025-05-18 18:05:29 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 18:05:37 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 18:05:37 [INFO]  * Restarting with stat
+2025-05-18 18:05:37 [WARNING]  * Debugger is active!
+2025-05-18 18:05:37 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 18:05:41 [INFO]  * Detected change in 'd:\\programozas\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-18 18:05:41 [INFO]  * Restarting with stat
+2025-05-18 18:05:41 [WARNING]  * Debugger is active!
+2025-05-18 18:05:41 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 18:05:51 [INFO] {"source": "127.0.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-05-18 18:05:51 [INFO] 127.0.0.1 - - [18/May/2025 18:05:51] "POST /login HTTP/1.1" 200 -
+2025-05-18 18:05:53 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "0efI2Con87VSAIL3UeGmu-dnRB2FEsIqyx9H33GGU_M", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-05-18 18:05:53 [INFO] 127.0.0.1 - - [18/May/2025 18:05:53] "[35m[1mPOST /queues/test_queue HTTP/1.1[0m" 201 -
+2025-05-18 18:05:55 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "0efI2Con87VSAIL3UeGmu-dnRB2FEsIqyx9H33GGU_M", "Content-Length": "137", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "123", "customer": {"user_id": 1, "username": "test", "role": "user"}, "status": 0, "vendor_id": "456", "amount": 100}}
+2025-05-18 18:05:55 [INFO] 127.0.0.1 - - [18/May/2025 18:05:55] "[31m[1mPOST /queues/test_queue/messages HTTP/1.1[0m" 400 -
+2025-05-18 18:05:57 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "0efI2Con87VSAIL3UeGmu-dnRB2FEsIqyx9H33GGU_M"}, "metadata": null, "body": null}
+2025-05-18 18:05:57 [INFO] 127.0.0.1 - - [18/May/2025 18:05:57] "[35m[1mGET /queues/test_queue/messages/first HTTP/1.1[0m" 500 -
+2025-05-18 18:08:21 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:7500
+2025-05-18 18:08:21 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-18 18:08:21 [INFO]  * Restarting with stat
+2025-05-18 18:08:22 [WARNING]  * Debugger is active!
+2025-05-18 18:08:22 [INFO]  * Debugger PIN: 138-286-247
+2025-05-18 18:08:25 [INFO] {"source": "127.0.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-05-18 18:08:25 [INFO] 127.0.0.1 - - [18/May/2025 18:08:25] "POST /login HTTP/1.1" 200 -
+2025-05-18 18:08:27 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "fdUz-0OicbiciSsyM2aqDFaRNeWRICTK4lpLqFxYSdA", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-05-18 18:08:27 [INFO] 127.0.0.1 - - [18/May/2025 18:08:27] "[35m[1mPOST /queues/test_queue HTTP/1.1[0m" 201 -
+2025-05-18 18:08:29 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "fdUz-0OicbiciSsyM2aqDFaRNeWRICTK4lpLqFxYSdA", "Content-Length": "162", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "123", "customer": {"user_id": 1, "username": "admin", "password": "admin123", "role": "user"}, "status": 0, "vendor_id": "456", "amount": 100}}
+2025-05-18 18:08:29 [INFO] 127.0.0.1 - - [18/May/2025 18:08:29] "[35m[1mPOST /queues/test_queue/messages HTTP/1.1[0m" 201 -
+2025-05-18 18:08:31 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "fdUz-0OicbiciSsyM2aqDFaRNeWRICTK4lpLqFxYSdA"}, "metadata": null, "body": null}
+2025-05-18 18:08:31 [INFO] 127.0.0.1 - - [18/May/2025 18:08:31] "GET /queues/test_queue/messages/first HTTP/1.1" 200 -
+2025-05-19 14:25:04 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:7500
+2025-05-19 14:25:04 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-19 14:25:04 [INFO]  * Restarting with watchdog (windowsapi)
+2025-05-19 14:25:04 [WARNING]  * Debugger is active!
+2025-05-19 14:25:04 [INFO]  * Debugger PIN: 754-870-435
+2025-05-19 14:25:19 [INFO] {"source": "127.0.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-05-19 14:25:19 [INFO] 127.0.0.1 - - [19/May/2025 14:25:19] "POST /login HTTP/1.1" 200 -
+2025-05-19 14:25:21 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "PQ0a7r3xIMpWbCK6TAx5v7aFuAwHQDrh_EoRFOH3xP4", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-05-19 14:25:21 [INFO] 127.0.0.1 - - [19/May/2025 14:25:21] "[35m[1mPOST /queues/test_queue HTTP/1.1[0m" 201 -
+2025-05-19 14:25:23 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "PQ0a7r3xIMpWbCK6TAx5v7aFuAwHQDrh_EoRFOH3xP4", "Content-Length": "162", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "123", "customer": {"user_id": 1, "username": "admin", "password": "admin123", "role": "user"}, "status": 0, "vendor_id": "456", "amount": 100}}
+2025-05-19 14:25:23 [INFO] 127.0.0.1 - - [19/May/2025 14:25:23] "[35m[1mPOST /queues/test_queue/messages HTTP/1.1[0m" 201 -
+2025-05-19 14:25:25 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "PQ0a7r3xIMpWbCK6TAx5v7aFuAwHQDrh_EoRFOH3xP4"}, "metadata": null, "body": null}
+2025-05-19 14:25:25 [INFO] 127.0.0.1 - - [19/May/2025 14:25:25] "GET /queues/test_queue/messages/first HTTP/1.1" 200 -
+2025-05-19 14:26:17 [INFO] {"source": "127.0.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-05-19 14:26:17 [INFO] 127.0.0.1 - - [19/May/2025 14:26:17] "POST /login HTTP/1.1" 200 -
+2025-05-19 14:26:19 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "kTuxOMLrflIKkm2CqXQnQ0Ym7o-179Bf5k47sv5Ph5U", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-05-19 14:26:19 [INFO] 127.0.0.1 - - [19/May/2025 14:26:19] "[31m[1mPOST /queues/test_queue HTTP/1.1[0m" 409 -
+2025-05-19 14:26:21 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "kTuxOMLrflIKkm2CqXQnQ0Ym7o-179Bf5k47sv5Ph5U", "Content-Length": "162", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "123", "customer": {"user_id": 1, "username": "admin", "password": "admin123", "role": "user"}, "status": 0, "vendor_id": "456", "amount": 100}}
+2025-05-19 14:26:21 [INFO] 127.0.0.1 - - [19/May/2025 14:26:21] "[35m[1mPOST /queues/test_queue/messages HTTP/1.1[0m" 201 -
+2025-05-19 14:26:23 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "kTuxOMLrflIKkm2CqXQnQ0Ym7o-179Bf5k47sv5Ph5U"}, "metadata": null, "body": null}
+2025-05-19 14:26:23 [INFO] 127.0.0.1 - - [19/May/2025 14:26:23] "GET /queues/test_queue/messages/first HTTP/1.1" 200 -
+2025-05-19 14:27:23 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-19 14:27:23 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-19 14:27:23 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-19 14:27:23 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-19 14:27:23 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-19 14:27:23 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-19 14:27:24 [INFO]  * Restarting with watchdog (windowsapi)
+2025-05-19 14:27:25 [WARNING]  * Debugger is active!
+2025-05-19 14:27:25 [INFO]  * Debugger PIN: 754-870-435
+2025-05-19 14:28:55 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:7500
+2025-05-19 14:28:55 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-19 14:28:55 [INFO]  * Restarting with watchdog (windowsapi)
+2025-05-19 14:28:55 [WARNING]  * Debugger is active!
+2025-05-19 14:28:55 [INFO]  * Debugger PIN: 754-870-435
+2025-05-19 14:29:00 [INFO] {"source": "127.0.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-05-19 14:29:00 [INFO] 127.0.0.1 - - [19/May/2025 14:29:00] "POST /login HTTP/1.1" 200 -
+2025-05-19 14:29:02 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "l310tlfmU7CUFzd676UnLUIwlipvgZbBz1uWC0gRKmA", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-05-19 14:29:02 [INFO] 127.0.0.1 - - [19/May/2025 14:29:02] "[35m[1mPOST /queues/test_queue HTTP/1.1[0m" 201 -
+2025-05-19 14:29:04 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "l310tlfmU7CUFzd676UnLUIwlipvgZbBz1uWC0gRKmA", "Content-Length": "162", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "123", "customer": {"user_id": 1, "username": "admin", "password": "admin123", "role": "user"}, "status": 0, "vendor_id": "456", "amount": 100}}
+2025-05-19 14:29:04 [INFO] 127.0.0.1 - - [19/May/2025 14:29:04] "[35m[1mPOST /queues/test_queue/messages HTTP/1.1[0m" 201 -
+2025-05-19 14:29:06 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "l310tlfmU7CUFzd676UnLUIwlipvgZbBz1uWC0gRKmA", "Content-Length": "162", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "124", "customer": {"user_id": 1, "username": "admin", "password": "admin123", "role": "user"}, "status": 1, "vendor_id": "444", "amount": 200}}
+2025-05-19 14:29:06 [INFO] 127.0.0.1 - - [19/May/2025 14:29:06] "[35m[1mPOST /queues/test_queue/messages HTTP/1.1[0m" 201 -
+2025-05-19 14:29:08 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "l310tlfmU7CUFzd676UnLUIwlipvgZbBz1uWC0gRKmA"}, "metadata": null, "body": null}
+2025-05-19 14:29:08 [INFO] 127.0.0.1 - - [19/May/2025 14:29:08] "GET /queues/test_queue/messages/first HTTP/1.1" 200 -
+2025-05-19 14:29:55 [INFO]  * Detected change in 'C:\\Users\\boton\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\json\\encoder.py', reloading
+2025-05-19 14:29:56 [INFO]  * Restarting with watchdog (windowsapi)
+2025-05-19 14:31:13 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:7500
+2025-05-19 14:31:13 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-19 14:31:13 [INFO]  * Restarting with watchdog (windowsapi)
+2025-05-19 14:31:14 [WARNING]  * Debugger is active!
+2025-05-19 14:31:14 [INFO]  * Debugger PIN: 754-870-435
+2025-05-19 14:31:17 [INFO] {"source": "127.0.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-05-19 14:31:17 [INFO] 127.0.0.1 - - [19/May/2025 14:31:17] "POST /login HTTP/1.1" 200 -
+2025-05-19 14:31:19 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "zxG1CevYCk1Xjgoepl82Jjdvh3cJx_lCkhPb8ay3dMU", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-05-19 14:31:19 [INFO] 127.0.0.1 - - [19/May/2025 14:31:19] "[35m[1mPOST /queues/test_queue HTTP/1.1[0m" 201 -
+2025-05-19 14:31:21 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "zxG1CevYCk1Xjgoepl82Jjdvh3cJx_lCkhPb8ay3dMU", "Content-Length": "162", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "123", "customer": {"user_id": 1, "username": "admin", "password": "admin123", "role": "user"}, "status": 0, "vendor_id": "456", "amount": 100}}
+2025-05-19 14:31:21 [INFO] 127.0.0.1 - - [19/May/2025 14:31:21] "[35m[1mPOST /queues/test_queue/messages HTTP/1.1[0m" 201 -
+2025-05-19 14:31:24 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "zxG1CevYCk1Xjgoepl82Jjdvh3cJx_lCkhPb8ay3dMU", "Content-Length": "162", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "124", "customer": {"user_id": 1, "username": "admin", "password": "admin123", "role": "user"}, "status": 1, "vendor_id": "444", "amount": 200}}
+2025-05-19 14:31:24 [INFO] 127.0.0.1 - - [19/May/2025 14:31:24] "[35m[1mPOST /queues/test_queue/messages HTTP/1.1[0m" 201 -
+2025-05-19 14:31:26 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "zxG1CevYCk1Xjgoepl82Jjdvh3cJx_lCkhPb8ay3dMU"}, "metadata": null, "body": null}
+2025-05-19 14:31:26 [INFO] 127.0.0.1 - - [19/May/2025 14:31:26] "GET /queues/test_queue/messages/first HTTP/1.1" 200 -
+2025-05-19 14:33:26 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-19 14:33:26 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-19 14:33:26 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-19 14:33:27 [INFO]  * Restarting with watchdog (windowsapi)
+2025-05-19 14:34:23 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:7500
+2025-05-19 14:34:23 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-19 14:34:23 [INFO]  * Restarting with watchdog (windowsapi)
+2025-05-19 14:34:24 [WARNING]  * Debugger is active!
+2025-05-19 14:34:24 [INFO]  * Debugger PIN: 754-870-435
+2025-05-19 14:34:33 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:7500
+2025-05-19 14:34:33 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-19 14:34:33 [INFO]  * Restarting with watchdog (windowsapi)
+2025-05-19 14:34:34 [WARNING]  * Debugger is active!
+2025-05-19 14:34:34 [INFO]  * Debugger PIN: 754-870-435
+2025-05-19 14:34:38 [INFO] {"source": "127.0.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-05-19 14:34:38 [INFO] 127.0.0.1 - - [19/May/2025 14:34:38] "POST /login HTTP/1.1" 200 -
+2025-05-19 14:34:40 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "TbOxx9ejjLq6R6my8CK3PggQUStkzvgKTNk0K45SuFo", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-05-19 14:34:40 [INFO] 127.0.0.1 - - [19/May/2025 14:34:40] "[35m[1mPOST /queues/test_queue HTTP/1.1[0m" 201 -
+2025-05-19 14:34:42 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "TbOxx9ejjLq6R6my8CK3PggQUStkzvgKTNk0K45SuFo", "Content-Length": "162", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "123", "customer": {"user_id": 1, "username": "admin", "password": "admin123", "role": "user"}, "status": 0, "vendor_id": "456", "amount": 100}}
+2025-05-19 14:34:42 [INFO] 127.0.0.1 - - [19/May/2025 14:34:42] "[35m[1mPOST /queues/test_queue/messages HTTP/1.1[0m" 201 -
+2025-05-19 14:34:44 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "TbOxx9ejjLq6R6my8CK3PggQUStkzvgKTNk0K45SuFo", "Content-Length": "162", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "124", "customer": {"user_id": 1, "username": "admin", "password": "admin123", "role": "user"}, "status": 1, "vendor_id": "444", "amount": 200}}
+2025-05-19 14:34:44 [INFO] 127.0.0.1 - - [19/May/2025 14:34:44] "[35m[1mPOST /queues/test_queue/messages HTTP/1.1[0m" 201 -
+2025-05-19 14:34:46 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "TbOxx9ejjLq6R6my8CK3PggQUStkzvgKTNk0K45SuFo"}, "metadata": null, "body": null}
+2025-05-19 14:34:46 [INFO] 127.0.0.1 - - [19/May/2025 14:34:46] "GET /queues/test_queue/messages/first HTTP/1.1" 200 -
+2025-05-19 14:35:25 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-19 14:35:25 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-19 14:35:25 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-19 14:35:26 [INFO]  * Restarting with watchdog (windowsapi)
+2025-05-19 14:40:40 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:7500
+2025-05-19 14:40:40 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-19 14:40:40 [INFO]  * Restarting with watchdog (windowsapi)
+2025-05-19 14:40:41 [WARNING]  * Debugger is active!
+2025-05-19 14:40:41 [INFO]  * Debugger PIN: 754-870-435
+2025-05-19 14:40:45 [INFO] {"source": "127.0.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-05-19 14:40:45 [INFO] 127.0.0.1 - - [19/May/2025 14:40:45] "POST /login HTTP/1.1" 200 -
+2025-05-19 14:40:47 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "MDjMJdEU8gEqAjy59JHTxz7sB3rr61BUWkOhhyYhdq4", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-05-19 14:40:47 [INFO] 127.0.0.1 - - [19/May/2025 14:40:47] "[35m[1mPOST /queues/test_queue HTTP/1.1[0m" 201 -
+2025-05-19 14:40:49 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "MDjMJdEU8gEqAjy59JHTxz7sB3rr61BUWkOhhyYhdq4", "Content-Length": "162", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "123", "customer": {"user_id": 1, "username": "admin", "password": "admin123", "role": "user"}, "status": 0, "vendor_id": "456", "amount": 100}}
+2025-05-19 14:40:49 [INFO] 127.0.0.1 - - [19/May/2025 14:40:49] "[35m[1mPOST /queues/test_queue/messages HTTP/1.1[0m" 201 -
+2025-05-19 14:40:51 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "MDjMJdEU8gEqAjy59JHTxz7sB3rr61BUWkOhhyYhdq4", "Content-Length": "162", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "124", "customer": {"user_id": 1, "username": "admin", "password": "admin123", "role": "user"}, "status": 1, "vendor_id": "444", "amount": 200}}
+2025-05-19 14:40:51 [INFO] 127.0.0.1 - - [19/May/2025 14:40:51] "[35m[1mPOST /queues/test_queue/messages HTTP/1.1[0m" 201 -
+2025-05-19 14:40:53 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "MDjMJdEU8gEqAjy59JHTxz7sB3rr61BUWkOhhyYhdq4"}, "metadata": null, "body": null}
+2025-05-19 14:40:53 [INFO] 127.0.0.1 - - [19/May/2025 14:40:53] "GET /queues/test_queue/messages/first HTTP/1.1" 200 -
+2025-05-19 14:41:12 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-19 14:41:12 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-19 14:41:12 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-19 14:41:12 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-19 14:41:13 [INFO]  * Restarting with watchdog (windowsapi)
+2025-05-19 14:41:13 [WARNING]  * Debugger is active!
+2025-05-19 14:41:13 [INFO]  * Debugger PIN: 754-870-435
+2025-05-19 14:41:15 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-19 14:41:15 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-19 14:41:15 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-19 14:41:16 [INFO]  * Restarting with watchdog (windowsapi)
+2025-05-19 14:41:16 [WARNING]  * Debugger is active!
+2025-05-19 14:41:16 [INFO]  * Debugger PIN: 754-870-435
+2025-05-19 14:41:17 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-19 14:41:17 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-19 14:41:17 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-19 14:41:17 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-19 14:41:17 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-19 14:41:17 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-19 14:41:17 [INFO]  * Restarting with watchdog (windowsapi)
+2025-05-19 14:41:18 [WARNING]  * Debugger is active!
+2025-05-19 14:41:18 [INFO]  * Debugger PIN: 754-870-435
+2025-05-19 14:41:19 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-19 14:41:19 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-19 14:41:19 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-19 14:41:19 [INFO]  * Restarting with watchdog (windowsapi)
+2025-05-19 14:41:20 [WARNING]  * Debugger is active!
+2025-05-19 14:41:20 [INFO]  * Debugger PIN: 754-870-435
+2025-05-19 14:41:45 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:7500
+2025-05-19 14:41:45 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-19 14:41:45 [INFO]  * Restarting with watchdog (windowsapi)
+2025-05-19 14:41:45 [WARNING]  * Debugger is active!
+2025-05-19 14:41:45 [INFO]  * Debugger PIN: 754-870-435
+2025-05-19 14:41:49 [INFO] {"source": "127.0.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-05-19 14:41:49 [INFO] 127.0.0.1 - - [19/May/2025 14:41:49] "POST /login HTTP/1.1" 200 -
+2025-05-19 14:41:51 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "2rsft8W9gRK1aVf-2npFouobO2cC1-ubYCcMDnZa_Iw", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-05-19 14:41:51 [INFO] 127.0.0.1 - - [19/May/2025 14:41:51] "[35m[1mPOST /queues/test_queue HTTP/1.1[0m" 201 -
+2025-05-19 14:41:53 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "2rsft8W9gRK1aVf-2npFouobO2cC1-ubYCcMDnZa_Iw", "Content-Length": "162", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "123", "customer": {"user_id": 1, "username": "admin", "password": "admin123", "role": "user"}, "status": 0, "vendor_id": "456", "amount": 100}}
+2025-05-19 14:41:53 [INFO] 127.0.0.1 - - [19/May/2025 14:41:53] "[35m[1mPOST /queues/test_queue/messages HTTP/1.1[0m" 201 -
+2025-05-19 14:41:55 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "2rsft8W9gRK1aVf-2npFouobO2cC1-ubYCcMDnZa_Iw", "Content-Length": "162", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "124", "customer": {"user_id": 1, "username": "admin", "password": "admin123", "role": "user"}, "status": 1, "vendor_id": "444", "amount": 200}}
+2025-05-19 14:41:55 [INFO] 127.0.0.1 - - [19/May/2025 14:41:55] "[35m[1mPOST /queues/test_queue/messages HTTP/1.1[0m" 201 -
+2025-05-19 14:41:57 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "2rsft8W9gRK1aVf-2npFouobO2cC1-ubYCcMDnZa_Iw"}, "metadata": null, "body": null}
+2025-05-19 14:41:57 [INFO] 127.0.0.1 - - [19/May/2025 14:41:57] "GET /queues/test_queue/messages/first HTTP/1.1" 200 -
+2025-05-19 14:42:18 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-19 14:42:18 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-19 14:42:18 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-19 14:42:19 [INFO]  * Restarting with watchdog (windowsapi)
+2025-05-19 14:43:32 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:7500
+2025-05-19 14:43:32 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-19 14:43:32 [INFO]  * Restarting with watchdog (windowsapi)
+2025-05-19 14:43:33 [WARNING]  * Debugger is active!
+2025-05-19 14:43:33 [INFO]  * Debugger PIN: 754-870-435
+2025-05-19 14:43:37 [INFO] {"source": "127.0.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-05-19 14:43:37 [INFO] 127.0.0.1 - - [19/May/2025 14:43:37] "POST /login HTTP/1.1" 200 -
+2025-05-19 14:43:39 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "0lOeX0Z9UJZq4ZzPYYmEYrbIgQ99htMMy59J-7ttth0", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-05-19 14:43:39 [INFO] 127.0.0.1 - - [19/May/2025 14:43:39] "[35m[1mPOST /queues/test_queue HTTP/1.1[0m" 201 -
+2025-05-19 14:43:41 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "0lOeX0Z9UJZq4ZzPYYmEYrbIgQ99htMMy59J-7ttth0", "Content-Length": "162", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "123", "customer": {"user_id": 1, "username": "admin", "password": "admin123", "role": "user"}, "status": 0, "vendor_id": "456", "amount": 100}}
+2025-05-19 14:43:41 [INFO] 127.0.0.1 - - [19/May/2025 14:43:41] "[35m[1mPOST /queues/test_queue/messages HTTP/1.1[0m" 201 -
+2025-05-19 14:43:43 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "0lOeX0Z9UJZq4ZzPYYmEYrbIgQ99htMMy59J-7ttth0", "Content-Length": "162", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "124", "customer": {"user_id": 1, "username": "admin", "password": "admin123", "role": "user"}, "status": 1, "vendor_id": "444", "amount": 200}}
+2025-05-19 14:43:43 [INFO] 127.0.0.1 - - [19/May/2025 14:43:43] "[35m[1mPOST /queues/test_queue/messages HTTP/1.1[0m" 201 -
+2025-05-19 14:43:45 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "0lOeX0Z9UJZq4ZzPYYmEYrbIgQ99htMMy59J-7ttth0"}, "metadata": null, "body": null}
+2025-05-19 14:43:45 [INFO] 127.0.0.1 - - [19/May/2025 14:43:45] "[35m[1mGET /queues/test_queue/messages/first HTTP/1.1[0m" 500 -
+2025-05-19 14:44:08 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-19 14:44:08 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-19 14:44:08 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-19 14:44:08 [INFO]  * Restarting with watchdog (windowsapi)
+2025-05-19 14:45:36 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:7500
+2025-05-19 14:45:36 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-19 14:45:36 [INFO]  * Restarting with watchdog (windowsapi)
+2025-05-19 14:45:37 [WARNING]  * Debugger is active!
+2025-05-19 14:45:37 [INFO]  * Debugger PIN: 754-870-435
+2025-05-19 14:45:40 [INFO] {"source": "127.0.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-05-19 14:45:40 [INFO] 127.0.0.1 - - [19/May/2025 14:45:40] "POST /login HTTP/1.1" 200 -
+2025-05-19 14:45:42 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Z1BC4JumjGY6u582pyAPv4isMqnD1nD58NlCHp9_7cM", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-05-19 14:45:42 [INFO] 127.0.0.1 - - [19/May/2025 14:45:42] "[35m[1mPOST /queues/test_queue HTTP/1.1[0m" 201 -
+2025-05-19 14:45:45 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Z1BC4JumjGY6u582pyAPv4isMqnD1nD58NlCHp9_7cM", "Content-Length": "162", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "123", "customer": {"user_id": 1, "username": "admin", "password": "admin123", "role": "user"}, "status": 0, "vendor_id": "456", "amount": 100}}
+2025-05-19 14:45:45 [INFO] 127.0.0.1 - - [19/May/2025 14:45:45] "[35m[1mPOST /queues/test_queue/messages HTTP/1.1[0m" 201 -
+2025-05-19 14:45:47 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Z1BC4JumjGY6u582pyAPv4isMqnD1nD58NlCHp9_7cM", "Content-Length": "162", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "124", "customer": {"user_id": 1, "username": "admin", "password": "admin123", "role": "user"}, "status": 1, "vendor_id": "444", "amount": 200}}
+2025-05-19 14:45:47 [INFO] 127.0.0.1 - - [19/May/2025 14:45:47] "[35m[1mPOST /queues/test_queue/messages HTTP/1.1[0m" 201 -
+2025-05-19 14:45:49 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Z1BC4JumjGY6u582pyAPv4isMqnD1nD58NlCHp9_7cM"}, "metadata": null, "body": null}
+2025-05-19 14:45:49 [INFO] 127.0.0.1 - - [19/May/2025 14:45:49] "[35m[1mGET /queues/test_queue/messages/first HTTP/1.1[0m" 500 -
+2025-05-19 14:46:30 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:46:30 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:46:30 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:46:31 [INFO]  * Restarting with watchdog (windowsapi)
+2025-05-19 14:46:32 [WARNING]  * Debugger is active!
+2025-05-19 14:46:32 [INFO]  * Debugger PIN: 754-870-435
+2025-05-19 14:46:32 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:46:32 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:46:32 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:46:32 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:46:32 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:46:32 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:46:33 [INFO]  * Restarting with watchdog (windowsapi)
+2025-05-19 14:46:33 [WARNING]  * Debugger is active!
+2025-05-19 14:46:33 [INFO]  * Debugger PIN: 754-870-435
+2025-05-19 14:46:37 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:46:37 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:46:37 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:46:38 [INFO]  * Restarting with watchdog (windowsapi)
+2025-05-19 14:46:38 [WARNING]  * Debugger is active!
+2025-05-19 14:46:38 [INFO]  * Debugger PIN: 754-870-435
+2025-05-19 14:46:41 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:46:41 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:46:42 [INFO]  * Restarting with watchdog (windowsapi)
+2025-05-19 14:46:43 [WARNING]  * Debugger is active!
+2025-05-19 14:46:43 [INFO]  * Debugger PIN: 754-870-435
+2025-05-19 14:46:51 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:46:51 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:46:51 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:46:51 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:46:51 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:46:51 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:46:51 [INFO]  * Restarting with watchdog (windowsapi)
+2025-05-19 14:46:52 [WARNING]  * Debugger is active!
+2025-05-19 14:46:52 [INFO]  * Debugger PIN: 754-870-435
+2025-05-19 14:47:02 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:02 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:02 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:03 [INFO]  * Restarting with watchdog (windowsapi)
+2025-05-19 14:47:04 [WARNING]  * Debugger is active!
+2025-05-19 14:47:04 [INFO]  * Debugger PIN: 754-870-435
+2025-05-19 14:47:05 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:05 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:06 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:06 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:06 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:06 [INFO]  * Restarting with watchdog (windowsapi)
+2025-05-19 14:47:06 [WARNING]  * Debugger is active!
+2025-05-19 14:47:06 [INFO]  * Debugger PIN: 754-870-435
+2025-05-19 14:47:07 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:07 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:07 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:07 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:07 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:07 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:07 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:07 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:07 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:07 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:07 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:07 [INFO]  * Restarting with watchdog (windowsapi)
+2025-05-19 14:47:08 [WARNING]  * Debugger is active!
+2025-05-19 14:47:08 [INFO]  * Debugger PIN: 754-870-435
+2025-05-19 14:47:08 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:08 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:08 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:09 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:09 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:09 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:09 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:09 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:09 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:09 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:09 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:09 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:09 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:09 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:09 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:09 [INFO]  * Restarting with watchdog (windowsapi)
+2025-05-19 14:47:10 [WARNING]  * Debugger is active!
+2025-05-19 14:47:10 [INFO]  * Debugger PIN: 754-870-435
+2025-05-19 14:47:10 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:10 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:10 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:10 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:10 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:10 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:10 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:10 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:10 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:10 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:10 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:11 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:11 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:11 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:11 [INFO]  * Restarting with watchdog (windowsapi)
+2025-05-19 14:47:12 [WARNING]  * Debugger is active!
+2025-05-19 14:47:12 [INFO]  * Debugger PIN: 754-870-435
+2025-05-19 14:47:12 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:12 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:12 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:12 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:12 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:12 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:13 [INFO]  * Restarting with watchdog (windowsapi)
+2025-05-19 14:47:13 [WARNING]  * Debugger is active!
+2025-05-19 14:47:13 [INFO]  * Debugger PIN: 754-870-435
+2025-05-19 14:47:15 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:15 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:15 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:15 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:15 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:15 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:15 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:15 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:15 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:15 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:15 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:15 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:16 [INFO]  * Restarting with watchdog (windowsapi)
+2025-05-19 14:47:16 [WARNING]  * Debugger is active!
+2025-05-19 14:47:16 [INFO]  * Debugger PIN: 754-870-435
+2025-05-19 14:47:16 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:16 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:16 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:17 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:17 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:17 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:17 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:17 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:17 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:17 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:17 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:17 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\server.py', reloading
+2025-05-19 14:47:17 [INFO]  * Restarting with watchdog (windowsapi)
+2025-05-19 14:47:18 [WARNING]  * Debugger is active!
+2025-05-19 14:47:18 [INFO]  * Debugger PIN: 754-870-435
+2025-05-19 14:47:25 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:7500
+2025-05-19 14:47:25 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-19 14:47:25 [INFO]  * Restarting with watchdog (windowsapi)
+2025-05-19 14:47:25 [WARNING]  * Debugger is active!
+2025-05-19 14:47:25 [INFO]  * Debugger PIN: 754-870-435
+2025-05-19 14:47:29 [INFO] {"source": "127.0.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-05-19 14:47:29 [INFO] 127.0.0.1 - - [19/May/2025 14:47:29] "POST /login HTTP/1.1" 200 -
+2025-05-19 14:47:31 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "iNMW10x7kSyCCEuSTiPkPAVw2UglOGPzbyASaaGEEH0", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-05-19 14:47:31 [INFO] 127.0.0.1 - - [19/May/2025 14:47:31] "[35m[1mPOST /queues/test_queue HTTP/1.1[0m" 201 -
+2025-05-19 14:47:33 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "iNMW10x7kSyCCEuSTiPkPAVw2UglOGPzbyASaaGEEH0", "Content-Length": "162", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "123", "customer": {"user_id": 1, "username": "admin", "password": "admin123", "role": "user"}, "status": 0, "vendor_id": "456", "amount": 100}}
+2025-05-19 14:47:33 [INFO] 127.0.0.1 - - [19/May/2025 14:47:33] "[35m[1mPOST /queues/test_queue/messages HTTP/1.1[0m" 201 -
+2025-05-19 14:47:35 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "iNMW10x7kSyCCEuSTiPkPAVw2UglOGPzbyASaaGEEH0", "Content-Length": "162", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "124", "customer": {"user_id": 1, "username": "admin", "password": "admin123", "role": "user"}, "status": 1, "vendor_id": "444", "amount": 200}}
+2025-05-19 14:47:35 [INFO] 127.0.0.1 - - [19/May/2025 14:47:35] "[35m[1mPOST /queues/test_queue/messages HTTP/1.1[0m" 201 -
+2025-05-19 14:47:37 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "iNMW10x7kSyCCEuSTiPkPAVw2UglOGPzbyASaaGEEH0"}, "metadata": null, "body": null}
+2025-05-19 14:47:37 [INFO] 127.0.0.1 - - [19/May/2025 14:47:37] "GET /queues/test_queue/messages/first HTTP/1.1" 200 -
+2025-05-19 14:49:50 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-19 14:49:50 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-19 14:49:50 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-19 14:49:51 [INFO]  * Restarting with watchdog (windowsapi)
+2025-05-19 14:49:52 [WARNING]  * Debugger is active!
+2025-05-19 14:49:52 [INFO]  * Debugger PIN: 754-870-435
+2025-05-19 14:53:13 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:7500
+2025-05-19 14:53:13 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-19 14:53:13 [INFO]  * Restarting with watchdog (windowsapi)
+2025-05-19 14:53:14 [WARNING]  * Debugger is active!
+2025-05-19 14:53:14 [INFO]  * Debugger PIN: 754-870-435
+2025-05-19 14:53:17 [INFO] {"source": "127.0.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-05-19 14:53:17 [INFO] 127.0.0.1 - - [19/May/2025 14:53:17] "POST /login HTTP/1.1" 200 -
+2025-05-19 14:53:20 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "eaWGeKoMZKGbejcNtV0JiJstVRwU05ttTbJJZCRK9kQ", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-05-19 14:53:20 [INFO] 127.0.0.1 - - [19/May/2025 14:53:20] "[35m[1mPOST /queues/test_queue HTTP/1.1[0m" 201 -
+2025-05-19 14:53:22 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "eaWGeKoMZKGbejcNtV0JiJstVRwU05ttTbJJZCRK9kQ", "Content-Length": "162", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "123", "customer": {"user_id": 1, "username": "admin", "password": "admin123", "role": "user"}, "status": 0, "vendor_id": "456", "amount": 100}}
+2025-05-19 14:53:22 [INFO] 127.0.0.1 - - [19/May/2025 14:53:22] "[35m[1mPOST /queues/test_queue/messages HTTP/1.1[0m" 201 -
+2025-05-19 14:53:24 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "eaWGeKoMZKGbejcNtV0JiJstVRwU05ttTbJJZCRK9kQ", "Content-Length": "162", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "124", "customer": {"user_id": 1, "username": "admin", "password": "admin123", "role": "user"}, "status": 1, "vendor_id": "444", "amount": 200}}
+2025-05-19 14:53:24 [INFO] 127.0.0.1 - - [19/May/2025 14:53:24] "[35m[1mPOST /queues/test_queue/messages HTTP/1.1[0m" 201 -
+2025-05-19 14:53:26 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "eaWGeKoMZKGbejcNtV0JiJstVRwU05ttTbJJZCRK9kQ"}, "metadata": null, "body": null}
+2025-05-19 14:53:26 [INFO] 127.0.0.1 - - [19/May/2025 14:53:26] "GET /queues/test_queue/messages/first HTTP/1.1" 200 -
+2025-05-19 14:54:48 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\main.py', reloading
+2025-05-19 14:54:48 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\main.py', reloading
+2025-05-19 14:54:48 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\main.py', reloading
+2025-05-19 14:54:48 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\main.py', reloading
+2025-05-19 14:54:48 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\main.py', reloading
+2025-05-19 14:54:49 [INFO]  * Restarting with watchdog (windowsapi)
+2025-05-19 14:54:50 [WARNING]  * Debugger is active!
+2025-05-19 14:54:50 [INFO]  * Debugger PIN: 754-870-435
+2025-05-19 14:57:45 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:7500
+2025-05-19 14:57:45 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-19 14:57:45 [INFO]  * Restarting with watchdog (windowsapi)
+2025-05-19 14:57:45 [WARNING]  * Debugger is active!
+2025-05-19 14:57:45 [INFO]  * Debugger PIN: 754-870-435
+2025-05-19 14:57:50 [INFO] {"source": "127.0.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-05-19 14:57:50 [INFO] 127.0.0.1 - - [19/May/2025 14:57:50] "POST /login HTTP/1.1" 200 -
+2025-05-19 14:57:52 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Hl9Ih2K2DZfqmV6A7IWuU4v4B9arr0vpu4AUS3V7NnY", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-05-19 14:57:52 [INFO] 127.0.0.1 - - [19/May/2025 14:57:52] "[35m[1mPOST /queues/test_queue HTTP/1.1[0m" 201 -
+2025-05-19 14:57:54 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Hl9Ih2K2DZfqmV6A7IWuU4v4B9arr0vpu4AUS3V7NnY", "Content-Length": "162", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "123", "customer": {"user_id": 1, "username": "admin", "password": "admin123", "role": "user"}, "status": 0, "vendor_id": "456", "amount": 100}}
+2025-05-19 14:57:54 [INFO] 127.0.0.1 - - [19/May/2025 14:57:54] "[35m[1mPOST /queues/test_queue/messages HTTP/1.1[0m" 201 -
+2025-05-19 14:57:56 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Hl9Ih2K2DZfqmV6A7IWuU4v4B9arr0vpu4AUS3V7NnY", "Content-Length": "162", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "124", "customer": {"user_id": 1, "username": "admin", "password": "admin123", "role": "user"}, "status": 1, "vendor_id": "444", "amount": 200}}
+2025-05-19 14:57:56 [INFO] 127.0.0.1 - - [19/May/2025 14:57:56] "[35m[1mPOST /queues/test_queue/messages HTTP/1.1[0m" 201 -
+2025-05-19 14:57:58 [INFO] {"source": "127.0.0.1", "destination": "/queues/test_queue/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.31.0", "Accept-Encoding": "gzip, deflate", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Hl9Ih2K2DZfqmV6A7IWuU4v4B9arr0vpu4AUS3V7NnY"}, "metadata": null, "body": null}
+2025-05-19 14:57:58 [INFO] 127.0.0.1 - - [19/May/2025 14:57:58] "GET /queues/test_queue/messages/first HTTP/1.1" 200 -
+2025-05-19 14:58:46 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-19 14:58:46 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-19 14:58:46 [INFO]  * Detected change in 'c:\\egyetem\\distributed systems\\assignments\\assignment 3\\queue_mngr.py', reloading
+2025-05-19 14:59:32 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:7500
+2025-05-19 14:59:32 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-19 14:59:32 [INFO]  * Restarting with watchdog (windowsapi)
+2025-05-19 14:59:33 [WARNING]  * Debugger is active!
+2025-05-19 14:59:33 [INFO]  * Debugger PIN: 754-870-435

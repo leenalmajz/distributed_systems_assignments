@@ -1,0 +1,7 @@
+QueueManager:
+  path: "queues.json"
+  max_length: 999
+  save_period_time: 20
+
+MLModel:
+  path: "fraud_rf_model.pkl"
