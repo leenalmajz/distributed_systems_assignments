@@ -1,6 +1,5 @@
 import joblib
 from mpi4py import MPI
-from config import load_config
 from queue_mngr import QueueManager
 import time
 import datetime
@@ -36,7 +35,7 @@ class MLService():
             
                 # Distributing transactions between processes
                 for i, transaction in range(min(len(transactions), self.size)): # If there would be (somehow) more transactions than processes, limit the transactions sent
-                    self.comm.send(transactions[i], dest = i+1, tag = 1)    # tag is 1 for sending, 2 for receiving if rang = 0. If not, the numbers are flipped
+                    self.comm.send(transactions[i], dest = i+1, tag = 1)    # tag is 1 for transactions, 2 is for results
 
                 # Gathering results
                 results = []
@@ -52,12 +51,12 @@ class MLService():
                 transaction = self.comm.recv(source = 0, tag = 1)
                 time.sleep(0.5)
 
-                result = self.predict_from_transaction(transaction)
-                time.sleep(0.5)
+                result = self.predict_from_transaction(transaction) # Getting the result from the model (if it's fraudulent or not)
+                time.sleep(0.5) # just some buffer time
 
-                self.comm.send(result, dest = 0, tag = 2)
+                self.comm.send(result, dest = 0, tag = 2)   # sends the results to the master process
 
-    def predict_from_transaction(self, transaction):
+    def predict_from_transaction(self, transaction):    # This code is the modification of the code from the exercises folder
         # Save customer_id for reference
         customer_id = transaction['customer']['user_id']
 
@@ -79,18 +78,3 @@ class MLService():
         }
 
         return result
-
-
-if __name__ == "__main__":
-    conf = load_config()    # Loads data from the config file
-    queue_data = conf['QueueManager']
-    
-    queue_manager = QueueManager(queue_data['path'], queue_data['max_length'], queue_data['save_period_time'])  # Creates a QueueManager instance
-
-    if not queue_manager.create_queue('transactions'):
-        print('"transactions" queue already exists!')
-    if not queue_manager.create_queue('results'):
-        print('"results" queue already exists!')
-
-    ml_data = conf['MLModel']
-    service = MLService(queue_manager, ml_data['path'], ml_data['num_processors'])

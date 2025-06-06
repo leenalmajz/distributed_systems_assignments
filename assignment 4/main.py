@@ -2,6 +2,7 @@
 
 import flask, json, os, yaml
 from queue_mngr import QueueManager
+from ml_service import MLService
 from auth_mngr import AuthorizationManager
 from config import load_config
 from server import start_app
@@ -13,7 +14,10 @@ def run():
     queue_manager = QueueManager(queue_data['path'], queue_data['max_length'], queue_data['save_period_time'])  # Creates a QueueManager instance
     auth_manager = AuthorizationManager()  # Creates an AuthorizationManager instance
 
-    app = start_app(queue_manager, auth_manager)    # Creates all of the necessary functions for the server app and returns the app
+    ml_data = conf['MLModel']
+    ml_service = MLService(queue_manager, ml_data['path'], ml_data['num_processors'])
+
+    app = start_app(queue_manager, auth_manager, ml_service)    # Creates all of the necessary functions for the server app and returns the app
     app.run(debug=True, port=7500)  # Starts running the server
 
 if __name__ == "__main__":
