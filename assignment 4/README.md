@@ -242,6 +242,10 @@ python main.py
 
 The server will start on http://localhost:7500.
 
+4.  Run MPI
+```bash
+mpirun -np 5  python ml_service.py
+```
 
 ### How to test (Optional)
 
