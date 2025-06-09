@@ -1,114 +1,89 @@
-from typing import Dict
-import threading, pathlib, json, time, atexit, collections
-from models import Message
+import json
+import os
+import time
 
-class QueueManager():
-    index = 0
-    singleton_instance = None
+class QueueManager:
+    _instances = {} # Store instances by path to ensure singleton per queue file
 
-    def __init__(self, path: str, max_length: int, save_period_time: int):
-        QueueManager.index += 1
-        if QueueManager.index > 1:  # Makes sure only one queue manager is created. For some reason we had a problem that multiple queue managers existed at the same time.
-            return
-        self.file = pathlib.Path(path)  # These values are loaded from the config file
+    def __init__(self, path, max_length, save_period_time):
+        self.path = path
         self.max_length = max_length
-        self.queues: Dict[str, collections.deque] = {}
+        self.save_period_time = save_period_time
+        self.last_save_time = time.time()
+        self.queues = self._load_from_file()
 
-        self.save_period_time = save_period_time  # in seconds
-        self.thread_lock = threading.Lock() # We need a lock in case the program wanted to access the persistent storage twice at the same time
+    @classmethod
+    def get_instance(cls, path, max_length, save_period_time):
+        if path not in cls._instances:
+            cls._instances[path] = cls(path, max_length, save_period_time)
+        return cls._instances[path]
 
-        if self.file.exists():
-            with self.file.open() as f:
-                cont = json.load(f)
-                for queue_name, queue_content in cont.items():
-                    self.queues.update({queue_name: collections.deque(queue_content, maxlen = self.max_length)})
+    def _load_from_file(self):
+        try:
+            if os.path.exists(self.path):
+                with open(self.path, 'r') as f:
+                    data = json.load(f)
+                    if not isinstance(data, dict):
+                        print(f"Warning: Queue file '{self.path}' contains invalid data (not a dictionary). Initializing empty queues.")
+                        return {}
+                    return data
+            return {}
+        except (json.JSONDecodeError, FileNotFoundError, Exception) as e:
+            print(f"Error loading queue data from {self.path}: {e}. Initializing empty queues.")
+            return {}
 
-        t = threading.Thread(target=self.periodical_save)   # setting up a thread to run a periodical save simultaneously to everything else
-        t.start()   
-        atexit.register(self.save_to_file)  # Save the file when the server stops
+    def _save_to_file(self):
+        try:
+            os.makedirs(os.path.dirname(self.path), exist_ok=True)
+            with open(self.path, 'w') as f:
+                json.dump(self.queues, f, indent=2)
+            self.last_save_time = time.time()
+        except Exception as e:
+            print(f"Error saving queue data to {self.path}: {e}")
 
-    @staticmethod
-    def get_instance(path = 'queues.json', length = 999, period_time = 20):
-        if QueueManager.singleton_instance is None:
-            QueueManager.singleton_instance = QueueManager(path, length, period_time)
+    # --- NEW METHOD ADDED ---
+    def create_queue(self, queue_name: str):
+        """
+        Explicitly creates an empty queue with the given name if it doesn't already exist.
+        This will ensure the queue is initialized in the persistent storage.
+        """
+        # Ensure we're working with the latest state from disk
+        self.queues = self._load_from_file()
 
-        return QueueManager.singleton_instance
+        if queue_name not in self.queues:
+            self.queues[queue_name] = []
+            self._save_to_file() # Save immediately to persist the new empty queue
+            print(f"Queue '{queue_name}' created successfully.")
+        else:
+            print(f"Queue '{queue_name}' already exists.")
+        return True # Indicate success (queue is either created or already exists)
+    # --- END NEW METHOD ---
 
-    def save_to_file(self):
-        '''
-        Saves the queues and their content into a json file
-        '''
-        if len(self.queues) == 0:
-            return
-        with self.thread_lock:
-            cont = {}
-            for queue_name, queue_content in self.queues.items():
-                cont.update({queue_name: list(queue_content)})
-            with self.file.open(mode = "w") as f:
-                json.dump(cont, f)
-            print("File saved")
+    def push(self, queue_name: str, content):
+        self.queues = self._load_from_file()
 
-    def periodical_save(self):
-        '''
-        Periodically calls the save_to_file function
-        '''
-        while True:
-            time.sleep(self.save_period_time)
-            self.save_to_file()
+        if queue_name not in self.queues:
+            # If `create_queue` isn't called explicitly, ensure it's a list here
+            self.queues[queue_name] = [] 
 
-    def create_queue(self, queue_name):
-        '''
-        Creates an empty queue with the name given as the parameter
-        '''
-        with self.thread_lock:
-            if queue_name not in self.queues.keys():
-                self.queues.update({queue_name: collections.deque(maxlen = self.max_length)})
-                return True
+        message_payload = content.body if hasattr(content, 'body') else content
+
+        if len(self.queues[queue_name]) >= self.max_length:
+            print(f"Queue '{queue_name}' is full. Message not pushed.")
             return False
 
-    def list_queue_content(self, queue_name):
-        '''
-        Returns the content of a queue specified by it's name
-        '''
-        with self.thread_lock:
-            if queue_name not in self.queues.keys():
-                return False
-            return self.queues[queue_name] 
+        self.queues[queue_name].append(message_payload)
+        self._save_to_file()
+        return True
+
+    def pull(self, queue_name: str):
+        self.queues = self._load_from_file()
         
-    def list_queue_names(self):
-        '''
-        Returns a list of the available queue names
-        '''
-        with self.thread_lock:
-            return self.queues.keys()
+        queue = self.queues.get(queue_name)
 
-    def delete_queue(self, queue_name):
-        '''
-        Deletes a queue from the queues list specified by it's name
-        '''
-        with self.thread_lock:
-            if queue_name in self.queues.keys():
-                self.queues.pop(queue_name)
-                return True
-            return False
+        if queue is None or not isinstance(queue, list) or len(queue) <= 0:
+            return None
 
-    def push(self, queue_name, content: Message):
-        '''
-        Appends a message at the end of the specified queue
-        '''
-        with self.thread_lock:
-            queue = self.queues.get(queue_name)
-            if len(queue) >= self.max_length:
-                return False
-            queue.append(content.body)
-            return True
-
-    def pull(self, queue_name):
-        '''
-        Removes and returns a message from the start of the specified queue
-        '''
-        with self.thread_lock:
-            queue = self.queues.get(queue_name)
-            if len(queue) <= 0:
-                return None
-            return queue.popleft()
+        message_body = queue.pop(0)
+        self._save_to_file()
+        return message_body

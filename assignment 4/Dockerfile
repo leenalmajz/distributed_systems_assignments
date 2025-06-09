@@ -34,4 +34,4 @@ WORKDIR /app
 COPY --chown=mpiuser:mpiuser . .
 
 # Run the application using mpirun
-CMD ["mpirun", "--hostfile", "hosts", "-np", "6", "python3", "ml_service.py"]
+CMD ["mpirun", "-np", "5", "python3", "ml_service.py"]

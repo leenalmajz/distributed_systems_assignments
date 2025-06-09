@@ -231,9 +231,9 @@ def start_app(queue_manager: QueueManager, auth_manager: AuthorizationManager):
         message_body = queue_manager.pull(queue_name)
         if message_body is None:
             log_message(source=request.remote_addr, destination=f"/queues/{queue_name}/messages/first", headers=request.headers, body=None)
-            return jsonify({'error': 'Queue is empty'}), 500
+            # CHANGE: Return 404 Not Found instead of 500 for empty queue
+            return jsonify({'error': 'Queue is empty or message not found'}), 404 
         log_message(source=request.remote_addr, destination=f"/queues/{queue_name}/messages/first", headers=request.headers, body=None)
         return jsonify(message_body), 200
 
     return app
-

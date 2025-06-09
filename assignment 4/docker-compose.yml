@@ -10,9 +10,15 @@ services:
       - sh
       - -c
       - |
-        sleep 5
-        mpirun --allow-run-as-root --host worker1,worker2,worker3,worker4,worker5 -np 5 python3 ml_service.py &
-        python3 main.py
+        # Wait for all dependent services (RabbitMQ, all workers) to be fully up and running.
+        sleep 10
+        
+        # Start ml_service.py with mpirun across all 6 nodes (master + 5 workers) in the background.
+        # Added --oversubscribe to allow running more processes than detected slots.
+        mpirun --allow-run-as-root --oversubscribe --host master,worker1,worker2,worker3,worker4,worker5 -np 6 /usr/bin/python3 /app/ml_service.py &
+        
+        # Start the Flask server (main.py) as the primary foreground process for the master container.
+        /usr/bin/python3 /app/main.py
     volumes:
       - .:/app
     environment:
@@ -35,7 +41,9 @@ services:
   worker1:
     build: .
     hostname: worker1
-    command: ["python3", "-c", "from mpi4py import MPI; print(f'Worker {MPI.COMM_WORLD.Get_rank()} initialized'); import time; time.sleep(3600)"]
+    # Workers just need to be running and available for mpirun to connect to.
+    # The sleep command keeps them alive indefinitely.
+    command: ["/usr/bin/python3", "-c", "import time; time.sleep(3600)"]
     volumes:
       - .:/app
     networks:
@@ -44,7 +52,7 @@ services:
   worker2:
     build: .
     hostname: worker2
-    command: ["python3", "-c", "from mpi4py import MPI; print(f'Worker {MPI.COMM_WORLD.Get_rank()} initialized'); import time; time.sleep(3600)"]
+    command: ["/usr/bin/python3", "-c", "import time; time.sleep(3600)"]
     volumes:
       - .:/app
     networks:
@@ -53,7 +61,7 @@ services:
   worker3:
     build: .
     hostname: worker3
-    command: ["python3", "-c", "from mpi4py import MPI; print(f'Worker {MPI.COMM_WORLD.Get_rank()} initialized'); import time; time.sleep(3600)"]
+    command: ["/usr/bin/python3", "-c", "import time; time.sleep(3600)"]
     volumes:
       - .:/app
     networks:
@@ -62,7 +70,7 @@ services:
   worker4:
     build: .
     hostname: worker4
-    command: ["python3", "-c", "from mpi4py import MPI; print(f'Worker {MPI.COMM_WORLD.Get_rank()} initialized'); import time; time.sleep(3600)"]
+    command: ["/usr/bin/python3", "-c", "import time; time.sleep(3600)"]
     volumes:
       - .:/app
     networks:
@@ -71,7 +79,7 @@ services:
   worker5:
     build: .
     hostname: worker5
-    command: ["python3", "-c", "from mpi4py import MPI; print(f'Worker {MPI.COMM_WORLD.Get_rank()} initialized'); import time; time.sleep(3600)"]
+    command: ["/usr/bin/python3", "-c", "import time; time.sleep(3600)"]
     volumes:
       - .:/app
     networks:
