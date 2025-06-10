@@ -1,7 +1,9 @@
-import joblib, time, datetime, os
+import joblib, time, datetime, os, pandas
 from mpi4py import MPI
 from queue_mngr import QueueManager
 from config import load_config
+from models import Message
+import secrets
 
 class MLService():
     def __init__(self, queue_manager: QueueManager, model_path: str):
@@ -17,13 +19,11 @@ class MLService():
             print(f"Worker {self.rank} ready")
         
     def load_model(self, model_path: str):  # Loads the pre-trained model from the pkl file
-        if self.rank == 0:
-            if not os.path.exists(model_path):
-                raise FileNotFoundError(f"Model file {model_path} not found.")
-            return joblib.load(model_path)
+        if not os.path.exists(model_path):
+            raise FileNotFoundError(f"Model file {model_path} not found.")
+        return joblib.load(model_path)
 
     def process_transactions(self, transactions_queue = 'transactions', results_queue  = 'results'):
-        print(self.rank)
         if self.rank == 0:  # Master
             while True:
                 transactions = []
@@ -37,21 +37,29 @@ class MLService():
                     continue
             
                 # Distributing transactions between processes
-                for i in range(min(len(transactions), self.size)): # If there would be (somehow) more transactions than processes, limit the transactions sent
+                for i in range(min(len(transactions), self.size - 1)): # If there would be (somehow) more transactions than worker processes, limit the transactions sent
                     self.comm.send(transactions[i], dest = i+1, tag = 1)    # tag is 1 for transactions, 2 is for results
 
                 # Gathering results
                 results = []
-                for i in range(len(transactions)):
-                    result = self.comm.recv(source = i+1, tag = 2)
-                    results.append(result)
+                received_results_count = 0
+                while received_results_count < min(len(transactions), self.size - 1):
+                        status = MPI.Status()
+                        result = self.comm.recv(source = MPI.ANY_SOURCE, tag = 2, status = status)
+                        results.append(result)
+                        received_results_count += 1
 
                 for result in results:  # Pushing results to the queue
-                    self.queue_manager.push(results_queue, {'body': result})
+                    self.queue_manager.push(results_queue, Message(body=result))
 
         else:   # Worker
             while True:
-                transaction = self.comm.recv(source = 0, tag = 1)   # Gets the transaction from the master process
+                try:
+                    status = MPI.Status()
+                    transaction = self.comm.recv(source = 0, tag = 1, status = status)   # Gets the transaction from the master process
+                except Exception as e:
+                    time.sleep(1) # Wait before trying again
+                    continue
                 time.sleep(0.5)
 
                 result = self.predict_from_transaction(transaction) # Getting the result from the model (if it's fraudulent or not)
@@ -59,33 +67,42 @@ class MLService():
 
                 self.comm.send(result, dest = 0, tag = 2)   # sends the results to the master process
 
+
     def predict_from_transaction(self, transaction):    # This code is the modification of the code from the exercises folder
         # Save customer_id for reference
-        customer_id = transaction['customer']['user_id']
+        transaction_id = transaction['transaction_id']
 
-        # Preprocess
-        df_processed = transaction.copy()
-        df_processed.update({'timestamp': datetime.datetime.now()})
+        transaction = {
+            'timestamp': time.time(),
+            'status': transaction['status'],
+            'vendor_id': transaction['vendor_id'],
+            'amount': transaction['amount']
+        }
 
-        # Drop unused columns
-        df_processed.pop('customer')
-        df_processed.pop('transaction_id')
+        df_processed = pandas.DataFrame(transaction, index=[0])
 
         # Generate predictions
         predictions = self.model.predict(df_processed)
 
         # Return predictions alongside customer_id
         result = {
-            'customer_id': customer_id,
-            'predicted_fraudulent': predictions
+            "result_id": f"res_{secrets.token_hex(8)}",
+            "transaction_id": transaction_id,
+            "timestamp": datetime.datetime.now().isoformat(),
+            "is_fraudulent": predictions.tolist()[0],
+            "confidence": 0.5,
         }
 
         return result
     
-if __name__ == "__main__":
+def run():
     conf = load_config()    # Loads data from the config file
     queue_data = conf['QueueManager']
     ml_data = conf['MLModel']
 
     queue_manager = QueueManager.get_instance(queue_data['path'], queue_data['max_length'], queue_data['save_period_time']) # Creates a QueueManager instance
     ml_service = MLService(queue_manager, ml_data['path'])   # Creates the MLService class instance
+    ml_service.process_transactions()
+
+if __name__ == "__main__":
+    run()

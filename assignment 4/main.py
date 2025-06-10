@@ -1,7 +1,6 @@
 # Add middleware for logging requests/responses
 
 from queue_mngr import QueueManager
-from ml_service import MLService
 from auth_mngr import AuthorizationManager
 from config import load_config
 from server import start_app
