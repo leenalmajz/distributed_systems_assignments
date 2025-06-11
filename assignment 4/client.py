@@ -88,10 +88,10 @@ def pull_results(messages_to_push):
         print("\n--- Pulling Results from Results Queue ---")
         # 4. Pull messages from the results queue and display worker info
         pulled_count = 0 
-        max_pulls = len(messages_to_push) + 6
+        max_pulls = len(messages_to_push) + 5
         tries = 0
         
-        while pulled_count < max_pulls or tries > 4:
+        while pulled_count < max_pulls and tries < 4:
             try:
                 result_message = pull_message(RESULTS_QUEUE_NAME)
                 if result_message is not None: # Explicitly check for None

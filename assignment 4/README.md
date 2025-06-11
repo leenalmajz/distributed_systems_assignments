@@ -46,7 +46,7 @@ QueueManager:
 ```
 * 	`path`: File where the state of the queues is stored
 *   `max_length`: Max number of messages per queue
-*   `save_period_time`: Periodic save interval (in seconds)
+*   `save_period_time`: Periodic save interval (in seconds). This is not used anymore in the newest version of the queue manager.
 
 ```yaml
 MLService:
@@ -63,11 +63,11 @@ MLService:
 | `config.py`     | Loads the YAML configuration file into the application. |
 | `main.py`       | Entry point of the application. Initializes and links `AuthorizationManager` and `QueueManager`, and starts the Flask server. |
 | `models.py`     | Defines structured data types like `Message`, `Transaction`, `Result`, and `User`, with methods to serialize/deserialize for persistence. |
-| `queue_mngr.py` | Core logic for queue handling — includes methods for creation, deletion, pushing/pulling messages, and saving/loading from disk. Thread-safe and supports bounded queues. |
+| `queue_mngr.py` | Core logic for queue handling — includes methods for creation, deletion, pushing/pulling messages, and saving/loading from disk. The version before implementing Docker was a thread-safe queue manager. The newest version doesn't implement threading, since the worker processes can use the queue manager at the same time. Both versions support bounded queues. |
 | `server.py`     | Defines all API endpoints, performs request authentication and routing, and integrates logging. Handles both administrative and user-level requests. |
-| `ml_service.py` |	Implements distributed ML prediction using MPI. Handles transaction distribution to workers and result aggregation. Works with both Docker and native MPI environments. |
+| `ml_service.py` |	Implements distributed ML prediction using MPI. Handles transaction distribution to workers and result aggregation. Works with both Docker and native MPI environments. This is where the transaction objects are pulled from the `transactions` queue and the results objects are pushed to the `results` queue. |
 | `Dockerfile`    | Configures a container with MPI and Python dependencies for reliable distributed execution.
-| `docker-compose.yml` | Orchestrates a cluster with 1 master + 4 workers by default, with configurable scaling.
+| `docker-compose.yml` | Orchestrates a cluster with 1 master + 5 workers by default, with configurable scaling.
 | `fraud_rf_model.pkl` | Pre-trained Random Forest model for fraud detection (should be placed in project root).
 
 
@@ -83,14 +83,15 @@ MLService:
 
 * `POST /login`:
     * Description: Authenticates a user and returns a token.
-    * Request Body:
+    * Request:
+        * Body:
 
-        ```json
-        {
-            "username": "string",
-            "password": "string"
-        }
-        ```
+            ```json
+            {
+                "username": "string",
+                "password": "string"
+            }
+            ```
     * Response:
         * Body:
 
@@ -138,34 +139,7 @@ MLService:
             ```
 * `POST /queues/<queue_name>/messages`:
     * Description: Adds a message to the specified queue.
-    * Request Body (e.g. for adding transaction data):
-
-        ```json
-        {
-            "transaction_id": "string",
-            "customer": {
-                "user_id": 1, 
-                "username": "string", 
-                "password": "string", 
-                "role": "string"
-            },
-            "status": 0, 
-            "vendor_id": "string", 
-            "amount": 100
-        }
-        ```
-    * Response:
-        * Body:
-
-            ```json
-            {
-                "result": "Message added to queue"
-            }
-            ```
-* `GET /queues/<queue_name>/messages/first`:
-    * Description: Retrieves and removes the first message from the specified queue.
-    * Authentication: Requires a valid user token in the `Authorization` header.
-    * Response:
+    * Request (for adding transaction ):
         * Body:
 
             ```json
@@ -180,6 +154,58 @@ MLService:
                 "status": 0, 
                 "vendor_id": "string", 
                 "amount": 100
+            }
+            ```
+        Request (for adding result data):
+        * Body:
+
+            ```json
+            {
+                "result_id": "string",
+                "transaction_id": "string",
+                "timestamp": "string (YYYY-MM-DD HH:MM:SS.mmmmmm)",
+                "is_fraudulent": 0, // It is a binary output (0 or 1), 1 if the transaction is fraudulent, 0 if not
+                "confidence": 0.5,
+            }
+            ```
+    * Response:
+        * Body:
+
+            ```json
+            {
+                "result": "Message added to queue"
+            }
+            ```
+* `GET /queues/<queue_name>/messages/first`:
+    * Description: Retrieves and removes the first message from the specified queue.
+    * Authentication: Requires a valid user token in the `Authorization` header.
+    * Response (for transactions):
+        * Body:
+
+            ```json
+            {
+                "transaction_id": "string",
+                "customer": {
+                    "user_id": 1, 
+                    "username": "string", 
+                    "password": "string", 
+                    "role": "string"
+                },
+                "status": 0, 
+                "vendor_id": "string", 
+                "amount": 100
+            }
+            ```
+        Response (for results):
+        * Body:
+
+            ```json
+            {
+                "result_id": "string",
+                "transaction_id": "string",
+                "timestamp": "string (YYYY-MM-DD HH:MM:SS.mmmmmm)",
+                "is_fraudulent": 0, // It is a binary output (0 or 1), 1 if the transaction is fraudulent, 0 if not
+                "confidence": 0.5,
             }
             ```
         Response if there are no more messages in the queue:
@@ -242,6 +268,10 @@ python main.py
 
 The server will start on http://localhost:7500.
 
+4. Run MPI
+```bash
+mpirun -np 5  python ml_service.py
+```
 
 ### How to test (Optional)
 
@@ -267,7 +297,7 @@ docker compose up --build -d
 
 ### How to test (Optional)
 
-Run in a different terminal 
+Run in a terminal
 
 ```bash
 python client.py

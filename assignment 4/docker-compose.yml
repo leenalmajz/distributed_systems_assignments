@@ -10,14 +10,8 @@ services:
       - sh
       - -c
       - |
-        # Wait for all dependent services (RabbitMQ, all workers) to be fully up and running.
         sleep 10
-        
-        # Start ml_service.py with mpirun across all 6 nodes (master + 5 workers) in the background.
-        # Added --oversubscribe to allow running more processes than detected slots.
         mpirun --allow-run-as-root --oversubscribe --host master,worker1,worker2,worker3,worker4,worker5 -np 6 /usr/bin/python3 /app/ml_service.py &
-        
-        # Start the Flask server (main.py) as the primary foreground process for the master container.
         /usr/bin/python3 /app/main.py
     volumes:
       - .:/app
