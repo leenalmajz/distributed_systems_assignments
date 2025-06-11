@@ -13,10 +13,11 @@ def run():
     auth_manager = AuthorizationManager()  # Creates an AuthorizationManager instance
 
     # Ensure required queues exist
-    if not queue_manager.create_queue('transactions'):
-        print("Transactions queue already exists")
-    if not queue_manager.create_queue('results'):
-        print("Results queue already exists")
+    queue_names = queue_manager.list_queue_names()
+    if 'transactions' not in queue_names:
+        queue_manager.create_queue('transactions')
+    if 'results' not in queue_names:
+        queue_manager.create_queue('results')
 
     app = start_app(queue_manager, auth_manager)    # Creates all of the necessary functions for the server app and returns the app
     app.run(host='0.0.0.0', debug=True, port=7500)  # Starts running the server

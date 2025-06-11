@@ -1971,3 +1971,703 @@
 2025-06-10 10:07:06 [INFO] 172.18.0.1 - - [10/Jun/2025 10:07:06] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
 2025-06-10 10:07:06 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "_GlHxcfA3B1ApEThpVC-jtbm2EP91q-VP5NdYysIH1s", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "6", "customer": {"user_id": 106, "username": "userF", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "16", "amount": 300.0}}
 2025-06-10 10:07:06 [INFO] 172.18.0.1 - - [10/Jun/2025 10:07:06] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 09:19:43 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:7500
+ * Running on http://172.18.0.8:7500
+2025-06-11 09:19:43 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-11 09:19:43 [INFO]  * Restarting with stat
+2025-06-11 09:19:44 [WARNING]  * Debugger is active!
+2025-06-11 09:19:44 [INFO]  * Debugger PIN: 944-134-860
+2025-06-11 09:19:50 [INFO] {"source": "172.18.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-06-11 09:19:50 [INFO] 172.18.0.1 - - [11/Jun/2025 09:19:50] "POST /login HTTP/1.1" 200 -
+2025-06-11 09:19:50 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "ojakXkSwU4skiOfpSd1mtv3I_7Ez8gxAClhg-cZPNJk", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-06-11 09:19:50 [INFO] 172.18.0.1 - - [11/Jun/2025 09:19:50] "[35m[1mPOST /queues/transactions HTTP/1.1[0m" 201 -
+2025-06-11 09:19:50 [INFO] {"source": "172.18.0.1", "destination": "/queues/results", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "ojakXkSwU4skiOfpSd1mtv3I_7Ez8gxAClhg-cZPNJk", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-06-11 09:19:50 [INFO] 172.18.0.1 - - [11/Jun/2025 09:19:50] "[35m[1mPOST /queues/results HTTP/1.1[0m" 201 -
+2025-06-11 09:19:50 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "ojakXkSwU4skiOfpSd1mtv3I_7Ez8gxAClhg-cZPNJk", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "1", "customer": {"user_id": 101, "username": "userA", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "11", "amount": 100.0}}
+2025-06-11 09:19:50 [INFO] 172.18.0.1 - - [11/Jun/2025 09:19:50] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 09:19:50 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "ojakXkSwU4skiOfpSd1mtv3I_7Ez8gxAClhg-cZPNJk", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "2", "customer": {"user_id": 102, "username": "userB", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "12", "amount": 550.0}}
+2025-06-11 09:19:50 [INFO] 172.18.0.1 - - [11/Jun/2025 09:19:50] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 09:19:50 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "ojakXkSwU4skiOfpSd1mtv3I_7Ez8gxAClhg-cZPNJk", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "3", "customer": {"user_id": 103, "username": "userC", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "13", "amount": 120.5}}
+2025-06-11 09:19:50 [INFO] 172.18.0.1 - - [11/Jun/2025 09:19:50] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 09:19:50 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "ojakXkSwU4skiOfpSd1mtv3I_7Ez8gxAClhg-cZPNJk", "Content-Length": "169", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "4", "customer": {"user_id": 104, "username": "userD", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "14", "amount": 90.0}}
+2025-06-11 09:19:50 [INFO] 172.18.0.1 - - [11/Jun/2025 09:19:50] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 09:19:50 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "ojakXkSwU4skiOfpSd1mtv3I_7Ez8gxAClhg-cZPNJk", "Content-Length": "171", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "5", "customer": {"user_id": 105, "username": "userE", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "15", "amount": 2000.0}}
+2025-06-11 09:19:50 [INFO] 172.18.0.1 - - [11/Jun/2025 09:19:50] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 09:19:50 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "ojakXkSwU4skiOfpSd1mtv3I_7Ez8gxAClhg-cZPNJk", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "6", "customer": {"user_id": 106, "username": "userF", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "16", "amount": 300.0}}
+2025-06-11 09:19:50 [INFO] 172.18.0.1 - - [11/Jun/2025 09:19:50] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 09:20:23 [INFO]  * Detected change in '/app/queue_mngr.py', reloading
+2025-06-11 09:20:23 [INFO]  * Restarting with stat
+2025-06-11 09:20:24 [WARNING]  * Debugger is active!
+2025-06-11 09:20:24 [INFO]  * Debugger PIN: 944-134-860
+2025-06-11 09:20:25 [INFO]  * Detected change in '/app/queue_mngr.py', reloading
+2025-06-11 09:20:25 [INFO]  * Restarting with stat
+2025-06-11 09:32:38 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:7500
+ * Running on http://172.18.0.8:7500
+2025-06-11 09:32:38 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-11 09:32:38 [INFO]  * Restarting with stat
+2025-06-11 09:32:39 [WARNING]  * Debugger is active!
+2025-06-11 09:32:39 [INFO]  * Debugger PIN: 951-764-249
+2025-06-11 09:34:33 [INFO]  * Detected change in '/app/queue_mngr.py', reloading
+2025-06-11 09:34:33 [INFO]  * Restarting with stat
+2025-06-11 09:34:34 [WARNING]  * Debugger is active!
+2025-06-11 09:34:34 [INFO]  * Debugger PIN: 951-764-249
+2025-06-11 09:34:41 [INFO]  * Detected change in '/app/queue_mngr.py', reloading
+2025-06-11 09:34:54 [INFO]  * Restarting with stat
+2025-06-11 09:37:36 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:7500
+ * Running on http://172.18.0.8:7500
+2025-06-11 09:37:36 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-11 09:37:36 [INFO]  * Restarting with stat
+2025-06-11 09:37:37 [WARNING]  * Debugger is active!
+2025-06-11 09:37:37 [INFO]  * Debugger PIN: 128-082-863
+2025-06-11 09:38:20 [INFO] {"source": "172.18.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-06-11 09:38:20 [INFO] 172.18.0.1 - - [11/Jun/2025 09:38:20] "POST /login HTTP/1.1" 200 -
+2025-06-11 09:38:20 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "zs2ofHcABiZDyDmi4Sx1dDLkt4SPffEezQGDQcBK2UM", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-06-11 09:38:20 [INFO] 172.18.0.1 - - [11/Jun/2025 09:38:20] "[31m[1mPOST /queues/transactions HTTP/1.1[0m" 409 -
+2025-06-11 09:38:20 [INFO] {"source": "172.18.0.1", "destination": "/queues/results", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "zs2ofHcABiZDyDmi4Sx1dDLkt4SPffEezQGDQcBK2UM", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-06-11 09:38:20 [INFO] 172.18.0.1 - - [11/Jun/2025 09:38:20] "[31m[1mPOST /queues/results HTTP/1.1[0m" 409 -
+2025-06-11 09:38:20 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "zs2ofHcABiZDyDmi4Sx1dDLkt4SPffEezQGDQcBK2UM", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "1", "customer": {"user_id": 101, "username": "userA", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "11", "amount": 100.0}}
+2025-06-11 09:38:20 [INFO] 172.18.0.1 - - [11/Jun/2025 09:38:20] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 09:38:20 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "zs2ofHcABiZDyDmi4Sx1dDLkt4SPffEezQGDQcBK2UM", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "2", "customer": {"user_id": 102, "username": "userB", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "12", "amount": 550.0}}
+2025-06-11 09:38:20 [INFO] 172.18.0.1 - - [11/Jun/2025 09:38:20] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 09:38:20 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "zs2ofHcABiZDyDmi4Sx1dDLkt4SPffEezQGDQcBK2UM", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "3", "customer": {"user_id": 103, "username": "userC", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "13", "amount": 120.5}}
+2025-06-11 09:38:20 [INFO] 172.18.0.1 - - [11/Jun/2025 09:38:20] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 09:38:20 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "zs2ofHcABiZDyDmi4Sx1dDLkt4SPffEezQGDQcBK2UM", "Content-Length": "169", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "4", "customer": {"user_id": 104, "username": "userD", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "14", "amount": 90.0}}
+2025-06-11 09:38:20 [INFO] 172.18.0.1 - - [11/Jun/2025 09:38:20] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 09:38:20 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "zs2ofHcABiZDyDmi4Sx1dDLkt4SPffEezQGDQcBK2UM", "Content-Length": "171", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "5", "customer": {"user_id": 105, "username": "userE", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "15", "amount": 2000.0}}
+2025-06-11 09:38:20 [INFO] 172.18.0.1 - - [11/Jun/2025 09:38:20] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 09:38:20 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "zs2ofHcABiZDyDmi4Sx1dDLkt4SPffEezQGDQcBK2UM", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "6", "customer": {"user_id": 106, "username": "userF", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "16", "amount": 300.0}}
+2025-06-11 09:38:20 [INFO] 172.18.0.1 - - [11/Jun/2025 09:38:20] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 09:45:44 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:7500
+ * Running on http://172.18.0.8:7500
+2025-06-11 09:45:44 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-11 09:45:44 [INFO]  * Restarting with stat
+2025-06-11 09:45:45 [WARNING]  * Debugger is active!
+2025-06-11 09:45:45 [INFO]  * Debugger PIN: 716-608-596
+2025-06-11 09:45:48 [INFO] {"source": "172.18.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-06-11 09:45:48 [INFO] 172.18.0.1 - - [11/Jun/2025 09:45:48] "POST /login HTTP/1.1" 200 -
+2025-06-11 09:45:48 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "yZ2cmQRTqLjRE7i3lRlNp5vJ85JMfulQhYQ1iU37VrI", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-06-11 09:45:48 [INFO] 172.18.0.1 - - [11/Jun/2025 09:45:48] "[31m[1mPOST /queues/transactions HTTP/1.1[0m" 409 -
+2025-06-11 09:45:48 [INFO] {"source": "172.18.0.1", "destination": "/queues/results", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "yZ2cmQRTqLjRE7i3lRlNp5vJ85JMfulQhYQ1iU37VrI", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-06-11 09:45:48 [INFO] 172.18.0.1 - - [11/Jun/2025 09:45:48] "[31m[1mPOST /queues/results HTTP/1.1[0m" 409 -
+2025-06-11 09:45:48 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "yZ2cmQRTqLjRE7i3lRlNp5vJ85JMfulQhYQ1iU37VrI", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "1", "customer": {"user_id": 101, "username": "userA", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "11", "amount": 100.0}}
+2025-06-11 09:45:48 [INFO] 172.18.0.1 - - [11/Jun/2025 09:45:48] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 09:45:48 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "yZ2cmQRTqLjRE7i3lRlNp5vJ85JMfulQhYQ1iU37VrI", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "2", "customer": {"user_id": 102, "username": "userB", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "12", "amount": 550.0}}
+2025-06-11 09:45:48 [INFO] 172.18.0.1 - - [11/Jun/2025 09:45:48] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 09:45:48 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "yZ2cmQRTqLjRE7i3lRlNp5vJ85JMfulQhYQ1iU37VrI", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "3", "customer": {"user_id": 103, "username": "userC", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "13", "amount": 120.5}}
+2025-06-11 09:45:48 [INFO] 172.18.0.1 - - [11/Jun/2025 09:45:48] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 09:45:49 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "yZ2cmQRTqLjRE7i3lRlNp5vJ85JMfulQhYQ1iU37VrI", "Content-Length": "169", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "4", "customer": {"user_id": 104, "username": "userD", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "14", "amount": 90.0}}
+2025-06-11 09:45:49 [INFO] 172.18.0.1 - - [11/Jun/2025 09:45:49] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 09:45:49 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "yZ2cmQRTqLjRE7i3lRlNp5vJ85JMfulQhYQ1iU37VrI", "Content-Length": "171", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "5", "customer": {"user_id": 105, "username": "userE", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "15", "amount": 2000.0}}
+2025-06-11 09:45:49 [INFO] 172.18.0.1 - - [11/Jun/2025 09:45:49] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 09:45:49 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "yZ2cmQRTqLjRE7i3lRlNp5vJ85JMfulQhYQ1iU37VrI", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "6", "customer": {"user_id": 106, "username": "userF", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "16", "amount": 300.0}}
+2025-06-11 09:45:49 [INFO] 172.18.0.1 - - [11/Jun/2025 09:45:49] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 09:46:03 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 09:46:03 [INFO]  * Restarting with stat
+2025-06-11 09:46:04 [WARNING]  * Debugger is active!
+2025-06-11 09:46:04 [INFO]  * Debugger PIN: 716-608-596
+2025-06-11 09:46:05 [INFO] {"source": "172.18.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-06-11 09:46:05 [INFO] 172.18.0.1 - - [11/Jun/2025 09:46:05] "POST /login HTTP/1.1" 200 -
+2025-06-11 09:46:05 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "R2CXd_cM9T25EFZVNRlbkiidYU8Tp-JsgV0pV7wBV6U", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-06-11 09:46:05 [INFO] 172.18.0.1 - - [11/Jun/2025 09:46:05] "[31m[1mPOST /queues/transactions HTTP/1.1[0m" 409 -
+2025-06-11 09:46:05 [INFO] {"source": "172.18.0.1", "destination": "/queues/results", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "R2CXd_cM9T25EFZVNRlbkiidYU8Tp-JsgV0pV7wBV6U", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-06-11 09:46:05 [INFO] 172.18.0.1 - - [11/Jun/2025 09:46:05] "[31m[1mPOST /queues/results HTTP/1.1[0m" 409 -
+2025-06-11 09:46:05 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "R2CXd_cM9T25EFZVNRlbkiidYU8Tp-JsgV0pV7wBV6U", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "1", "customer": {"user_id": 101, "username": "userA", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "11", "amount": 100.0}}
+2025-06-11 09:46:05 [INFO] 172.18.0.1 - - [11/Jun/2025 09:46:05] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 09:46:05 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "R2CXd_cM9T25EFZVNRlbkiidYU8Tp-JsgV0pV7wBV6U", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "2", "customer": {"user_id": 102, "username": "userB", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "12", "amount": 550.0}}
+2025-06-11 09:46:05 [INFO] 172.18.0.1 - - [11/Jun/2025 09:46:05] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 09:46:05 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "R2CXd_cM9T25EFZVNRlbkiidYU8Tp-JsgV0pV7wBV6U", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "3", "customer": {"user_id": 103, "username": "userC", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "13", "amount": 120.5}}
+2025-06-11 09:46:05 [INFO] 172.18.0.1 - - [11/Jun/2025 09:46:05] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 09:46:06 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "R2CXd_cM9T25EFZVNRlbkiidYU8Tp-JsgV0pV7wBV6U", "Content-Length": "169", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "4", "customer": {"user_id": 104, "username": "userD", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "14", "amount": 90.0}}
+2025-06-11 09:46:06 [INFO] 172.18.0.1 - - [11/Jun/2025 09:46:06] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 09:46:06 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "R2CXd_cM9T25EFZVNRlbkiidYU8Tp-JsgV0pV7wBV6U", "Content-Length": "171", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "5", "customer": {"user_id": 105, "username": "userE", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "15", "amount": 2000.0}}
+2025-06-11 09:46:06 [INFO] 172.18.0.1 - - [11/Jun/2025 09:46:06] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 09:46:06 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "R2CXd_cM9T25EFZVNRlbkiidYU8Tp-JsgV0pV7wBV6U", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "6", "customer": {"user_id": 106, "username": "userF", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "16", "amount": 300.0}}
+2025-06-11 09:46:06 [INFO] 172.18.0.1 - - [11/Jun/2025 09:46:06] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 09:46:06 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "R2CXd_cM9T25EFZVNRlbkiidYU8Tp-JsgV0pV7wBV6U"}, "metadata": null, "body": null}
+2025-06-11 09:46:06 [INFO] 172.18.0.1 - - [11/Jun/2025 09:46:06] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 09:46:06 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "R2CXd_cM9T25EFZVNRlbkiidYU8Tp-JsgV0pV7wBV6U"}, "metadata": null, "body": null}
+2025-06-11 09:46:06 [INFO] 172.18.0.1 - - [11/Jun/2025 09:46:06] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 09:46:06 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "R2CXd_cM9T25EFZVNRlbkiidYU8Tp-JsgV0pV7wBV6U"}, "metadata": null, "body": null}
+2025-06-11 09:46:06 [INFO] 172.18.0.1 - - [11/Jun/2025 09:46:06] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 09:46:06 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "R2CXd_cM9T25EFZVNRlbkiidYU8Tp-JsgV0pV7wBV6U"}, "metadata": null, "body": null}
+2025-06-11 09:46:06 [INFO] 172.18.0.1 - - [11/Jun/2025 09:46:06] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 09:46:06 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "R2CXd_cM9T25EFZVNRlbkiidYU8Tp-JsgV0pV7wBV6U"}, "metadata": null, "body": null}
+2025-06-11 09:46:06 [INFO] 172.18.0.1 - - [11/Jun/2025 09:46:06] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 09:46:06 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "R2CXd_cM9T25EFZVNRlbkiidYU8Tp-JsgV0pV7wBV6U"}, "metadata": null, "body": null}
+2025-06-11 09:46:06 [INFO] 172.18.0.1 - - [11/Jun/2025 09:46:06] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 09:46:06 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "R2CXd_cM9T25EFZVNRlbkiidYU8Tp-JsgV0pV7wBV6U"}, "metadata": null, "body": null}
+2025-06-11 09:46:06 [INFO] 172.18.0.1 - - [11/Jun/2025 09:46:06] "[35m[1mGET /queues/results/messages/first HTTP/1.1[0m" 500 -
+2025-06-11 09:46:47 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 09:46:47 [INFO]  * Restarting with stat
+2025-06-11 09:46:48 [WARNING]  * Debugger is active!
+2025-06-11 09:46:48 [INFO]  * Debugger PIN: 716-608-596
+2025-06-11 09:46:49 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 09:46:49 [INFO]  * Restarting with stat
+2025-06-11 09:46:50 [WARNING]  * Debugger is active!
+2025-06-11 09:46:50 [INFO]  * Debugger PIN: 716-608-596
+2025-06-11 09:46:51 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 09:46:51 [INFO]  * Restarting with stat
+2025-06-11 09:46:52 [WARNING]  * Debugger is active!
+2025-06-11 09:46:52 [INFO]  * Debugger PIN: 716-608-596
+2025-06-11 09:46:53 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 09:46:53 [INFO]  * Restarting with stat
+2025-06-11 09:46:54 [WARNING]  * Debugger is active!
+2025-06-11 09:46:54 [INFO]  * Debugger PIN: 716-608-596
+2025-06-11 09:46:57 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 09:46:57 [INFO]  * Restarting with stat
+2025-06-11 09:46:58 [WARNING]  * Debugger is active!
+2025-06-11 09:46:58 [INFO]  * Debugger PIN: 716-608-596
+2025-06-11 09:47:00 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 09:47:00 [INFO]  * Restarting with stat
+2025-06-11 09:47:01 [WARNING]  * Debugger is active!
+2025-06-11 09:47:01 [INFO]  * Debugger PIN: 716-608-596
+2025-06-11 09:49:06 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:7500
+ * Running on http://172.18.0.8:7500
+2025-06-11 09:49:06 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-11 09:49:06 [INFO]  * Restarting with stat
+2025-06-11 09:49:07 [WARNING]  * Debugger is active!
+2025-06-11 09:49:07 [INFO]  * Debugger PIN: 333-593-862
+2025-06-11 09:49:13 [INFO] {"source": "172.18.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-06-11 09:49:13 [INFO] 172.18.0.1 - - [11/Jun/2025 09:49:13] "POST /login HTTP/1.1" 200 -
+2025-06-11 09:49:13 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "hfoVnFHJLgwlZMTqSp2pbngfmQV0iUID6m2BpEN72rA", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-06-11 09:49:13 [INFO] 172.18.0.1 - - [11/Jun/2025 09:49:13] "[31m[1mPOST /queues/transactions HTTP/1.1[0m" 409 -
+2025-06-11 09:49:13 [INFO] {"source": "172.18.0.1", "destination": "/queues/results", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "hfoVnFHJLgwlZMTqSp2pbngfmQV0iUID6m2BpEN72rA", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-06-11 09:49:13 [INFO] 172.18.0.1 - - [11/Jun/2025 09:49:13] "[31m[1mPOST /queues/results HTTP/1.1[0m" 409 -
+2025-06-11 09:49:13 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "hfoVnFHJLgwlZMTqSp2pbngfmQV0iUID6m2BpEN72rA", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "1", "customer": {"user_id": 101, "username": "userA", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "11", "amount": 100.0}}
+2025-06-11 09:49:13 [INFO] 172.18.0.1 - - [11/Jun/2025 09:49:13] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 09:49:13 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "hfoVnFHJLgwlZMTqSp2pbngfmQV0iUID6m2BpEN72rA", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "2", "customer": {"user_id": 102, "username": "userB", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "12", "amount": 550.0}}
+2025-06-11 09:49:13 [INFO] 172.18.0.1 - - [11/Jun/2025 09:49:13] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 09:49:13 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "hfoVnFHJLgwlZMTqSp2pbngfmQV0iUID6m2BpEN72rA", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "3", "customer": {"user_id": 103, "username": "userC", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "13", "amount": 120.5}}
+2025-06-11 09:49:13 [INFO] 172.18.0.1 - - [11/Jun/2025 09:49:13] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 09:49:13 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "hfoVnFHJLgwlZMTqSp2pbngfmQV0iUID6m2BpEN72rA", "Content-Length": "169", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "4", "customer": {"user_id": 104, "username": "userD", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "14", "amount": 90.0}}
+2025-06-11 09:49:13 [INFO] 172.18.0.1 - - [11/Jun/2025 09:49:13] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 09:49:13 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "hfoVnFHJLgwlZMTqSp2pbngfmQV0iUID6m2BpEN72rA", "Content-Length": "171", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "5", "customer": {"user_id": 105, "username": "userE", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "15", "amount": 2000.0}}
+2025-06-11 09:49:13 [INFO] 172.18.0.1 - - [11/Jun/2025 09:49:13] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 09:49:13 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "hfoVnFHJLgwlZMTqSp2pbngfmQV0iUID6m2BpEN72rA", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "6", "customer": {"user_id": 106, "username": "userF", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "16", "amount": 300.0}}
+2025-06-11 09:49:13 [INFO] 172.18.0.1 - - [11/Jun/2025 09:49:13] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 09:49:14 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "hfoVnFHJLgwlZMTqSp2pbngfmQV0iUID6m2BpEN72rA"}, "metadata": null, "body": null}
+2025-06-11 09:49:14 [INFO] 172.18.0.1 - - [11/Jun/2025 09:49:14] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 09:49:14 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "hfoVnFHJLgwlZMTqSp2pbngfmQV0iUID6m2BpEN72rA"}, "metadata": null, "body": null}
+2025-06-11 09:49:14 [INFO] 172.18.0.1 - - [11/Jun/2025 09:49:14] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 09:49:14 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "hfoVnFHJLgwlZMTqSp2pbngfmQV0iUID6m2BpEN72rA"}, "metadata": null, "body": null}
+2025-06-11 09:49:14 [INFO] 172.18.0.1 - - [11/Jun/2025 09:49:14] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 09:49:14 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "hfoVnFHJLgwlZMTqSp2pbngfmQV0iUID6m2BpEN72rA"}, "metadata": null, "body": null}
+2025-06-11 09:49:14 [INFO] 172.18.0.1 - - [11/Jun/2025 09:49:14] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 09:49:14 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "hfoVnFHJLgwlZMTqSp2pbngfmQV0iUID6m2BpEN72rA"}, "metadata": null, "body": null}
+2025-06-11 09:49:14 [INFO] 172.18.0.1 - - [11/Jun/2025 09:49:14] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 09:49:14 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "hfoVnFHJLgwlZMTqSp2pbngfmQV0iUID6m2BpEN72rA"}, "metadata": null, "body": null}
+2025-06-11 09:49:14 [INFO] 172.18.0.1 - - [11/Jun/2025 09:49:14] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 09:49:14 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "hfoVnFHJLgwlZMTqSp2pbngfmQV0iUID6m2BpEN72rA"}, "metadata": null, "body": null}
+2025-06-11 09:49:14 [INFO] 172.18.0.1 - - [11/Jun/2025 09:49:14] "[35m[1mGET /queues/results/messages/first HTTP/1.1[0m" 500 -
+2025-06-11 09:49:54 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 09:49:54 [INFO]  * Restarting with stat
+2025-06-11 09:49:55 [WARNING]  * Debugger is active!
+2025-06-11 09:49:55 [INFO]  * Debugger PIN: 333-593-862
+2025-06-11 09:49:57 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 09:49:57 [INFO]  * Restarting with stat
+2025-06-11 09:49:58 [WARNING]  * Debugger is active!
+2025-06-11 09:49:58 [INFO]  * Debugger PIN: 333-593-862
+2025-06-11 09:50:01 [INFO] {"source": "172.18.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-06-11 09:50:01 [INFO] 172.18.0.1 - - [11/Jun/2025 09:50:01] "POST /login HTTP/1.1" 200 -
+2025-06-11 09:50:01 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Yj5VGOBxlbH_ngmdNqSkvBGnwsqgZtURwzMxvBAwWgc"}, "metadata": null, "body": null}
+2025-06-11 09:50:01 [INFO] 172.18.0.1 - - [11/Jun/2025 09:50:01] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 09:50:01 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Yj5VGOBxlbH_ngmdNqSkvBGnwsqgZtURwzMxvBAwWgc"}, "metadata": null, "body": null}
+2025-06-11 09:50:01 [INFO] 172.18.0.1 - - [11/Jun/2025 09:50:01] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 09:50:01 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Yj5VGOBxlbH_ngmdNqSkvBGnwsqgZtURwzMxvBAwWgc"}, "metadata": null, "body": null}
+2025-06-11 09:50:01 [INFO] 172.18.0.1 - - [11/Jun/2025 09:50:01] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 09:50:01 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Yj5VGOBxlbH_ngmdNqSkvBGnwsqgZtURwzMxvBAwWgc"}, "metadata": null, "body": null}
+2025-06-11 09:50:01 [INFO] 172.18.0.1 - - [11/Jun/2025 09:50:01] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 09:50:01 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Yj5VGOBxlbH_ngmdNqSkvBGnwsqgZtURwzMxvBAwWgc"}, "metadata": null, "body": null}
+2025-06-11 09:50:01 [INFO] 172.18.0.1 - - [11/Jun/2025 09:50:01] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 09:50:01 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Yj5VGOBxlbH_ngmdNqSkvBGnwsqgZtURwzMxvBAwWgc"}, "metadata": null, "body": null}
+2025-06-11 09:50:01 [INFO] 172.18.0.1 - - [11/Jun/2025 09:50:01] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 09:50:01 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Yj5VGOBxlbH_ngmdNqSkvBGnwsqgZtURwzMxvBAwWgc"}, "metadata": null, "body": null}
+2025-06-11 09:50:01 [INFO] 172.18.0.1 - - [11/Jun/2025 09:50:01] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 09:50:01 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Yj5VGOBxlbH_ngmdNqSkvBGnwsqgZtURwzMxvBAwWgc"}, "metadata": null, "body": null}
+2025-06-11 09:50:01 [INFO] 172.18.0.1 - - [11/Jun/2025 09:50:01] "[35m[1mGET /queues/results/messages/first HTTP/1.1[0m" 500 -
+2025-06-11 09:50:03 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Yj5VGOBxlbH_ngmdNqSkvBGnwsqgZtURwzMxvBAwWgc"}, "metadata": null, "body": null}
+2025-06-11 09:50:03 [INFO] 172.18.0.1 - - [11/Jun/2025 09:50:03] "[35m[1mGET /queues/results/messages/first HTTP/1.1[0m" 500 -
+2025-06-11 09:50:06 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Yj5VGOBxlbH_ngmdNqSkvBGnwsqgZtURwzMxvBAwWgc"}, "metadata": null, "body": null}
+2025-06-11 09:50:06 [INFO] 172.18.0.1 - - [11/Jun/2025 09:50:06] "[35m[1mGET /queues/results/messages/first HTTP/1.1[0m" 500 -
+2025-06-11 09:50:08 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Yj5VGOBxlbH_ngmdNqSkvBGnwsqgZtURwzMxvBAwWgc"}, "metadata": null, "body": null}
+2025-06-11 09:50:08 [INFO] 172.18.0.1 - - [11/Jun/2025 09:50:08] "[35m[1mGET /queues/results/messages/first HTTP/1.1[0m" 500 -
+2025-06-11 09:50:10 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Yj5VGOBxlbH_ngmdNqSkvBGnwsqgZtURwzMxvBAwWgc"}, "metadata": null, "body": null}
+2025-06-11 09:50:10 [INFO] 172.18.0.1 - - [11/Jun/2025 09:50:10] "[35m[1mGET /queues/results/messages/first HTTP/1.1[0m" 500 -
+2025-06-11 09:50:10 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 09:50:10 [INFO]  * Restarting with stat
+2025-06-11 09:50:11 [WARNING]  * Debugger is active!
+2025-06-11 09:50:11 [INFO]  * Debugger PIN: 333-593-862
+2025-06-11 09:50:12 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Yj5VGOBxlbH_ngmdNqSkvBGnwsqgZtURwzMxvBAwWgc"}, "metadata": null, "body": null}
+2025-06-11 09:50:12 [INFO] 172.18.0.1 - - [11/Jun/2025 09:50:12] "[31m[1mGET /queues/results/messages/first HTTP/1.1[0m" 401 -
+2025-06-11 09:50:12 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 09:50:12 [INFO]  * Restarting with stat
+2025-06-11 09:50:13 [WARNING]  * Debugger is active!
+2025-06-11 09:50:13 [INFO]  * Debugger PIN: 333-593-862
+2025-06-11 09:50:14 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Yj5VGOBxlbH_ngmdNqSkvBGnwsqgZtURwzMxvBAwWgc"}, "metadata": null, "body": null}
+2025-06-11 09:50:14 [INFO] 172.18.0.1 - - [11/Jun/2025 09:50:14] "[31m[1mGET /queues/results/messages/first HTTP/1.1[0m" 401 -
+2025-06-11 09:52:16 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 09:52:17 [INFO]  * Restarting with stat
+2025-06-11 09:52:17 [WARNING]  * Debugger is active!
+2025-06-11 09:52:17 [INFO]  * Debugger PIN: 333-593-862
+2025-06-11 09:52:34 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 09:52:34 [INFO]  * Restarting with stat
+2025-06-11 09:52:35 [WARNING]  * Debugger is active!
+2025-06-11 09:52:35 [INFO]  * Debugger PIN: 333-593-862
+2025-06-11 09:52:36 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 09:52:36 [INFO]  * Restarting with stat
+2025-06-11 09:52:37 [WARNING]  * Debugger is active!
+2025-06-11 09:52:37 [INFO]  * Debugger PIN: 333-593-862
+2025-06-11 09:52:40 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 09:52:40 [INFO]  * Restarting with stat
+2025-06-11 09:52:41 [WARNING]  * Debugger is active!
+2025-06-11 09:52:41 [INFO]  * Debugger PIN: 333-593-862
+2025-06-11 09:52:42 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 09:52:42 [INFO]  * Restarting with stat
+2025-06-11 09:52:43 [WARNING]  * Debugger is active!
+2025-06-11 09:52:43 [INFO]  * Debugger PIN: 333-593-862
+2025-06-11 09:52:44 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 09:52:44 [INFO]  * Restarting with stat
+2025-06-11 09:52:45 [WARNING]  * Debugger is active!
+2025-06-11 09:52:45 [INFO]  * Debugger PIN: 333-593-862
+2025-06-11 09:52:46 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 09:52:46 [INFO]  * Restarting with stat
+2025-06-11 09:52:47 [WARNING]  * Debugger is active!
+2025-06-11 09:52:47 [INFO]  * Debugger PIN: 333-593-862
+2025-06-11 09:52:48 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 09:52:48 [INFO]  * Restarting with stat
+2025-06-11 09:52:49 [WARNING]  * Debugger is active!
+2025-06-11 09:52:49 [INFO]  * Debugger PIN: 333-593-862
+2025-06-11 09:52:50 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 09:52:50 [INFO]  * Restarting with stat
+2025-06-11 09:52:51 [WARNING]  * Debugger is active!
+2025-06-11 09:52:51 [INFO]  * Debugger PIN: 333-593-862
+2025-06-11 09:53:01 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 09:53:01 [INFO]  * Restarting with stat
+2025-06-11 09:53:02 [WARNING]  * Debugger is active!
+2025-06-11 09:53:02 [INFO]  * Debugger PIN: 333-593-862
+2025-06-11 09:53:26 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 09:53:26 [INFO]  * Restarting with stat
+2025-06-11 09:53:27 [WARNING]  * Debugger is active!
+2025-06-11 09:53:27 [INFO]  * Debugger PIN: 333-593-862
+2025-06-11 09:53:29 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 09:53:29 [INFO]  * Restarting with stat
+2025-06-11 09:53:30 [WARNING]  * Debugger is active!
+2025-06-11 09:53:30 [INFO]  * Debugger PIN: 333-593-862
+2025-06-11 09:53:33 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 09:53:34 [INFO]  * Restarting with stat
+2025-06-11 09:53:34 [WARNING]  * Debugger is active!
+2025-06-11 09:53:34 [INFO]  * Debugger PIN: 333-593-862
+2025-06-11 09:55:00 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 09:55:00 [INFO]  * Restarting with stat
+2025-06-11 09:55:01 [WARNING]  * Debugger is active!
+2025-06-11 09:55:01 [INFO]  * Debugger PIN: 333-593-862
+2025-06-11 09:55:02 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 09:55:02 [INFO]  * Restarting with stat
+2025-06-11 09:55:03 [WARNING]  * Debugger is active!
+2025-06-11 09:55:03 [INFO]  * Debugger PIN: 333-593-862
+2025-06-11 09:55:07 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 09:55:07 [INFO]  * Restarting with stat
+2025-06-11 09:55:08 [WARNING]  * Debugger is active!
+2025-06-11 09:55:08 [INFO]  * Debugger PIN: 333-593-862
+2025-06-11 09:55:37 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 09:55:37 [INFO]  * Restarting with stat
+2025-06-11 09:55:38 [WARNING]  * Debugger is active!
+2025-06-11 09:55:38 [INFO]  * Debugger PIN: 333-593-862
+2025-06-11 09:55:41 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 09:55:41 [INFO]  * Restarting with stat
+2025-06-11 09:55:42 [WARNING]  * Debugger is active!
+2025-06-11 09:55:42 [INFO]  * Debugger PIN: 333-593-862
+2025-06-11 09:55:58 [INFO] {"source": "172.18.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-06-11 09:55:58 [INFO] 172.18.0.1 - - [11/Jun/2025 09:55:58] "POST /login HTTP/1.1" 200 -
+2025-06-11 09:55:58 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "k1QiLPnxi4yzXqwc1PpAgrz4_4ttl3qgeJOJZ12SpgM", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-06-11 09:55:58 [INFO] 172.18.0.1 - - [11/Jun/2025 09:55:58] "[31m[1mPOST /queues/transactions HTTP/1.1[0m" 409 -
+2025-06-11 09:55:58 [INFO] {"source": "172.18.0.1", "destination": "/queues/results", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "k1QiLPnxi4yzXqwc1PpAgrz4_4ttl3qgeJOJZ12SpgM", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-06-11 09:55:58 [INFO] 172.18.0.1 - - [11/Jun/2025 09:55:58] "[31m[1mPOST /queues/results HTTP/1.1[0m" 409 -
+2025-06-11 09:55:58 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "k1QiLPnxi4yzXqwc1PpAgrz4_4ttl3qgeJOJZ12SpgM", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "1", "customer": {"user_id": 101, "username": "userA", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "11", "amount": 100.0}}
+2025-06-11 09:55:58 [INFO] 172.18.0.1 - - [11/Jun/2025 09:55:58] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 09:55:58 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "k1QiLPnxi4yzXqwc1PpAgrz4_4ttl3qgeJOJZ12SpgM", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "2", "customer": {"user_id": 102, "username": "userB", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "12", "amount": 550.0}}
+2025-06-11 09:55:58 [INFO] 172.18.0.1 - - [11/Jun/2025 09:55:58] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 09:55:58 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "k1QiLPnxi4yzXqwc1PpAgrz4_4ttl3qgeJOJZ12SpgM", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "3", "customer": {"user_id": 103, "username": "userC", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "13", "amount": 120.5}}
+2025-06-11 09:55:58 [INFO] 172.18.0.1 - - [11/Jun/2025 09:55:58] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 09:55:58 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "k1QiLPnxi4yzXqwc1PpAgrz4_4ttl3qgeJOJZ12SpgM", "Content-Length": "169", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "4", "customer": {"user_id": 104, "username": "userD", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "14", "amount": 90.0}}
+2025-06-11 09:55:58 [INFO] 172.18.0.1 - - [11/Jun/2025 09:55:58] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 09:55:58 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "k1QiLPnxi4yzXqwc1PpAgrz4_4ttl3qgeJOJZ12SpgM", "Content-Length": "171", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "5", "customer": {"user_id": 105, "username": "userE", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "15", "amount": 2000.0}}
+2025-06-11 09:55:58 [INFO] 172.18.0.1 - - [11/Jun/2025 09:55:58] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 09:55:58 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "k1QiLPnxi4yzXqwc1PpAgrz4_4ttl3qgeJOJZ12SpgM", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "6", "customer": {"user_id": 106, "username": "userF", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "16", "amount": 300.0}}
+2025-06-11 09:55:58 [INFO] 172.18.0.1 - - [11/Jun/2025 09:55:58] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 09:55:58 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "k1QiLPnxi4yzXqwc1PpAgrz4_4ttl3qgeJOJZ12SpgM"}, "metadata": null, "body": null}
+2025-06-11 09:55:58 [INFO] 172.18.0.1 - - [11/Jun/2025 09:55:58] "[35m[1mGET /queues/results/messages/first HTTP/1.1[0m" 500 -
+2025-06-11 09:56:00 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "k1QiLPnxi4yzXqwc1PpAgrz4_4ttl3qgeJOJZ12SpgM"}, "metadata": null, "body": null}
+2025-06-11 09:56:00 [INFO] 172.18.0.1 - - [11/Jun/2025 09:56:00] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 09:56:00 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "k1QiLPnxi4yzXqwc1PpAgrz4_4ttl3qgeJOJZ12SpgM"}, "metadata": null, "body": null}
+2025-06-11 09:56:00 [INFO] 172.18.0.1 - - [11/Jun/2025 09:56:00] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 09:56:00 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "k1QiLPnxi4yzXqwc1PpAgrz4_4ttl3qgeJOJZ12SpgM"}, "metadata": null, "body": null}
+2025-06-11 09:56:00 [INFO] 172.18.0.1 - - [11/Jun/2025 09:56:00] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 09:56:00 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "k1QiLPnxi4yzXqwc1PpAgrz4_4ttl3qgeJOJZ12SpgM"}, "metadata": null, "body": null}
+2025-06-11 09:56:00 [INFO] 172.18.0.1 - - [11/Jun/2025 09:56:00] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 09:56:00 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "k1QiLPnxi4yzXqwc1PpAgrz4_4ttl3qgeJOJZ12SpgM"}, "metadata": null, "body": null}
+2025-06-11 09:56:00 [INFO] 172.18.0.1 - - [11/Jun/2025 09:56:00] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 09:56:00 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "k1QiLPnxi4yzXqwc1PpAgrz4_4ttl3qgeJOJZ12SpgM"}, "metadata": null, "body": null}
+2025-06-11 09:56:00 [INFO] 172.18.0.1 - - [11/Jun/2025 09:56:00] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 09:56:00 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "k1QiLPnxi4yzXqwc1PpAgrz4_4ttl3qgeJOJZ12SpgM"}, "metadata": null, "body": null}
+2025-06-11 09:56:00 [INFO] 172.18.0.1 - - [11/Jun/2025 09:56:00] "[35m[1mGET /queues/results/messages/first HTTP/1.1[0m" 500 -
+2025-06-11 10:01:00 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:7500
+ * Running on http://172.18.0.8:7500
+2025-06-11 10:01:00 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-11 10:01:00 [INFO]  * Restarting with stat
+2025-06-11 10:01:01 [WARNING]  * Debugger is active!
+2025-06-11 10:01:01 [INFO]  * Debugger PIN: 302-463-808
+2025-06-11 10:04:14 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:7500
+ * Running on http://172.18.0.8:7500
+2025-06-11 10:04:14 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-11 10:04:14 [INFO]  * Restarting with stat
+2025-06-11 10:04:15 [WARNING]  * Debugger is active!
+2025-06-11 10:04:15 [INFO]  * Debugger PIN: 246-139-744
+2025-06-11 10:04:24 [INFO] {"source": "172.18.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-06-11 10:04:24 [INFO] 172.18.0.1 - - [11/Jun/2025 10:04:24] "POST /login HTTP/1.1" 200 -
+2025-06-11 10:04:24 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Oqus6ax9XbO6aHLxfRA0aUlCLM7a8_lYHLYKROWvrvk", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-06-11 10:04:24 [INFO] 172.18.0.1 - - [11/Jun/2025 10:04:24] "[31m[1mPOST /queues/transactions HTTP/1.1[0m" 409 -
+2025-06-11 10:04:24 [INFO] {"source": "172.18.0.1", "destination": "/queues/results", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Oqus6ax9XbO6aHLxfRA0aUlCLM7a8_lYHLYKROWvrvk", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-06-11 10:04:24 [INFO] 172.18.0.1 - - [11/Jun/2025 10:04:24] "[31m[1mPOST /queues/results HTTP/1.1[0m" 409 -
+2025-06-11 10:04:24 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Oqus6ax9XbO6aHLxfRA0aUlCLM7a8_lYHLYKROWvrvk", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "1", "customer": {"user_id": 101, "username": "userA", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "11", "amount": 100.0}}
+2025-06-11 10:04:24 [INFO] 172.18.0.1 - - [11/Jun/2025 10:04:24] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 10:04:24 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Oqus6ax9XbO6aHLxfRA0aUlCLM7a8_lYHLYKROWvrvk", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "2", "customer": {"user_id": 102, "username": "userB", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "12", "amount": 550.0}}
+2025-06-11 10:04:24 [INFO] 172.18.0.1 - - [11/Jun/2025 10:04:24] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 10:04:24 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Oqus6ax9XbO6aHLxfRA0aUlCLM7a8_lYHLYKROWvrvk", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "3", "customer": {"user_id": 103, "username": "userC", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "13", "amount": 120.5}}
+2025-06-11 10:04:24 [INFO] 172.18.0.1 - - [11/Jun/2025 10:04:24] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 10:04:25 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Oqus6ax9XbO6aHLxfRA0aUlCLM7a8_lYHLYKROWvrvk", "Content-Length": "169", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "4", "customer": {"user_id": 104, "username": "userD", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "14", "amount": 90.0}}
+2025-06-11 10:04:25 [INFO] 172.18.0.1 - - [11/Jun/2025 10:04:25] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 10:04:25 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Oqus6ax9XbO6aHLxfRA0aUlCLM7a8_lYHLYKROWvrvk", "Content-Length": "171", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "5", "customer": {"user_id": 105, "username": "userE", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "15", "amount": 2000.0}}
+2025-06-11 10:04:25 [INFO] 172.18.0.1 - - [11/Jun/2025 10:04:25] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 10:04:25 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Oqus6ax9XbO6aHLxfRA0aUlCLM7a8_lYHLYKROWvrvk", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "6", "customer": {"user_id": 106, "username": "userF", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "16", "amount": 300.0}}
+2025-06-11 10:04:25 [INFO] 172.18.0.1 - - [11/Jun/2025 10:04:25] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 10:04:25 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Oqus6ax9XbO6aHLxfRA0aUlCLM7a8_lYHLYKROWvrvk"}, "metadata": null, "body": null}
+2025-06-11 10:04:25 [INFO] 172.18.0.1 - - [11/Jun/2025 10:04:25] "[35m[1mGET /queues/results/messages/first HTTP/1.1[0m" 500 -
+2025-06-11 10:04:27 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Oqus6ax9XbO6aHLxfRA0aUlCLM7a8_lYHLYKROWvrvk"}, "metadata": null, "body": null}
+2025-06-11 10:04:27 [INFO] 172.18.0.1 - - [11/Jun/2025 10:04:27] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 10:04:27 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Oqus6ax9XbO6aHLxfRA0aUlCLM7a8_lYHLYKROWvrvk"}, "metadata": null, "body": null}
+2025-06-11 10:04:27 [INFO] 172.18.0.1 - - [11/Jun/2025 10:04:27] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 10:04:27 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Oqus6ax9XbO6aHLxfRA0aUlCLM7a8_lYHLYKROWvrvk"}, "metadata": null, "body": null}
+2025-06-11 10:04:27 [INFO] 172.18.0.1 - - [11/Jun/2025 10:04:27] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 10:04:27 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Oqus6ax9XbO6aHLxfRA0aUlCLM7a8_lYHLYKROWvrvk"}, "metadata": null, "body": null}
+2025-06-11 10:04:27 [INFO] 172.18.0.1 - - [11/Jun/2025 10:04:27] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 10:04:27 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Oqus6ax9XbO6aHLxfRA0aUlCLM7a8_lYHLYKROWvrvk"}, "metadata": null, "body": null}
+2025-06-11 10:04:27 [INFO] 172.18.0.1 - - [11/Jun/2025 10:04:27] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 10:04:27 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Oqus6ax9XbO6aHLxfRA0aUlCLM7a8_lYHLYKROWvrvk"}, "metadata": null, "body": null}
+2025-06-11 10:04:27 [INFO] 172.18.0.1 - - [11/Jun/2025 10:04:27] "[35m[1mGET /queues/results/messages/first HTTP/1.1[0m" 500 -
+2025-06-11 10:04:29 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Oqus6ax9XbO6aHLxfRA0aUlCLM7a8_lYHLYKROWvrvk"}, "metadata": null, "body": null}
+2025-06-11 10:04:29 [INFO] 172.18.0.1 - - [11/Jun/2025 10:04:29] "[35m[1mGET /queues/results/messages/first HTTP/1.1[0m" 500 -
+2025-06-11 10:04:31 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Oqus6ax9XbO6aHLxfRA0aUlCLM7a8_lYHLYKROWvrvk"}, "metadata": null, "body": null}
+2025-06-11 10:04:31 [INFO] 172.18.0.1 - - [11/Jun/2025 10:04:31] "[35m[1mGET /queues/results/messages/first HTTP/1.1[0m" 500 -
+2025-06-11 10:04:33 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Oqus6ax9XbO6aHLxfRA0aUlCLM7a8_lYHLYKROWvrvk"}, "metadata": null, "body": null}
+2025-06-11 10:04:33 [INFO] 172.18.0.1 - - [11/Jun/2025 10:04:33] "[35m[1mGET /queues/results/messages/first HTTP/1.1[0m" 500 -
+2025-06-11 10:04:35 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Oqus6ax9XbO6aHLxfRA0aUlCLM7a8_lYHLYKROWvrvk"}, "metadata": null, "body": null}
+2025-06-11 10:04:35 [INFO] 172.18.0.1 - - [11/Jun/2025 10:04:35] "[35m[1mGET /queues/results/messages/first HTTP/1.1[0m" 500 -
+2025-06-11 10:04:37 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Oqus6ax9XbO6aHLxfRA0aUlCLM7a8_lYHLYKROWvrvk"}, "metadata": null, "body": null}
+2025-06-11 10:04:37 [INFO] 172.18.0.1 - - [11/Jun/2025 10:04:37] "[35m[1mGET /queues/results/messages/first HTTP/1.1[0m" 500 -
+2025-06-11 10:04:39 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "Oqus6ax9XbO6aHLxfRA0aUlCLM7a8_lYHLYKROWvrvk"}, "metadata": null, "body": null}
+2025-06-11 10:04:39 [INFO] 172.18.0.1 - - [11/Jun/2025 10:04:39] "[35m[1mGET /queues/results/messages/first HTTP/1.1[0m" 500 -
+2025-06-11 10:05:27 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 10:05:27 [INFO]  * Restarting with stat
+2025-06-11 10:05:28 [WARNING]  * Debugger is active!
+2025-06-11 10:05:28 [INFO]  * Debugger PIN: 246-139-744
+2025-06-11 10:05:42 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 10:05:42 [INFO]  * Restarting with stat
+2025-06-11 10:05:43 [WARNING]  * Debugger is active!
+2025-06-11 10:05:43 [INFO]  * Debugger PIN: 246-139-744
+2025-06-11 10:05:44 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 10:05:44 [INFO]  * Restarting with stat
+2025-06-11 10:05:45 [WARNING]  * Debugger is active!
+2025-06-11 10:05:45 [INFO]  * Debugger PIN: 246-139-744
+2025-06-11 10:05:46 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 10:05:46 [INFO]  * Restarting with stat
+2025-06-11 10:05:47 [WARNING]  * Debugger is active!
+2025-06-11 10:05:47 [INFO]  * Debugger PIN: 246-139-744
+2025-06-11 10:05:52 [INFO] {"source": "172.18.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-06-11 10:05:52 [INFO] 172.18.0.1 - - [11/Jun/2025 10:05:52] "POST /login HTTP/1.1" 200 -
+2025-06-11 10:05:52 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "j2Qb5pyOkH9jxZugHcERhOWu-P5XUlh3k6O-DGvR7UU", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-06-11 10:05:52 [INFO] 172.18.0.1 - - [11/Jun/2025 10:05:52] "[31m[1mPOST /queues/transactions HTTP/1.1[0m" 409 -
+2025-06-11 10:05:52 [INFO] {"source": "172.18.0.1", "destination": "/queues/results", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "j2Qb5pyOkH9jxZugHcERhOWu-P5XUlh3k6O-DGvR7UU", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-06-11 10:05:52 [INFO] 172.18.0.1 - - [11/Jun/2025 10:05:52] "[31m[1mPOST /queues/results HTTP/1.1[0m" 409 -
+2025-06-11 10:05:52 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "j2Qb5pyOkH9jxZugHcERhOWu-P5XUlh3k6O-DGvR7UU", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "1", "customer": {"user_id": 101, "username": "userA", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "11", "amount": 100.0}}
+2025-06-11 10:05:52 [INFO] 172.18.0.1 - - [11/Jun/2025 10:05:52] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 10:05:52 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "j2Qb5pyOkH9jxZugHcERhOWu-P5XUlh3k6O-DGvR7UU", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "2", "customer": {"user_id": 102, "username": "userB", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "12", "amount": 550.0}}
+2025-06-11 10:05:52 [INFO] 172.18.0.1 - - [11/Jun/2025 10:05:52] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 10:05:52 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "j2Qb5pyOkH9jxZugHcERhOWu-P5XUlh3k6O-DGvR7UU", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "3", "customer": {"user_id": 103, "username": "userC", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "13", "amount": 120.5}}
+2025-06-11 10:05:52 [INFO] 172.18.0.1 - - [11/Jun/2025 10:05:52] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 10:05:53 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "j2Qb5pyOkH9jxZugHcERhOWu-P5XUlh3k6O-DGvR7UU", "Content-Length": "169", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "4", "customer": {"user_id": 104, "username": "userD", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "14", "amount": 90.0}}
+2025-06-11 10:05:53 [INFO] 172.18.0.1 - - [11/Jun/2025 10:05:53] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 10:05:53 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "j2Qb5pyOkH9jxZugHcERhOWu-P5XUlh3k6O-DGvR7UU", "Content-Length": "171", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "5", "customer": {"user_id": 105, "username": "userE", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "15", "amount": 2000.0}}
+2025-06-11 10:05:53 [INFO] 172.18.0.1 - - [11/Jun/2025 10:05:53] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 10:05:53 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "j2Qb5pyOkH9jxZugHcERhOWu-P5XUlh3k6O-DGvR7UU", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "6", "customer": {"user_id": 106, "username": "userF", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "16", "amount": 300.0}}
+2025-06-11 10:05:53 [INFO] 172.18.0.1 - - [11/Jun/2025 10:05:53] "[33mPOST /queues/transactions/messages HTTP/1.1[0m" 404 -
+2025-06-11 10:05:53 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "j2Qb5pyOkH9jxZugHcERhOWu-P5XUlh3k6O-DGvR7UU"}, "metadata": null, "body": null}
+2025-06-11 10:05:53 [INFO] 172.18.0.1 - - [11/Jun/2025 10:05:53] "[33mGET /queues/results/messages/first HTTP/1.1[0m" 404 -
+2025-06-11 10:05:55 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "j2Qb5pyOkH9jxZugHcERhOWu-P5XUlh3k6O-DGvR7UU"}, "metadata": null, "body": null}
+2025-06-11 10:05:55 [INFO] 172.18.0.1 - - [11/Jun/2025 10:05:55] "[33mGET /queues/results/messages/first HTTP/1.1[0m" 404 -
+2025-06-11 10:05:57 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "j2Qb5pyOkH9jxZugHcERhOWu-P5XUlh3k6O-DGvR7UU"}, "metadata": null, "body": null}
+2025-06-11 10:05:57 [INFO] 172.18.0.1 - - [11/Jun/2025 10:05:57] "[33mGET /queues/results/messages/first HTTP/1.1[0m" 404 -
+2025-06-11 10:05:59 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "j2Qb5pyOkH9jxZugHcERhOWu-P5XUlh3k6O-DGvR7UU"}, "metadata": null, "body": null}
+2025-06-11 10:05:59 [INFO] 172.18.0.1 - - [11/Jun/2025 10:05:59] "[33mGET /queues/results/messages/first HTTP/1.1[0m" 404 -
+2025-06-11 10:06:01 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "j2Qb5pyOkH9jxZugHcERhOWu-P5XUlh3k6O-DGvR7UU"}, "metadata": null, "body": null}
+2025-06-11 10:06:01 [INFO] 172.18.0.1 - - [11/Jun/2025 10:06:01] "[33mGET /queues/results/messages/first HTTP/1.1[0m" 404 -
+2025-06-11 10:06:03 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "j2Qb5pyOkH9jxZugHcERhOWu-P5XUlh3k6O-DGvR7UU"}, "metadata": null, "body": null}
+2025-06-11 10:06:03 [INFO] 172.18.0.1 - - [11/Jun/2025 10:06:03] "[33mGET /queues/results/messages/first HTTP/1.1[0m" 404 -
+2025-06-11 10:06:05 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "j2Qb5pyOkH9jxZugHcERhOWu-P5XUlh3k6O-DGvR7UU"}, "metadata": null, "body": null}
+2025-06-11 10:06:05 [INFO] 172.18.0.1 - - [11/Jun/2025 10:06:05] "[33mGET /queues/results/messages/first HTTP/1.1[0m" 404 -
+2025-06-11 10:06:07 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "j2Qb5pyOkH9jxZugHcERhOWu-P5XUlh3k6O-DGvR7UU"}, "metadata": null, "body": null}
+2025-06-11 10:06:07 [INFO] 172.18.0.1 - - [11/Jun/2025 10:06:07] "[33mGET /queues/results/messages/first HTTP/1.1[0m" 404 -
+2025-06-11 10:06:09 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "j2Qb5pyOkH9jxZugHcERhOWu-P5XUlh3k6O-DGvR7UU"}, "metadata": null, "body": null}
+2025-06-11 10:06:09 [INFO] 172.18.0.1 - - [11/Jun/2025 10:06:09] "[33mGET /queues/results/messages/first HTTP/1.1[0m" 404 -
+2025-06-11 10:06:11 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "j2Qb5pyOkH9jxZugHcERhOWu-P5XUlh3k6O-DGvR7UU"}, "metadata": null, "body": null}
+2025-06-11 10:06:11 [INFO] 172.18.0.1 - - [11/Jun/2025 10:06:11] "[33mGET /queues/results/messages/first HTTP/1.1[0m" 404 -
+2025-06-11 10:06:13 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "j2Qb5pyOkH9jxZugHcERhOWu-P5XUlh3k6O-DGvR7UU"}, "metadata": null, "body": null}
+2025-06-11 10:06:13 [INFO] 172.18.0.1 - - [11/Jun/2025 10:06:13] "[33mGET /queues/results/messages/first HTTP/1.1[0m" 404 -
+2025-06-11 10:06:15 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "j2Qb5pyOkH9jxZugHcERhOWu-P5XUlh3k6O-DGvR7UU"}, "metadata": null, "body": null}
+2025-06-11 10:06:15 [INFO] 172.18.0.1 - - [11/Jun/2025 10:06:15] "[33mGET /queues/results/messages/first HTTP/1.1[0m" 404 -
+2025-06-11 10:06:17 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "j2Qb5pyOkH9jxZugHcERhOWu-P5XUlh3k6O-DGvR7UU"}, "metadata": null, "body": null}
+2025-06-11 10:06:17 [INFO] 172.18.0.1 - - [11/Jun/2025 10:06:17] "[33mGET /queues/results/messages/first HTTP/1.1[0m" 404 -
+2025-06-11 10:06:19 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "j2Qb5pyOkH9jxZugHcERhOWu-P5XUlh3k6O-DGvR7UU"}, "metadata": null, "body": null}
+2025-06-11 10:06:19 [INFO] 172.18.0.1 - - [11/Jun/2025 10:06:19] "[33mGET /queues/results/messages/first HTTP/1.1[0m" 404 -
+2025-06-11 10:06:21 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "j2Qb5pyOkH9jxZugHcERhOWu-P5XUlh3k6O-DGvR7UU"}, "metadata": null, "body": null}
+2025-06-11 10:06:21 [INFO] 172.18.0.1 - - [11/Jun/2025 10:06:21] "[33mGET /queues/results/messages/first HTTP/1.1[0m" 404 -
+2025-06-11 10:06:23 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "j2Qb5pyOkH9jxZugHcERhOWu-P5XUlh3k6O-DGvR7UU"}, "metadata": null, "body": null}
+2025-06-11 10:06:23 [INFO] 172.18.0.1 - - [11/Jun/2025 10:06:23] "[33mGET /queues/results/messages/first HTTP/1.1[0m" 404 -
+2025-06-11 10:06:26 [INFO] {"source": "172.18.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-06-11 10:06:26 [INFO] 172.18.0.1 - - [11/Jun/2025 10:06:26] "POST /login HTTP/1.1" 200 -
+2025-06-11 10:06:26 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "9cBzqkBTfe5hOfQACLYOGhjM_k2pAlUD4op4V_kNeOQ", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-06-11 10:06:26 [INFO] 172.18.0.1 - - [11/Jun/2025 10:06:26] "[31m[1mPOST /queues/transactions HTTP/1.1[0m" 409 -
+2025-06-11 10:06:26 [INFO] {"source": "172.18.0.1", "destination": "/queues/results", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "9cBzqkBTfe5hOfQACLYOGhjM_k2pAlUD4op4V_kNeOQ", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-06-11 10:06:26 [INFO] 172.18.0.1 - - [11/Jun/2025 10:06:26] "[31m[1mPOST /queues/results HTTP/1.1[0m" 409 -
+2025-06-11 10:06:26 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "9cBzqkBTfe5hOfQACLYOGhjM_k2pAlUD4op4V_kNeOQ", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "1", "customer": {"user_id": 101, "username": "userA", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "11", "amount": 100.0}}
+2025-06-11 10:06:26 [INFO] 172.18.0.1 - - [11/Jun/2025 10:06:26] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 10:06:26 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "9cBzqkBTfe5hOfQACLYOGhjM_k2pAlUD4op4V_kNeOQ", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "2", "customer": {"user_id": 102, "username": "userB", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "12", "amount": 550.0}}
+2025-06-11 10:06:26 [INFO] 172.18.0.1 - - [11/Jun/2025 10:06:26] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 10:06:26 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "9cBzqkBTfe5hOfQACLYOGhjM_k2pAlUD4op4V_kNeOQ", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "3", "customer": {"user_id": 103, "username": "userC", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "13", "amount": 120.5}}
+2025-06-11 10:06:26 [INFO] 172.18.0.1 - - [11/Jun/2025 10:06:26] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 10:06:27 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "9cBzqkBTfe5hOfQACLYOGhjM_k2pAlUD4op4V_kNeOQ", "Content-Length": "169", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "4", "customer": {"user_id": 104, "username": "userD", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "14", "amount": 90.0}}
+2025-06-11 10:06:27 [INFO] 172.18.0.1 - - [11/Jun/2025 10:06:27] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 10:06:27 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "9cBzqkBTfe5hOfQACLYOGhjM_k2pAlUD4op4V_kNeOQ", "Content-Length": "171", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "5", "customer": {"user_id": 105, "username": "userE", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "15", "amount": 2000.0}}
+2025-06-11 10:06:27 [INFO] 172.18.0.1 - - [11/Jun/2025 10:06:27] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 10:06:27 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "9cBzqkBTfe5hOfQACLYOGhjM_k2pAlUD4op4V_kNeOQ", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "6", "customer": {"user_id": 106, "username": "userF", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "16", "amount": 300.0}}
+2025-06-11 10:06:27 [INFO] 172.18.0.1 - - [11/Jun/2025 10:06:27] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 10:06:27 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "9cBzqkBTfe5hOfQACLYOGhjM_k2pAlUD4op4V_kNeOQ"}, "metadata": null, "body": null}
+2025-06-11 10:06:27 [INFO] 172.18.0.1 - - [11/Jun/2025 10:06:27] "[35m[1mGET /queues/results/messages/first HTTP/1.1[0m" 500 -
+2025-06-11 10:06:29 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "9cBzqkBTfe5hOfQACLYOGhjM_k2pAlUD4op4V_kNeOQ"}, "metadata": null, "body": null}
+2025-06-11 10:06:29 [INFO] 172.18.0.1 - - [11/Jun/2025 10:06:29] "[35m[1mGET /queues/results/messages/first HTTP/1.1[0m" 500 -
+2025-06-11 10:06:31 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "9cBzqkBTfe5hOfQACLYOGhjM_k2pAlUD4op4V_kNeOQ"}, "metadata": null, "body": null}
+2025-06-11 10:06:31 [INFO] 172.18.0.1 - - [11/Jun/2025 10:06:31] "[35m[1mGET /queues/results/messages/first HTTP/1.1[0m" 500 -
+2025-06-11 10:06:33 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "9cBzqkBTfe5hOfQACLYOGhjM_k2pAlUD4op4V_kNeOQ"}, "metadata": null, "body": null}
+2025-06-11 10:06:33 [INFO] 172.18.0.1 - - [11/Jun/2025 10:06:33] "[35m[1mGET /queues/results/messages/first HTTP/1.1[0m" 500 -
+2025-06-11 10:06:35 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "9cBzqkBTfe5hOfQACLYOGhjM_k2pAlUD4op4V_kNeOQ"}, "metadata": null, "body": null}
+2025-06-11 10:06:35 [INFO] 172.18.0.1 - - [11/Jun/2025 10:06:35] "[35m[1mGET /queues/results/messages/first HTTP/1.1[0m" 500 -
+2025-06-11 10:06:37 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "9cBzqkBTfe5hOfQACLYOGhjM_k2pAlUD4op4V_kNeOQ"}, "metadata": null, "body": null}
+2025-06-11 10:06:37 [INFO] 172.18.0.1 - - [11/Jun/2025 10:06:37] "[35m[1mGET /queues/results/messages/first HTTP/1.1[0m" 500 -
+2025-06-11 10:07:24 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:7500
+ * Running on http://172.18.0.8:7500
+2025-06-11 10:07:24 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-11 10:07:24 [INFO]  * Restarting with stat
+2025-06-11 10:07:25 [WARNING]  * Debugger is active!
+2025-06-11 10:07:25 [INFO]  * Debugger PIN: 456-988-265
+2025-06-11 10:07:35 [INFO] {"source": "172.18.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-06-11 10:07:35 [INFO] 172.18.0.1 - - [11/Jun/2025 10:07:35] "POST /login HTTP/1.1" 200 -
+2025-06-11 10:07:35 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y8Q1FAhFvIiQyZ3Vy1xw8S9Rq8Fun05BiIG5_Kvfn6w", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-06-11 10:07:35 [INFO] 172.18.0.1 - - [11/Jun/2025 10:07:35] "[31m[1mPOST /queues/transactions HTTP/1.1[0m" 409 -
+2025-06-11 10:07:35 [INFO] {"source": "172.18.0.1", "destination": "/queues/results", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y8Q1FAhFvIiQyZ3Vy1xw8S9Rq8Fun05BiIG5_Kvfn6w", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-06-11 10:07:35 [INFO] 172.18.0.1 - - [11/Jun/2025 10:07:35] "[31m[1mPOST /queues/results HTTP/1.1[0m" 409 -
+2025-06-11 10:07:35 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y8Q1FAhFvIiQyZ3Vy1xw8S9Rq8Fun05BiIG5_Kvfn6w", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "1", "customer": {"user_id": 101, "username": "userA", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "11", "amount": 100.0}}
+2025-06-11 10:07:35 [INFO] 172.18.0.1 - - [11/Jun/2025 10:07:35] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 10:07:35 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y8Q1FAhFvIiQyZ3Vy1xw8S9Rq8Fun05BiIG5_Kvfn6w", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "2", "customer": {"user_id": 102, "username": "userB", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "12", "amount": 550.0}}
+2025-06-11 10:07:35 [INFO] 172.18.0.1 - - [11/Jun/2025 10:07:35] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 10:07:35 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y8Q1FAhFvIiQyZ3Vy1xw8S9Rq8Fun05BiIG5_Kvfn6w", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "3", "customer": {"user_id": 103, "username": "userC", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "13", "amount": 120.5}}
+2025-06-11 10:07:35 [INFO] 172.18.0.1 - - [11/Jun/2025 10:07:35] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 10:07:35 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y8Q1FAhFvIiQyZ3Vy1xw8S9Rq8Fun05BiIG5_Kvfn6w", "Content-Length": "169", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "4", "customer": {"user_id": 104, "username": "userD", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "14", "amount": 90.0}}
+2025-06-11 10:07:35 [INFO] 172.18.0.1 - - [11/Jun/2025 10:07:35] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 10:07:35 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y8Q1FAhFvIiQyZ3Vy1xw8S9Rq8Fun05BiIG5_Kvfn6w", "Content-Length": "171", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "5", "customer": {"user_id": 105, "username": "userE", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "15", "amount": 2000.0}}
+2025-06-11 10:07:35 [INFO] 172.18.0.1 - - [11/Jun/2025 10:07:35] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 10:07:35 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y8Q1FAhFvIiQyZ3Vy1xw8S9Rq8Fun05BiIG5_Kvfn6w", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "6", "customer": {"user_id": 106, "username": "userF", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "16", "amount": 300.0}}
+2025-06-11 10:07:35 [INFO] 172.18.0.1 - - [11/Jun/2025 10:07:35] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 10:07:35 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y8Q1FAhFvIiQyZ3Vy1xw8S9Rq8Fun05BiIG5_Kvfn6w"}, "metadata": null, "body": null}
+2025-06-11 10:07:35 [INFO] 172.18.0.1 - - [11/Jun/2025 10:07:35] "[35m[1mGET /queues/results/messages/first HTTP/1.1[0m" 500 -
+2025-06-11 10:07:37 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y8Q1FAhFvIiQyZ3Vy1xw8S9Rq8Fun05BiIG5_Kvfn6w"}, "metadata": null, "body": null}
+2025-06-11 10:07:37 [INFO] 172.18.0.1 - - [11/Jun/2025 10:07:37] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 10:07:37 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y8Q1FAhFvIiQyZ3Vy1xw8S9Rq8Fun05BiIG5_Kvfn6w"}, "metadata": null, "body": null}
+2025-06-11 10:07:37 [INFO] 172.18.0.1 - - [11/Jun/2025 10:07:37] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 10:07:37 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y8Q1FAhFvIiQyZ3Vy1xw8S9Rq8Fun05BiIG5_Kvfn6w"}, "metadata": null, "body": null}
+2025-06-11 10:07:37 [INFO] 172.18.0.1 - - [11/Jun/2025 10:07:37] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 10:07:37 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y8Q1FAhFvIiQyZ3Vy1xw8S9Rq8Fun05BiIG5_Kvfn6w"}, "metadata": null, "body": null}
+2025-06-11 10:07:37 [INFO] 172.18.0.1 - - [11/Jun/2025 10:07:37] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 10:07:37 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y8Q1FAhFvIiQyZ3Vy1xw8S9Rq8Fun05BiIG5_Kvfn6w"}, "metadata": null, "body": null}
+2025-06-11 10:07:37 [INFO] 172.18.0.1 - - [11/Jun/2025 10:07:37] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 10:07:37 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y8Q1FAhFvIiQyZ3Vy1xw8S9Rq8Fun05BiIG5_Kvfn6w"}, "metadata": null, "body": null}
+2025-06-11 10:07:37 [INFO] 172.18.0.1 - - [11/Jun/2025 10:07:37] "[35m[1mGET /queues/results/messages/first HTTP/1.1[0m" 500 -
+2025-06-11 10:07:39 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y8Q1FAhFvIiQyZ3Vy1xw8S9Rq8Fun05BiIG5_Kvfn6w"}, "metadata": null, "body": null}
+2025-06-11 10:07:39 [INFO] 172.18.0.1 - - [11/Jun/2025 10:07:39] "[35m[1mGET /queues/results/messages/first HTTP/1.1[0m" 500 -
+2025-06-11 10:07:41 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y8Q1FAhFvIiQyZ3Vy1xw8S9Rq8Fun05BiIG5_Kvfn6w"}, "metadata": null, "body": null}
+2025-06-11 10:07:41 [INFO] 172.18.0.1 - - [11/Jun/2025 10:07:41] "[35m[1mGET /queues/results/messages/first HTTP/1.1[0m" 500 -
+2025-06-11 10:07:43 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y8Q1FAhFvIiQyZ3Vy1xw8S9Rq8Fun05BiIG5_Kvfn6w"}, "metadata": null, "body": null}
+2025-06-11 10:07:43 [INFO] 172.18.0.1 - - [11/Jun/2025 10:07:43] "[35m[1mGET /queues/results/messages/first HTTP/1.1[0m" 500 -
+2025-06-11 10:07:45 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y8Q1FAhFvIiQyZ3Vy1xw8S9Rq8Fun05BiIG5_Kvfn6w"}, "metadata": null, "body": null}
+2025-06-11 10:07:45 [INFO] 172.18.0.1 - - [11/Jun/2025 10:07:45] "[35m[1mGET /queues/results/messages/first HTTP/1.1[0m" 500 -
+2025-06-11 10:07:47 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y8Q1FAhFvIiQyZ3Vy1xw8S9Rq8Fun05BiIG5_Kvfn6w"}, "metadata": null, "body": null}
+2025-06-11 10:07:47 [INFO] 172.18.0.1 - - [11/Jun/2025 10:07:47] "[35m[1mGET /queues/results/messages/first HTTP/1.1[0m" 500 -
+2025-06-11 10:07:49 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y8Q1FAhFvIiQyZ3Vy1xw8S9Rq8Fun05BiIG5_Kvfn6w"}, "metadata": null, "body": null}
+2025-06-11 10:07:49 [INFO] 172.18.0.1 - - [11/Jun/2025 10:07:49] "[35m[1mGET /queues/results/messages/first HTTP/1.1[0m" 500 -
+2025-06-11 10:07:52 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y8Q1FAhFvIiQyZ3Vy1xw8S9Rq8Fun05BiIG5_Kvfn6w"}, "metadata": null, "body": null}
+2025-06-11 10:07:52 [INFO] 172.18.0.1 - - [11/Jun/2025 10:07:52] "[35m[1mGET /queues/results/messages/first HTTP/1.1[0m" 500 -
+2025-06-11 10:07:54 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y8Q1FAhFvIiQyZ3Vy1xw8S9Rq8Fun05BiIG5_Kvfn6w"}, "metadata": null, "body": null}
+2025-06-11 10:07:54 [INFO] 172.18.0.1 - - [11/Jun/2025 10:07:54] "[35m[1mGET /queues/results/messages/first HTTP/1.1[0m" 500 -
+2025-06-11 10:07:56 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y8Q1FAhFvIiQyZ3Vy1xw8S9Rq8Fun05BiIG5_Kvfn6w"}, "metadata": null, "body": null}
+2025-06-11 10:07:56 [INFO] 172.18.0.1 - - [11/Jun/2025 10:07:56] "[35m[1mGET /queues/results/messages/first HTTP/1.1[0m" 500 -
+2025-06-11 10:07:57 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 10:07:57 [INFO]  * Restarting with stat
+2025-06-11 10:07:58 [WARNING]  * Debugger is active!
+2025-06-11 10:07:58 [INFO]  * Debugger PIN: 456-988-265
+2025-06-11 10:07:58 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y8Q1FAhFvIiQyZ3Vy1xw8S9Rq8Fun05BiIG5_Kvfn6w"}, "metadata": null, "body": null}
+2025-06-11 10:07:58 [INFO] 172.18.0.1 - - [11/Jun/2025 10:07:58] "[31m[1mGET /queues/results/messages/first HTTP/1.1[0m" 401 -
+2025-06-11 10:07:59 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 10:07:59 [INFO]  * Restarting with stat
+2025-06-11 10:08:00 [WARNING]  * Debugger is active!
+2025-06-11 10:08:00 [INFO]  * Debugger PIN: 456-988-265
+2025-06-11 10:08:00 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y8Q1FAhFvIiQyZ3Vy1xw8S9Rq8Fun05BiIG5_Kvfn6w"}, "metadata": null, "body": null}
+2025-06-11 10:08:00 [INFO] 172.18.0.1 - - [11/Jun/2025 10:08:00] "[31m[1mGET /queues/results/messages/first HTTP/1.1[0m" 401 -
+2025-06-11 10:08:02 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y8Q1FAhFvIiQyZ3Vy1xw8S9Rq8Fun05BiIG5_Kvfn6w"}, "metadata": null, "body": null}
+2025-06-11 10:08:02 [INFO] 172.18.0.1 - - [11/Jun/2025 10:08:02] "[31m[1mGET /queues/results/messages/first HTTP/1.1[0m" 401 -
+2025-06-11 10:08:02 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 10:08:02 [INFO]  * Restarting with stat
+2025-06-11 10:08:03 [WARNING]  * Debugger is active!
+2025-06-11 10:08:03 [INFO]  * Debugger PIN: 456-988-265
+2025-06-11 10:08:04 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y8Q1FAhFvIiQyZ3Vy1xw8S9Rq8Fun05BiIG5_Kvfn6w"}, "metadata": null, "body": null}
+2025-06-11 10:08:04 [INFO] 172.18.0.1 - - [11/Jun/2025 10:08:04] "[31m[1mGET /queues/results/messages/first HTTP/1.1[0m" 401 -
+2025-06-11 10:08:04 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 10:08:04 [INFO]  * Restarting with stat
+2025-06-11 10:08:05 [WARNING]  * Debugger is active!
+2025-06-11 10:08:05 [INFO]  * Debugger PIN: 456-988-265
+2025-06-11 10:08:06 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y8Q1FAhFvIiQyZ3Vy1xw8S9Rq8Fun05BiIG5_Kvfn6w"}, "metadata": null, "body": null}
+2025-06-11 10:08:06 [INFO] 172.18.0.1 - - [11/Jun/2025 10:08:06] "[31m[1mGET /queues/results/messages/first HTTP/1.1[0m" 401 -
+2025-06-11 10:08:06 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 10:08:06 [INFO]  * Restarting with stat
+2025-06-11 10:08:07 [WARNING]  * Debugger is active!
+2025-06-11 10:08:07 [INFO]  * Debugger PIN: 456-988-265
+2025-06-11 10:08:08 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y8Q1FAhFvIiQyZ3Vy1xw8S9Rq8Fun05BiIG5_Kvfn6w"}, "metadata": null, "body": null}
+2025-06-11 10:08:08 [INFO] 172.18.0.1 - - [11/Jun/2025 10:08:08] "[31m[1mGET /queues/results/messages/first HTTP/1.1[0m" 401 -
+2025-06-11 10:08:08 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 10:08:08 [INFO]  * Restarting with stat
+2025-06-11 10:08:09 [WARNING]  * Debugger is active!
+2025-06-11 10:08:09 [INFO]  * Debugger PIN: 456-988-265
+2025-06-11 10:08:10 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y8Q1FAhFvIiQyZ3Vy1xw8S9Rq8Fun05BiIG5_Kvfn6w"}, "metadata": null, "body": null}
+2025-06-11 10:08:10 [INFO] 172.18.0.1 - - [11/Jun/2025 10:08:10] "[31m[1mGET /queues/results/messages/first HTTP/1.1[0m" 401 -
+2025-06-11 10:08:10 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 10:08:10 [INFO]  * Restarting with stat
+2025-06-11 10:08:11 [WARNING]  * Debugger is active!
+2025-06-11 10:08:11 [INFO]  * Debugger PIN: 456-988-265
+2025-06-11 10:08:12 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y8Q1FAhFvIiQyZ3Vy1xw8S9Rq8Fun05BiIG5_Kvfn6w"}, "metadata": null, "body": null}
+2025-06-11 10:08:12 [INFO] 172.18.0.1 - - [11/Jun/2025 10:08:12] "[31m[1mGET /queues/results/messages/first HTTP/1.1[0m" 401 -
+2025-06-11 10:08:19 [INFO]  * Detected change in '/app/client.py', reloading
+2025-06-11 10:08:19 [INFO]  * Restarting with stat
+2025-06-11 10:08:20 [WARNING]  * Debugger is active!
+2025-06-11 10:08:20 [INFO]  * Debugger PIN: 456-988-265
+2025-06-11 10:09:38 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:7500
+ * Running on http://172.18.0.8:7500
+2025-06-11 10:09:38 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-11 10:09:38 [INFO]  * Restarting with stat
+2025-06-11 10:09:39 [WARNING]  * Debugger is active!
+2025-06-11 10:09:39 [INFO]  * Debugger PIN: 128-646-578
+2025-06-11 10:09:47 [INFO] {"source": "172.18.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-06-11 10:09:47 [INFO] 172.18.0.1 - - [11/Jun/2025 10:09:47] "POST /login HTTP/1.1" 200 -
+2025-06-11 10:09:47 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y4lYG4aSqRIwDMbIrGLxaC3k8YqZdtFFIqQ1a_uMsrc", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-06-11 10:09:47 [INFO] 172.18.0.1 - - [11/Jun/2025 10:09:47] "[31m[1mPOST /queues/transactions HTTP/1.1[0m" 409 -
+2025-06-11 10:09:47 [INFO] {"source": "172.18.0.1", "destination": "/queues/results", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y4lYG4aSqRIwDMbIrGLxaC3k8YqZdtFFIqQ1a_uMsrc", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-06-11 10:09:47 [INFO] 172.18.0.1 - - [11/Jun/2025 10:09:47] "[31m[1mPOST /queues/results HTTP/1.1[0m" 409 -
+2025-06-11 10:09:47 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y4lYG4aSqRIwDMbIrGLxaC3k8YqZdtFFIqQ1a_uMsrc", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "1", "customer": {"user_id": 101, "username": "userA", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "11", "amount": 100.0}}
+2025-06-11 10:09:47 [INFO] 172.18.0.1 - - [11/Jun/2025 10:09:47] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 10:09:47 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y4lYG4aSqRIwDMbIrGLxaC3k8YqZdtFFIqQ1a_uMsrc", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "2", "customer": {"user_id": 102, "username": "userB", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "12", "amount": 550.0}}
+2025-06-11 10:09:47 [INFO] 172.18.0.1 - - [11/Jun/2025 10:09:47] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 10:09:47 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y4lYG4aSqRIwDMbIrGLxaC3k8YqZdtFFIqQ1a_uMsrc", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "3", "customer": {"user_id": 103, "username": "userC", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "13", "amount": 120.5}}
+2025-06-11 10:09:47 [INFO] 172.18.0.1 - - [11/Jun/2025 10:09:47] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 10:09:48 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y4lYG4aSqRIwDMbIrGLxaC3k8YqZdtFFIqQ1a_uMsrc", "Content-Length": "169", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "4", "customer": {"user_id": 104, "username": "userD", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "14", "amount": 90.0}}
+2025-06-11 10:09:48 [INFO] 172.18.0.1 - - [11/Jun/2025 10:09:48] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 10:09:48 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y4lYG4aSqRIwDMbIrGLxaC3k8YqZdtFFIqQ1a_uMsrc", "Content-Length": "171", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "5", "customer": {"user_id": 105, "username": "userE", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "15", "amount": 2000.0}}
+2025-06-11 10:09:48 [INFO] 172.18.0.1 - - [11/Jun/2025 10:09:48] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 10:09:48 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y4lYG4aSqRIwDMbIrGLxaC3k8YqZdtFFIqQ1a_uMsrc", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "6", "customer": {"user_id": 106, "username": "userF", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "16", "amount": 300.0}}
+2025-06-11 10:09:48 [INFO] 172.18.0.1 - - [11/Jun/2025 10:09:48] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 10:09:48 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y4lYG4aSqRIwDMbIrGLxaC3k8YqZdtFFIqQ1a_uMsrc"}, "metadata": null, "body": null}
+2025-06-11 10:09:48 [INFO] 172.18.0.1 - - [11/Jun/2025 10:09:48] "[35m[1mGET /queues/results/messages/first HTTP/1.1[0m" 500 -
+2025-06-11 10:09:50 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y4lYG4aSqRIwDMbIrGLxaC3k8YqZdtFFIqQ1a_uMsrc"}, "metadata": null, "body": null}
+2025-06-11 10:09:50 [INFO] 172.18.0.1 - - [11/Jun/2025 10:09:50] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 10:09:50 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y4lYG4aSqRIwDMbIrGLxaC3k8YqZdtFFIqQ1a_uMsrc"}, "metadata": null, "body": null}
+2025-06-11 10:09:50 [INFO] 172.18.0.1 - - [11/Jun/2025 10:09:50] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 10:09:50 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y4lYG4aSqRIwDMbIrGLxaC3k8YqZdtFFIqQ1a_uMsrc"}, "metadata": null, "body": null}
+2025-06-11 10:09:50 [INFO] 172.18.0.1 - - [11/Jun/2025 10:09:50] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 10:09:50 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y4lYG4aSqRIwDMbIrGLxaC3k8YqZdtFFIqQ1a_uMsrc"}, "metadata": null, "body": null}
+2025-06-11 10:09:50 [INFO] 172.18.0.1 - - [11/Jun/2025 10:09:50] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 10:09:50 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y4lYG4aSqRIwDMbIrGLxaC3k8YqZdtFFIqQ1a_uMsrc"}, "metadata": null, "body": null}
+2025-06-11 10:09:50 [INFO] 172.18.0.1 - - [11/Jun/2025 10:09:50] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 10:09:50 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y4lYG4aSqRIwDMbIrGLxaC3k8YqZdtFFIqQ1a_uMsrc"}, "metadata": null, "body": null}
+2025-06-11 10:09:50 [INFO] 172.18.0.1 - - [11/Jun/2025 10:09:50] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 10:09:50 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "y4lYG4aSqRIwDMbIrGLxaC3k8YqZdtFFIqQ1a_uMsrc"}, "metadata": null, "body": null}
+2025-06-11 10:09:50 [INFO] 172.18.0.1 - - [11/Jun/2025 10:09:50] "[35m[1mGET /queues/results/messages/first HTTP/1.1[0m" 500 -
+2025-06-11 10:11:13 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:7500
+ * Running on http://172.18.0.8:7500
+2025-06-11 10:11:13 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-11 10:11:13 [INFO]  * Restarting with stat
+2025-06-11 10:11:14 [WARNING]  * Debugger is active!
+2025-06-11 10:11:14 [INFO]  * Debugger PIN: 118-249-386
+2025-06-11 10:11:17 [INFO] {"source": "172.18.0.1", "destination": "/login", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Content-Length": "45", "Content-Type": "application/json"}, "metadata": null, "body": {"username": "admin", "password": "admin123"}}
+2025-06-11 10:11:17 [INFO] 172.18.0.1 - - [11/Jun/2025 10:11:17] "POST /login HTTP/1.1" 200 -
+2025-06-11 10:11:17 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "xVzwGwTOQQ10JRbMKk7QvS_zCb6fyYKNlkzh63GlNPQ", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-06-11 10:11:17 [INFO] 172.18.0.1 - - [11/Jun/2025 10:11:17] "[31m[1mPOST /queues/transactions HTTP/1.1[0m" 409 -
+2025-06-11 10:11:17 [INFO] {"source": "172.18.0.1", "destination": "/queues/results", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "xVzwGwTOQQ10JRbMKk7QvS_zCb6fyYKNlkzh63GlNPQ", "Content-Length": "0"}, "metadata": null, "body": null}
+2025-06-11 10:11:17 [INFO] 172.18.0.1 - - [11/Jun/2025 10:11:17] "[31m[1mPOST /queues/results HTTP/1.1[0m" 409 -
+2025-06-11 10:11:17 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "xVzwGwTOQQ10JRbMKk7QvS_zCb6fyYKNlkzh63GlNPQ", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "1", "customer": {"user_id": 101, "username": "userA", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "11", "amount": 100.0}}
+2025-06-11 10:11:17 [INFO] 172.18.0.1 - - [11/Jun/2025 10:11:17] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 10:11:18 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "xVzwGwTOQQ10JRbMKk7QvS_zCb6fyYKNlkzh63GlNPQ", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "2", "customer": {"user_id": 102, "username": "userB", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "12", "amount": 550.0}}
+2025-06-11 10:11:18 [INFO] 172.18.0.1 - - [11/Jun/2025 10:11:18] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 10:11:18 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "xVzwGwTOQQ10JRbMKk7QvS_zCb6fyYKNlkzh63GlNPQ", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "3", "customer": {"user_id": 103, "username": "userC", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "13", "amount": 120.5}}
+2025-06-11 10:11:18 [INFO] 172.18.0.1 - - [11/Jun/2025 10:11:18] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 10:11:18 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "xVzwGwTOQQ10JRbMKk7QvS_zCb6fyYKNlkzh63GlNPQ", "Content-Length": "169", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "4", "customer": {"user_id": 104, "username": "userD", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "14", "amount": 90.0}}
+2025-06-11 10:11:18 [INFO] 172.18.0.1 - - [11/Jun/2025 10:11:18] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 10:11:18 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "xVzwGwTOQQ10JRbMKk7QvS_zCb6fyYKNlkzh63GlNPQ", "Content-Length": "171", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "5", "customer": {"user_id": 105, "username": "userE", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "15", "amount": 2000.0}}
+2025-06-11 10:11:18 [INFO] 172.18.0.1 - - [11/Jun/2025 10:11:18] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 10:11:18 [INFO] {"source": "172.18.0.1", "destination": "/queues/transactions/messages", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "xVzwGwTOQQ10JRbMKk7QvS_zCb6fyYKNlkzh63GlNPQ", "Content-Length": "170", "Content-Type": "application/json"}, "metadata": null, "body": {"transaction_id": "6", "customer": {"user_id": 106, "username": "userF", "password": "dummy_password", "role": "basic"}, "status": 0, "vendor_id": "16", "amount": 300.0}}
+2025-06-11 10:11:18 [INFO] 172.18.0.1 - - [11/Jun/2025 10:11:18] "[35m[1mPOST /queues/transactions/messages HTTP/1.1[0m" 201 -
+2025-06-11 10:11:18 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "xVzwGwTOQQ10JRbMKk7QvS_zCb6fyYKNlkzh63GlNPQ"}, "metadata": null, "body": null}
+2025-06-11 10:11:18 [INFO] 172.18.0.1 - - [11/Jun/2025 10:11:18] "[35m[1mGET /queues/results/messages/first HTTP/1.1[0m" 500 -
+2025-06-11 10:11:20 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "xVzwGwTOQQ10JRbMKk7QvS_zCb6fyYKNlkzh63GlNPQ"}, "metadata": null, "body": null}
+2025-06-11 10:11:20 [INFO] 172.18.0.1 - - [11/Jun/2025 10:11:20] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 10:11:20 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "xVzwGwTOQQ10JRbMKk7QvS_zCb6fyYKNlkzh63GlNPQ"}, "metadata": null, "body": null}
+2025-06-11 10:11:20 [INFO] 172.18.0.1 - - [11/Jun/2025 10:11:20] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 10:11:20 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "xVzwGwTOQQ10JRbMKk7QvS_zCb6fyYKNlkzh63GlNPQ"}, "metadata": null, "body": null}
+2025-06-11 10:11:20 [INFO] 172.18.0.1 - - [11/Jun/2025 10:11:20] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 10:11:20 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "xVzwGwTOQQ10JRbMKk7QvS_zCb6fyYKNlkzh63GlNPQ"}, "metadata": null, "body": null}
+2025-06-11 10:11:20 [INFO] 172.18.0.1 - - [11/Jun/2025 10:11:20] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 10:11:20 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "xVzwGwTOQQ10JRbMKk7QvS_zCb6fyYKNlkzh63GlNPQ"}, "metadata": null, "body": null}
+2025-06-11 10:11:20 [INFO] 172.18.0.1 - - [11/Jun/2025 10:11:20] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 10:11:20 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "xVzwGwTOQQ10JRbMKk7QvS_zCb6fyYKNlkzh63GlNPQ"}, "metadata": null, "body": null}
+2025-06-11 10:11:20 [INFO] 172.18.0.1 - - [11/Jun/2025 10:11:20] "GET /queues/results/messages/first HTTP/1.1" 200 -
+2025-06-11 10:11:20 [INFO] {"source": "172.18.0.1", "destination": "/queues/results/messages/first", "headers": {"Host": "localhost:7500", "User-Agent": "python-requests/2.32.3", "Accept-Encoding": "gzip, deflate, br", "Accept": "*/*", "Connection": "keep-alive", "Authorization": "xVzwGwTOQQ10JRbMKk7QvS_zCb6fyYKNlkzh63GlNPQ"}, "metadata": null, "body": null}
+2025-06-11 10:11:20 [INFO] 172.18.0.1 - - [11/Jun/2025 10:11:20] "[35m[1mGET /queues/results/messages/first HTTP/1.1[0m" 500 -
+2025-06-11 10:11:38 [INFO]  * Detected change in '/app/queue_mngr.py', reloading
+2025-06-11 10:11:38 [INFO]  * Restarting with stat
+2025-06-11 10:11:39 [WARNING]  * Debugger is active!
+2025-06-11 10:11:39 [INFO]  * Debugger PIN: 118-249-386
